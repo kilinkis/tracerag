@@ -20,10 +20,13 @@ Milestone 1 is in progress. The repository currently provides:
 - Local `BAAI/bge-small-en-v1.5` embeddings through FastEmbed
 - Exact cosine retrieval through PostgreSQL and pgvector
 - A corpus status endpoint
+- Grounded answer generation through Groq and `openai/gpt-oss-20b`
+- Server-resolved citations and explicit abstention for unsupported rulings
+- Retrieval, model, token-usage, and latency traces in answer responses
 - A milestone-based [delivery roadmap](docs/roadmap.md)
 
-Answer generation has not been implemented yet. The current API returns ranked evidence so
-retrieval quality can be evaluated independently.
+Retrieval remains available as an independent endpoint so its quality can be evaluated separately
+from answer generation.
 
 ## Local development
 
@@ -46,6 +49,7 @@ Start the complete local stack:
 
 ```bash
 cp .env.example .env
+# Set TRACERAG_GROQ_API_KEY in .env.
 docker compose up --build
 ```
 
@@ -69,6 +73,19 @@ curl -X POST http://localhost:8000/retrieval/search \
   -H 'Content-Type: application/json' \
   -d '{"question":"What makes a sideline catch complete?","top_k":3}'
 ```
+
+Generate a grounded ruling with citations and its execution trace:
+
+```bash
+curl -X POST http://localhost:8000/answers \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What makes a sideline catch complete?","top_k":3}'
+```
+
+The generator receives passage identifiers and text, but not authority to create citation
+metadata. TraceRAG resolves every cited identifier against the retrieved passages and abstains if
+the model references evidence that was not retrieved. `TRACERAG_GROQ_API_KEY` is required only for
+the answer endpoint; health, corpus, indexing, and retrieval operations remain local.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.
@@ -118,4 +135,7 @@ advice, college rules, and live officiating decisions are outside its scope.
 - [pgvector](https://github.com/pgvector/pgvector)
 - [FastEmbed](https://qdrant.github.io/fastembed/Getting%20Started/)
 - [`BAAI/bge-small-en-v1.5`](https://huggingface.co/BAAI/bge-small-en-v1.5)
+- [Groq Python SDK](https://github.com/groq/groq-python)
+- [Groq structured outputs](https://console.groq.com/docs/structured-outputs)
+- [Groq API reference](https://console.groq.com/docs/api-reference)
 - [2026 NFL Rulebook](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)

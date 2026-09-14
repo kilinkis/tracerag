@@ -7,13 +7,16 @@ https://fastapi.tiangolo.com/tutorial/dependencies/#declare-the-dependency-in-th
 
 from typing import Annotated
 
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, Field, StringConstraints
 
 from tracerag import __version__
+from tracerag.answering.generator import GenerationError, GenerationUnavailableError
+from tracerag.answering.models import AnswerResult
+from tracerag.answering.service import AnswerService
 from tracerag.config import get_settings
 from tracerag.corpus.loader import chunk_corpus, load_corpus
-from tracerag.dependencies import get_retriever
+from tracerag.dependencies import get_answer_service, get_retriever
 from tracerag.retrieval.models import RetrievalResult
 from tracerag.retrieval.service import Retriever
 
@@ -45,6 +48,13 @@ class CorpusStatusResponse(BaseModel):
 
 class RetrievalRequest(BaseModel):
     """Validated evidence search request."""
+
+    question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=500)]
+    top_k: int | None = Field(default=None, ge=1, le=20)
+
+
+class AnswerRequest(BaseModel):
+    """Validated grounded-ruling request."""
 
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=500)]
     top_k: int | None = Field(default=None, ge=1, le=20)
@@ -87,3 +97,22 @@ def search_evidence(
         season=settings.corpus_season,
         limit=request.top_k or settings.retrieval_top_k,
     )
+
+
+@app.post("/answers", response_model=AnswerResult, tags=["answers"])
+def answer_question(
+    request: AnswerRequest,
+    answer_service: Annotated[AnswerService, Depends(get_answer_service)],
+) -> AnswerResult:
+    """Generate a ruling grounded in retrieved corpus evidence."""
+
+    try:
+        return answer_service.answer(
+            request.question,
+            season=settings.corpus_season,
+            limit=request.top_k or settings.retrieval_top_k,
+        )
+    except GenerationUnavailableError as exc:
+        raise HTTPException(status_code=503, detail="answer generation is not configured") from exc
+    except GenerationError as exc:
+        raise HTTPException(status_code=502, detail="answer generation provider failed") from exc

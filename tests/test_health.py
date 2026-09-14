@@ -7,9 +7,12 @@ https://pydantic.dev/docs/httpx2/advanced/transports/#asgi-transport
 import asyncio
 
 import httpx2
+import pytest
 
+from tracerag.answering.generator import GenerationError, GenerationUnavailableError
+from tracerag.answering.models import AnswerResult, AnswerTrace
 from tracerag.api import app
-from tracerag.dependencies import get_retriever
+from tracerag.dependencies import get_answer_service, get_retriever
 from tracerag.retrieval.models import RetrievalResult
 
 
@@ -93,3 +96,103 @@ def test_retrieval_endpoint_rejects_blank_question() -> None:
     )
 
     assert response.status_code == 422
+
+
+class StubAnswerService:
+    def answer(self, question: str, *, season: int, limit: int) -> AnswerResult:
+        assert season == 2026
+        assert limit == 3
+        return AnswerResult(
+            question=question,
+            season=season,
+            ruling=None,
+            explanation="The available evidence does not resolve the scenario.",
+            abstained=True,
+            abstention_reason="The available evidence does not resolve the scenario.",
+            citations=(),
+            evidence=(),
+            trace=AnswerTrace(
+                embedding_model="test-embedding-model",
+                generation_model="test-generation-model",
+                retrieved_chunks=0,
+                input_tokens=0,
+                output_tokens=0,
+                total_tokens=0,
+                latency_ms=1.5,
+            ),
+        )
+
+
+def test_answer_endpoint_returns_grounded_contract() -> None:
+    app.dependency_overrides[get_answer_service] = StubAnswerService
+    try:
+        response = asyncio.run(
+            request(
+                "POST",
+                "/answers",
+                json={"question": "Was the catch complete?", "top_k": 3},
+            )
+        )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "question": "Was the catch complete?",
+        "season": 2026,
+        "ruling": None,
+        "explanation": "The available evidence does not resolve the scenario.",
+        "abstained": True,
+        "abstention_reason": "The available evidence does not resolve the scenario.",
+        "citations": [],
+        "evidence": [],
+        "trace": {
+            "embedding_model": "test-embedding-model",
+            "generation_model": "test-generation-model",
+            "retrieved_chunks": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "total_tokens": 0,
+            "latency_ms": 1.5,
+        },
+    }
+
+
+class FailingAnswerService:
+    def __init__(self, error: GenerationError) -> None:
+        self.error = error
+
+    def answer(self, question: str, *, season: int, limit: int) -> AnswerResult:
+        raise self.error
+
+
+@pytest.mark.parametrize(
+    ("error", "expected_status", "expected_detail"),
+    (
+        (
+            GenerationUnavailableError("missing key"),
+            503,
+            "answer generation is not configured",
+        ),
+        (GenerationError("provider failed"), 502, "answer generation provider failed"),
+    ),
+)
+def test_answer_endpoint_maps_generation_failures(
+    error: GenerationError,
+    expected_status: int,
+    expected_detail: str,
+) -> None:
+    app.dependency_overrides[get_answer_service] = lambda: FailingAnswerService(error)
+    try:
+        response = asyncio.run(
+            request(
+                "POST",
+                "/answers",
+                json={"question": "Was the catch complete?"},
+            )
+        )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == expected_status
+    assert response.json() == {"detail": expected_detail}

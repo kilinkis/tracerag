@@ -17,8 +17,8 @@ complexity.
 - [x] Implement deterministic structural chunking
 - [x] Generate and persist embeddings
 - [x] Retrieve top-k chunks using cosine similarity
-- [ ] Generate answers constrained to retrieved evidence
-- [ ] Return source citations and abstain when evidence is missing
+- [x] Generate answers constrained to retrieved evidence
+- [x] Return source citations and abstain when evidence is missing
 
 ## Milestone 2 — Evaluation before optimization
 
@@ -42,7 +42,7 @@ complexity.
 
 ## Milestone 5 — Public demo
 
-- [ ] Create the public GitHub repository
+- [x] Create the public GitHub repository
 - [ ] Build the evidence and retrieval-trace UI
 - [ ] Add rate limits, caching, and a global inference budget
 - [ ] Deploy within free-tier quotas

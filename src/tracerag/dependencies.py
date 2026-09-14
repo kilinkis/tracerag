@@ -2,6 +2,8 @@
 
 from functools import lru_cache
 
+from tracerag.answering.generator import GroqAnswerGenerator
+from tracerag.answering.service import AnswerService
 from tracerag.config import get_settings
 from tracerag.embeddings import FastEmbedProvider
 from tracerag.retrieval.service import Retriever
@@ -30,3 +32,21 @@ def get_vector_store() -> PgVectorStore:
 @lru_cache
 def get_retriever() -> Retriever:
     return Retriever(get_embedder(), get_vector_store())
+
+
+@lru_cache
+def get_answer_generator() -> GroqAnswerGenerator:
+    settings = get_settings()
+    return GroqAnswerGenerator(
+        api_key=(
+            settings.groq_api_key.get_secret_value() if settings.groq_api_key is not None else None
+        ),
+        model_name=settings.generation_model,
+        timeout_seconds=settings.generation_timeout_seconds,
+        max_completion_tokens=settings.generation_max_completion_tokens,
+    )
+
+
+@lru_cache
+def get_answer_service() -> AnswerService:
+    return AnswerService(get_retriever(), get_answer_generator())
