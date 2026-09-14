@@ -7,6 +7,7 @@ https://docs.pydantic.dev/latest/concepts/pydantic_settings/
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -27,6 +28,10 @@ class Settings(BaseSettings):
     embedding_cache_path: Path = Path(".cache/fastembed")
     corpus_season: int = 2026
     retrieval_top_k: int = 5
+    groq_api_key: SecretStr | None = None
+    generation_model: str = "openai/gpt-oss-20b"
+    generation_timeout_seconds: float = Field(default=20.0, gt=0)
+    generation_max_completion_tokens: int = Field(default=700, ge=1, le=4096)
     log_level: str = "INFO"
 
 

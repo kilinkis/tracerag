@@ -1,0 +1,1 @@
+"""Grounded NFL ruling generation."""
