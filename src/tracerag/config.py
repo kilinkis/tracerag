@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     app_name: str = "TraceRAG API"
     database_url: str = "postgresql://tracerag:tracerag@localhost:5432/tracerag"
     corpus_path: Path = Path("data/nfl")
+    embedding_model: str = "BAAI/bge-small-en-v1.5"
+    embedding_dimensions: int = 384
+    embedding_cache_path: Path = Path(".cache/fastembed")
+    corpus_season: int = 2026
+    retrieval_top_k: int = 5
     log_level: str = "INFO"
 
 

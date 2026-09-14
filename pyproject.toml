@@ -12,10 +12,14 @@ readme = "README.md"
 requires-python = ">=3.13,<3.15"
 dependencies = [
   "fastapi[standard-no-fastapi-cloud-cli]==0.141.1",
+  "fastembed==0.8.0",
   "pgvector==0.5.0",
   "psycopg[binary,pool]==3.3.5",
   "pydantic-settings==2.15.0",
 ]
+
+[project.scripts]
+tracerag-index = "tracerag.cli:index_corpus"
 
 [dependency-groups]
 dev = [
@@ -32,6 +36,9 @@ entrypoint = "tracerag.api:app"
 
 [tool.pytest.ini_options]
 addopts = "-q"
+markers = [
+  "integration: requires a PostgreSQL instance with pgvector",
+]
 testpaths = ["tests"]
 
 [tool.ruff]

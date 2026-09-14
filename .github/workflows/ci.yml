@@ -11,6 +11,22 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.5-pg17-trixie
+        env:
+          POSTGRES_DB: tracerag_test
+          POSTGRES_USER: tracerag
+          POSTGRES_PASSWORD: tracerag
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U tracerag -d tracerag_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TRACERAG_TEST_DATABASE_URL: postgresql://tracerag:tracerag@localhost:5432/tracerag_test
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -32,4 +48,3 @@ jobs:
 
       - name: Test
         run: uv run pytest --cov=tracerag --cov-report=term-missing
-

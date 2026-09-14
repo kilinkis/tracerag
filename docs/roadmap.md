@@ -15,8 +15,8 @@ complexity.
 - [x] Define document and chunk domain models
 - [x] Ingest a small, versioned Markdown corpus
 - [x] Implement deterministic structural chunking
-- [ ] Generate and persist embeddings
-- [ ] Retrieve top-k chunks using cosine similarity
+- [x] Generate and persist embeddings
+- [x] Retrieve top-k chunks using cosine similarity
 - [ ] Generate answers constrained to retrieved evidence
 - [ ] Return source citations and abstain when evidence is missing
 

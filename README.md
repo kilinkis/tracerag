@@ -17,10 +17,13 @@ Milestone 1 is in progress. The repository currently provides:
 - A smoke test and GitHub Actions workflow
 - A versioned 2026 NFL rules corpus with authoritative rule references
 - Deterministic Markdown ingestion and structural chunking
+- Local `BAAI/bge-small-en-v1.5` embeddings through FastEmbed
+- Exact cosine retrieval through PostgreSQL and pgvector
 - A corpus status endpoint
 - A milestone-based [delivery roadmap](docs/roadmap.md)
 
-Embedding, retrieval, and generation behavior have not been implemented yet.
+Answer generation has not been implemented yet. The current API returns ranked evidence so
+retrieval quality can be evaluated independently.
 
 ## Local development
 
@@ -36,6 +39,9 @@ uv sync
 uv run pytest
 ```
 
+The first embedding operation downloads an approximately 67 MB quantized ONNX model into the
+configured cache directory.
+
 Start the complete local stack:
 
 ```bash
@@ -43,11 +49,26 @@ cp .env.example .env
 docker compose up --build
 ```
 
+In another terminal, index the corpus. The operation is idempotent and updates changed chunks while
+removing stale chunks from the active corpus season:
+
+```bash
+docker compose exec api tracerag-index
+```
+
 Then open:
 
 - Health check: <http://localhost:8000/health>
 - Corpus status: <http://localhost:8000/corpus/status>
 - Interactive API documentation: <http://localhost:8000/docs>
+
+Retrieve evidence without generating an answer:
+
+```bash
+curl -X POST http://localhost:8000/retrieval/search \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What makes a sideline catch complete?","top_k":3}'
+```
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.
@@ -64,6 +85,9 @@ question  -> query embedding -> retrieval -------+
 
 The components will communicate through small project-owned interfaces. Provider and framework
 integrations—including LangChain—will remain replaceable adapters.
+
+The baseline performs exact nearest-neighbor search. Approximate vector indexes are intentionally
+deferred until corpus size and measured latency justify their recall trade-off.
 
 ## Corpus scope
 
@@ -92,4 +116,6 @@ advice, college rules, and live officiating decisions are outside its scope.
 - [uv Docker integration](https://docs.astral.sh/uv/guides/integration/docker/)
 - [Docker Compose startup ordering](https://docs.docker.com/compose/how-tos/startup-order/)
 - [pgvector](https://github.com/pgvector/pgvector)
+- [FastEmbed](https://qdrant.github.io/fastembed/Getting%20Started/)
+- [`BAAI/bge-small-en-v1.5`](https://huggingface.co/BAAI/bge-small-en-v1.5)
 - [2026 NFL Rulebook](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)

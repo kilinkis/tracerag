@@ -2,14 +2,20 @@
 
 FastAPI application and route pattern source:
 https://fastapi.tiangolo.com/tutorial/first-steps/
+https://fastapi.tiangolo.com/tutorial/dependencies/#declare-the-dependency-in-the-dependant
 """
 
-from fastapi import FastAPI
-from pydantic import BaseModel
+from typing import Annotated
+
+from fastapi import Depends, FastAPI
+from pydantic import BaseModel, Field, StringConstraints
 
 from tracerag import __version__
 from tracerag.config import get_settings
 from tracerag.corpus.loader import chunk_corpus, load_corpus
+from tracerag.dependencies import get_retriever
+from tracerag.retrieval.models import RetrievalResult
+from tracerag.retrieval.service import Retriever
 
 settings = get_settings()
 
@@ -37,6 +43,13 @@ class CorpusStatusResponse(BaseModel):
     rule_references: int
 
 
+class RetrievalRequest(BaseModel):
+    """Validated evidence search request."""
+
+    question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=500)]
+    top_k: int | None = Field(default=None, ge=1, le=20)
+
+
 @app.get("/health", response_model=HealthResponse, tags=["system"])
 async def health() -> HealthResponse:
     """Report whether the API process is available."""
@@ -59,4 +72,18 @@ def corpus_status() -> CorpusStatusResponse:
         rule_references=len(
             {reference for document in documents for reference in document.rule_references}
         ),
+    )
+
+
+@app.post("/retrieval/search", response_model=RetrievalResult, tags=["retrieval"])
+def search_evidence(
+    request: RetrievalRequest,
+    retriever: Annotated[Retriever, Depends(get_retriever)],
+) -> RetrievalResult:
+    """Rank corpus evidence for a rule question without generating an answer."""
+
+    return retriever.search(
+        request.question,
+        season=settings.corpus_season,
+        limit=request.top_k or settings.retrieval_top_k,
     )
