@@ -1,0 +1,42 @@
+# Project metadata follows the PyPA pyproject.toml specification:
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[project]
+name = "tracerag"
+version = "0.1.0"
+description = "An evidence-first RAG system with transparent retrieval and evaluation"
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+dependencies = [
+  "fastapi[standard-no-fastapi-cloud-cli]==0.141.1",
+  "pgvector==0.5.0",
+  "psycopg[binary,pool]==3.3.5",
+  "pydantic-settings==2.15.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx2==2.12.0",
+  "pytest>=9.1,<10",
+  "pytest-cov>=7,<8",
+  "ruff>=0.13,<1",
+]
+
+# FastAPI recommends declaring the import entrypoint in pyproject.toml:
+# https://fastapi.tiangolo.com/tutorial/first-steps/#configure-the-app-entrypoint-in-pyproject-toml
+[tool.fastapi]
+entrypoint = "tracerag.api:app"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: .
+    environment:
+      TRACERAG_DATABASE_URL: postgresql://tracerag:tracerag@db:5432/tracerag
+      TRACERAG_LOG_LEVEL: INFO
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: pgvector/pgvector:0.8.5-pg17-trixie
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tracerag}
+      POSTGRES_USER: ${POSTGRES_USER:-tracerag}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tracerag}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    # Compose uses service_healthy to avoid starting dependants before readiness:
+    # https://docs.docker.com/compose/how-tos/startup-order/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  postgres_data:
+
