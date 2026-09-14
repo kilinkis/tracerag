@@ -9,7 +9,6 @@ complexity.
 - [x] FastAPI service with a health endpoint
 - [x] Local PostgreSQL with pgvector
 - [x] Test and CI foundations
-- [ ] Public GitHub repository
 
 ## Milestone 1 — Naive RAG baseline
 
@@ -43,6 +42,7 @@ complexity.
 
 ## Milestone 5 — Public demo
 
+- [ ] Create the public GitHub repository
 - [ ] Build the evidence and retrieval-trace UI
 - [ ] Add rate limits, caching, and a global inference budget
 - [ ] Deploy within free-tier quotas
