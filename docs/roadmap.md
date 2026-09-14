@@ -12,9 +12,9 @@ complexity.
 
 ## Milestone 1 — Naive RAG baseline
 
-- [ ] Define document and chunk domain models
-- [ ] Ingest a small, versioned Markdown corpus
-- [ ] Implement deterministic structural chunking
+- [x] Define document and chunk domain models
+- [x] Ingest a small, versioned Markdown corpus
+- [x] Implement deterministic structural chunking
 - [ ] Generate and persist embeddings
 - [ ] Retrieve top-k chunks using cosine similarity
 - [ ] Generate answers constrained to retrieved evidence
