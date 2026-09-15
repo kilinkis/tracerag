@@ -19,6 +19,7 @@ RUN uv sync --frozen --no-dev --no-install-project
 
 COPY src ./src
 COPY data ./data
+COPY evals ./evals
 RUN uv sync --frozen --no-dev
 
 EXPOSE 8000

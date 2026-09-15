@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "name": "nfl-rules-v1",
+  "season": 2026,
+  "cases": [
+    {
+      "id": "catch-elements",
+      "question": "What are the elements of a completed catch?",
+      "expected_document_ids": ["completing-a-catch"],
+      "expected_abstained": false
+    },
+    {
+      "id": "catch-football-act",
+      "question": "What actions count as a football act after controlling a pass?",
+      "expected_document_ids": ["completing-a-catch"],
+      "expected_abstained": false
+    },
+    {
+      "id": "catch-going-to-ground",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "expected_document_ids": ["completing-a-catch"],
+      "expected_abstained": false
+    },
+    {
+      "id": "catch-ball-touches-ground",
+      "question": "Is a pass automatically incomplete whenever the ball touches the ground?",
+      "expected_document_ids": ["completing-a-catch"],
+      "expected_abstained": false
+    },
+    {
+      "id": "catch-toe-drag",
+      "question": "How does a toe drag establish a sideline catch?",
+      "expected_document_ids": ["completing-a-catch"],
+      "expected_abstained": false
+    },
+    {
+      "id": "downs-definition",
+      "question": "When does a down begin and end?",
+      "expected_document_ids": ["downs-and-series"],
+      "expected_abstained": false
+    },
+    {
+      "id": "downs-new-series",
+      "question": "When does an offense earn a new series of downs?",
+      "expected_document_ids": ["downs-and-series"],
+      "expected_abstained": false
+    },
+    {
+      "id": "downs-automatic-first",
+      "question": "Can a defensive penalty award the offense a new series?",
+      "expected_document_ids": ["downs-and-series"],
+      "expected_abstained": false
+    },
+    {
+      "id": "downs-measurement",
+      "question": "Which point of the ball is used to determine whether the line to gain was reached?",
+      "expected_document_ids": ["downs-and-series"],
+      "expected_abstained": false
+    },
+    {
+      "id": "downs-turnover",
+      "question": "What happens when the offense fails to reach the line to gain on fourth down?",
+      "expected_document_ids": ["downs-and-series"],
+      "expected_abstained": false
+    },
+    {
+      "id": "runoff-illegal-acts",
+      "question": "Which offensive acts can trigger a ten-second runoff for illegally conserving time?",
+      "expected_document_ids": ["clock-runoffs"],
+      "expected_abstained": false
+    },
+    {
+      "id": "runoff-timeout-option",
+      "question": "Can the offense use a timeout instead of a ten-second runoff?",
+      "expected_document_ids": ["clock-runoffs"],
+      "expected_abstained": false
+    },
+    {
+      "id": "runoff-excess-timeout",
+      "question": "When can an excess timeout cause a ten-second runoff?",
+      "expected_document_ids": ["clock-runoffs"],
+      "expected_abstained": false
+    },
+    {
+      "id": "runoff-defense",
+      "question": "Can the defensive team receive a ten-second runoff for an excess timeout?",
+      "expected_document_ids": ["clock-runoffs"],
+      "expected_abstained": false
+    },
+    {
+      "id": "runoff-replay",
+      "question": "When does a replay reversal require a ten-second runoff?",
+      "expected_document_ids": ["clock-runoffs"],
+      "expected_abstained": false
+    },
+    {
+      "id": "pass-legal-forward",
+      "question": "What conditions make a forward pass legal?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "pass-second-forward",
+      "question": "Is a second forward pass during the same down legal?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "pass-arm-motion",
+      "question": "Is it a pass or a fumble when contact dislodges the ball after forward arm movement begins?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "pass-backward-ground",
+      "question": "What happens when a backward pass hits the ground?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "fumble-definition",
+      "question": "What is a fumble and which team may recover it?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "fumble-advancement-restrictions",
+      "question": "When do special restrictions apply to which offensive player may advance a fumble?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "grounding-outside-pocket",
+      "question": "How can a passer outside the pocket avoid intentional grounding?",
+      "expected_document_ids": ["passes-and-fumbles"],
+      "expected_abstained": false
+    },
+    {
+      "id": "eligibility-positions",
+      "question": "Which offensive positions are eligible receivers?",
+      "expected_document_ids": ["receiver-eligibility"],
+      "expected_abstained": false
+    },
+    {
+      "id": "eligibility-seven-on-line",
+      "question": "How many offensive players must be on the line in a legal formation?",
+      "expected_document_ids": ["receiver-eligibility"],
+      "expected_abstained": false
+    },
+    {
+      "id": "eligibility-reporting",
+      "question": "What must an ordinarily ineligible-numbered player do to report as eligible?",
+      "expected_document_ids": ["receiver-eligibility"],
+      "expected_abstained": false
+    },
+    {
+      "id": "eligibility-out-of-bounds",
+      "question": "Can a receiver who went out of bounds be the first player to touch the pass after returning?",
+      "expected_document_ids": ["receiver-eligibility"],
+      "expected_abstained": false
+    },
+    {
+      "id": "scoring-point-values",
+      "question": "How many points are touchdowns, field goals, and safeties worth?",
+      "expected_document_ids": ["scoring"],
+      "expected_abstained": false
+    },
+    {
+      "id": "scoring-goal-line",
+      "question": "When does a runner score by reaching the opponent's goal line?",
+      "expected_document_ids": ["scoring"],
+      "expected_abstained": false
+    },
+    {
+      "id": "scoring-field-goal",
+      "question": "What path must a legal kick take to score a field goal?",
+      "expected_document_ids": ["scoring"],
+      "expected_abstained": false
+    },
+    {
+      "id": "scoring-try-clock",
+      "question": "Does the game clock run during a try after a touchdown?",
+      "expected_document_ids": ["scoring"],
+      "expected_abstained": false
+    },
+    {
+      "id": "scoring-safety",
+      "question": "What circumstances commonly result in a safety?",
+      "expected_document_ids": ["scoring"],
+      "expected_abstained": false
+    },
+    {
+      "id": "unsupported-fantasy",
+      "question": "Who should I start in fantasy football this week?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    },
+    {
+      "id": "unsupported-college",
+      "question": "How does overtime work in college football?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    },
+    {
+      "id": "unsupported-live-score",
+      "question": "Who won the Chiefs game last night?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    },
+    {
+      "id": "unsupported-nutrition",
+      "question": "How much protein should I eat after a workout?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    },
+    {
+      "id": "unsupported-player-stat",
+      "question": "What was the fastest forty-yard dash at this year's combine?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    },
+    {
+      "id": "unsupported-ambiguous-play",
+      "question": "Was the controversial catch in last night's game correctly ruled?",
+      "expected_document_ids": [],
+      "expected_abstained": true
+    }
+  ]
+}
