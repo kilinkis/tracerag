@@ -22,10 +22,10 @@ complexity.
 
 ## Milestone 2 — Evaluation before optimization
 
-- [ ] Curate 30–50 answerable and unanswerable questions
-- [ ] Measure recall@k, reciprocal rank, citation accuracy, and abstention accuracy
-- [ ] Record latency and inference usage
-- [ ] Publish baseline results and representative failures
+- [x] Curate 30–50 answerable and unanswerable questions
+- [x] Measure recall@k, reciprocal rank, citation accuracy, and abstention accuracy
+- [x] Record latency and inference usage
+- [x] Publish baseline results and representative failures
 
 ## Milestone 3 — Better retrieval
 

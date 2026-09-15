@@ -23,6 +23,7 @@ TraceRAG currently provides:
 - Grounded answer generation through Groq and `openai/gpt-oss-20b`
 - Server-resolved citations and explicit abstention for unsupported rulings
 - Retrieval, model, token-usage, and latency traces in answer responses
+- A versioned evaluation set with retrieval, abstention, citation, latency, and usage metrics
 - A milestone-based [delivery roadmap](docs/roadmap.md)
 
 Retrieval remains available as an independent endpoint so its quality can be evaluated separately
@@ -86,6 +87,30 @@ The generator receives passage identifiers and text, but not authority to create
 metadata. TraceRAG resolves every cited identifier against the retrieved passages and abstains if
 the model references evidence that was not retrieved. `TRACERAG_GROQ_API_KEY` is required only for
 the answer endpoint; health, corpus, indexing, and retrieval operations remain local.
+
+## Evaluation
+
+Run the deterministic retrieval benchmark against the indexed corpus:
+
+```bash
+docker compose exec api tracerag-evaluate --top-k 5
+```
+
+The report includes hit rate, recall, reciprocal rank, and a result for every evaluation case.
+Unsupported questions are excluded from retrieval relevance metrics because they intentionally have
+no expected supporting document.
+
+Answer evaluation is optional because it calls the configured generation provider once per case:
+
+```bash
+docker compose exec api tracerag-evaluate --top-k 5 --answers
+```
+
+That mode additionally measures abstention accuracy, citation-document precision, grounded-ruling
+accuracy, latency, and token usage. Citation-document precision verifies that citations point to the
+expected rule explanation; it does not claim that every generated sentence is entailed by that
+document. See the published [evaluation baseline](docs/evaluation.md) for current results and
+limitations.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.
