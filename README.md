@@ -7,9 +7,9 @@ quality metrics, latency, and cost.
 The core keeps retrieval mechanics explicit and measurable. Framework integrations, including
 LangChain, remain replaceable adapters and are evaluated against the same benchmark.
 
-## Current status
+## Features
 
-Milestone 1 is in progress. The repository currently provides:
+TraceRAG currently provides:
 
 - A typed FastAPI service with a health endpoint
 - PostgreSQL 17 with the pgvector extension
