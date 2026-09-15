@@ -92,12 +92,41 @@ volume between restarts.
 
 ## Initial architecture
 
-```text
-documents -> parser -> chunks -> embeddings -> PostgreSQL/pgvector
-                                                |
-question  -> query embedding -> retrieval -------+
-                                                |
-                         evidence -> generator -> cited answer
+```mermaid
+flowchart LR
+    subgraph Ingestion["Corpus ingestion"]
+        docs["Versioned rules<br/>Markdown corpus"] --> parser["Loader +<br/>structural chunker"]
+        parser --> chunks["Rule passages<br/>with citations"]
+        chunks --> embed["FastEmbed<br/>bge-small-en-v1.5"]
+        embed --> store[("PostgreSQL<br/>+ pgvector")]
+    end
+
+    subgraph Query["Question answering"]
+        question["NFL rules question"] --> qembed["Query embedding"]
+        qembed --> retrieve["Exact cosine<br/>retrieval"]
+        retrieve --> evidence["Retrieved evidence<br/>and passage IDs"]
+        evidence --> generator["Groq generator<br/>openai/gpt-oss-20b"]
+        generator --> validate{"Citations reference<br/>retrieved evidence?"}
+        validate -->|Yes| answer["Grounded answer<br/>with resolved citations"]
+        validate -->|No| abstain["Explicit abstention"]
+    end
+
+    store --> retrieve
+    retrieve --> trace["Retrieval, model,<br/>tokens and latency"]
+    generator --> trace
+    trace --> answer
+
+    classDef source fill:#eef2ff,stroke:#6366f1,color:#1e1b4b
+    classDef process fill:#ecfeff,stroke:#0891b2,color:#164e63
+    classDef data fill:#f0fdf4,stroke:#16a34a,color:#14532d
+    classDef decision fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    classDef outcome fill:#fdf2f8,stroke:#db2777,color:#831843
+
+    class docs,question source
+    class parser,embed,qembed,retrieve,generator,trace process
+    class chunks,store,evidence data
+    class validate decision
+    class answer,abstain outcome
 ```
 
 The components will communicate through small project-owned interfaces. Provider and framework
