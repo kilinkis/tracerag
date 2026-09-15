@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     groq_api_key: SecretStr | None = None
     generation_model: str = "openai/gpt-oss-20b"
     generation_timeout_seconds: float = Field(default=20.0, gt=0)
-    generation_max_completion_tokens: int = Field(default=700, ge=1, le=4096)
+    generation_max_completion_tokens: int = Field(default=1400, ge=1, le=4096)
     log_level: str = "INFO"
 
 
