@@ -9,6 +9,7 @@ that should produce an abstention.
 - Corpus season: 2026
 - Embedding model: `BAAI/bge-small-en-v1.5`
 - Generation model: `openai/gpt-oss-20b`
+- Reasoning effort: `medium`
 - Retrieved passages per question: 5
 - Retrieval: exact cosine search through PostgreSQL and pgvector
 - Evaluation date: 2026-09-15
@@ -32,6 +33,25 @@ that should produce an abstention.
 The `scoring-try-clock` case was the only answerable question whose expected document did not rank
 first. Its expected `scoring` document ranked second behind `clock-runoffs`, which shares strong
 clock-related language. The expected document was still retrieved within the configured top five.
+
+## Reasoning-effort experiment
+
+The same 37 cases were evaluated once with `low` reasoning effort before changing the production
+default. Retrieval results were unchanged.
+
+| Measurement | Medium | Low |
+| --- | ---: | ---: |
+| Abstention accuracy | 100% | 97.30% |
+| Grounded-ruling accuracy | 100% | 96.77% |
+| Citation-document precision | 100% | 100% |
+| Mean answer latency | 11,337.70 ms | 10,276.95 ms |
+| Output tokens | 14,359 | 6,768 |
+| Total tokens | 67,359 | 57,992 |
+
+Low reasoning reduced output tokens by 52.87% and total tokens by 13.91%, but it incorrectly
+abstained from the answerable `fumble-advancement-restrictions` case. The latency improvement was
+9.36% and varied substantially between individual provider requests. `medium` therefore remains the
+default until repeated evaluation demonstrates an acceptable quality trade-off.
 
 ## Interpretation and limitations
 

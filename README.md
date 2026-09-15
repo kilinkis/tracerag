@@ -21,6 +21,7 @@ TraceRAG currently provides:
 - Exact cosine retrieval through PostgreSQL and pgvector
 - A corpus status endpoint
 - Grounded answer generation through Groq and `openai/gpt-oss-20b`
+- Targeted recovery from intermittent structured-output validation failures
 - Server-resolved citations and explicit abstention for unsupported rulings
 - Retrieval, model, token-usage, and latency traces in answer responses
 - A versioned evaluation set with retrieval, abstention, citation, latency, and usage metrics
@@ -87,6 +88,12 @@ The generator receives passage identifiers and text, but not authority to create
 metadata. TraceRAG resolves every cited identifier against the retrieved passages and abstains if
 the model references evidence that was not retrieved. `TRACERAG_GROQ_API_KEY` is required only for
 the answer endpoint; health, corpus, indexing, and retrieval operations remain local.
+
+Generation defaults to the model's `medium` reasoning effort. It can be changed with
+`TRACERAG_GENERATION_REASONING_EFFORT`, while
+`TRACERAG_GENERATION_STRUCTURED_OUTPUT_RETRIES` controls the narrow retry budget for provider JSON
+validation failures. Successful answer traces expose `generation_attempts`; exhausted provider
+errors remain HTTP 502 responses rather than being converted into abstentions.
 
 ## Evaluation
 
