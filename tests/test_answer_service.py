@@ -52,6 +52,7 @@ class StubGenerator:
         return GenerationResult(
             model=self.model_name,
             draft=self.draft,
+            attempts=1,
             usage=GenerationUsage(input_tokens=100, output_tokens=40, total_tokens=140),
         )
 
@@ -91,6 +92,7 @@ def test_answer_service_resolves_citations_from_retrieved_metadata() -> None:
         "input_tokens": 100,
         "output_tokens": 40,
         "total_tokens": 140,
+        "generation_attempts": 1,
         "latency_ms": 125.0,
     }
     assert generator.calls == [("Is the sideline catch complete?", (match,))]
@@ -154,4 +156,5 @@ def test_answer_service_skips_generation_when_retrieval_returns_nothing() -> Non
     assert result.abstained is True
     assert result.abstention_reason == NO_EVIDENCE_REASON
     assert result.trace.total_tokens == 0
+    assert result.trace.generation_attempts == 0
     assert generator.calls == []

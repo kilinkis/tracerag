@@ -6,6 +6,7 @@ https://docs.pydantic.dev/latest/concepts/pydantic_settings/
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -32,6 +33,8 @@ class Settings(BaseSettings):
     generation_model: str = "openai/gpt-oss-20b"
     generation_timeout_seconds: float = Field(default=20.0, gt=0)
     generation_max_completion_tokens: int = Field(default=1400, ge=1, le=4096)
+    generation_reasoning_effort: Literal["low", "medium", "high"] = "medium"
+    generation_structured_output_retries: int = Field(default=1, ge=0, le=3)
     log_level: str = "INFO"
 
 

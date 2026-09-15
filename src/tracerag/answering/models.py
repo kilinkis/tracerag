@@ -56,6 +56,7 @@ class GenerationResult(BaseModel):
 
     model: str
     draft: AnswerDraft
+    attempts: int = Field(ge=1)
     usage: GenerationUsage
 
 
@@ -84,6 +85,7 @@ class AnswerTrace(BaseModel):
     input_tokens: int = Field(ge=0)
     output_tokens: int = Field(ge=0)
     total_tokens: int = Field(ge=0)
+    generation_attempts: int = Field(ge=0)
     latency_ms: float = Field(ge=0)
 
 

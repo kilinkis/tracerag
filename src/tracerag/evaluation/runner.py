@@ -144,14 +144,18 @@ class EvaluationRunner:
             expected_abstained=case.expected_abstained,
             actual_abstained=answer.abstained,
             abstention_correct=case.expected_abstained == answer.abstained,
+            abstention_reason=answer.abstention_reason,
             cited_document_ids=cited_ids,
             citation_document_precision=citation_precision,
             grounded_ruling_correct=grounded_ruling_correct,
             generation_error=None,
+            provider_status_code=None,
+            provider_error_code=None,
             latency_ms=answer.trace.latency_ms,
             input_tokens=answer.trace.input_tokens,
             output_tokens=answer.trace.output_tokens,
             total_tokens=answer.trace.total_tokens,
+            generation_attempts=answer.trace.generation_attempts,
         )
 
     @staticmethod
@@ -161,14 +165,18 @@ class EvaluationRunner:
             expected_abstained=case.expected_abstained,
             actual_abstained=None,
             abstention_correct=False,
+            abstention_reason=None,
             cited_document_ids=(),
             citation_document_precision=None,
             grounded_ruling_correct=False if not case.expected_abstained else None,
             generation_error=str(error),
+            provider_status_code=error.provider_status_code,
+            provider_error_code=error.provider_error_code,
             latency_ms=None,
             input_tokens=0,
             output_tokens=0,
             total_tokens=0,
+            generation_attempts=error.attempts or None,
         )
 
     @staticmethod
@@ -205,6 +213,11 @@ class EvaluationRunner:
         return AnswerMetrics(
             evaluated_cases=len(cases),
             generation_failures=sum(case.generation_error is not None for case in cases),
+            retried_cases=sum(
+                case.generation_attempts is not None and case.generation_attempts > 1
+                for case in cases
+            ),
+            generation_attempts=sum(case.generation_attempts or 0 for case in cases),
             abstention_accuracy=sum(case.abstention_correct for case in cases) / len(cases),
             grounded_ruling_accuracy=(
                 sum(bool(case.grounded_ruling_correct) for case in answerable) / len(answerable)

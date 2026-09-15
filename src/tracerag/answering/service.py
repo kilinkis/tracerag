@@ -46,6 +46,7 @@ class AnswerService:
                 embedding_model=retrieval.embedding_model,
                 generation_model=self._generator.model_name,
                 usage=GenerationUsage(input_tokens=0, output_tokens=0, total_tokens=0),
+                generation_attempts=0,
                 started_at=started_at,
             )
 
@@ -59,6 +60,7 @@ class AnswerService:
                 embedding_model=retrieval.embedding_model,
                 generation_model=generation.model,
                 usage=generation.usage,
+                generation_attempts=generation.attempts,
                 started_at=started_at,
             )
 
@@ -73,6 +75,7 @@ class AnswerService:
                 embedding_model=retrieval.embedding_model,
                 generation_model=generation.model,
                 usage=generation.usage,
+                generation_attempts=generation.attempts,
                 started_at=started_at,
             )
 
@@ -91,6 +94,7 @@ class AnswerService:
                 generation.model,
                 retrieved_chunks=len(retrieval.matches),
                 usage=generation.usage,
+                generation_attempts=generation.attempts,
                 started_at=started_at,
             ),
         )
@@ -105,6 +109,7 @@ class AnswerService:
         embedding_model: str,
         generation_model: str,
         usage: GenerationUsage,
+        generation_attempts: int,
         started_at: float,
     ) -> AnswerResult:
         return AnswerResult(
@@ -121,6 +126,7 @@ class AnswerService:
                 generation_model,
                 retrieved_chunks=len(evidence),
                 usage=usage,
+                generation_attempts=generation_attempts,
                 started_at=started_at,
             ),
         )
@@ -132,6 +138,7 @@ class AnswerService:
         *,
         retrieved_chunks: int,
         usage: GenerationUsage,
+        generation_attempts: int,
         started_at: float,
     ) -> AnswerTrace:
         return AnswerTrace(
@@ -141,6 +148,7 @@ class AnswerService:
             input_tokens=usage.input_tokens,
             output_tokens=usage.output_tokens,
             total_tokens=usage.total_tokens,
+            generation_attempts=generation_attempts,
             latency_ms=round((self._clock() - started_at) * 1000, 2),
         )
 

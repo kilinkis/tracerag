@@ -62,6 +62,7 @@ def answer(
             input_tokens=10,
             output_tokens=5,
             total_tokens=15,
+            generation_attempts=1,
             latency_ms=100,
         ),
     )
@@ -93,7 +94,12 @@ class StubAnswerer:
 
 class FailingAnswerer:
     def answer(self, question: str, *, season: int, limit: int) -> AnswerResult:
-        raise GenerationError("provider failed")
+        raise GenerationError(
+            "provider failed",
+            attempts=2,
+            provider_status_code=400,
+            provider_error_code="json_validate_failed",
+        )
 
 
 def dataset() -> EvaluationDataset:
@@ -188,16 +194,18 @@ def test_runner_measures_retrieval_abstention_citations_and_usage() -> None:
     assert report.retrieval_cases[2].recall_at_k is None
     assert report.answer_metrics is not None
     assert report.answer_metrics.model_dump() == {
-            "evaluated_cases": 3,
-            "generation_failures": 0,
-            "abstention_accuracy": pytest.approx(2 / 3),
-            "grounded_ruling_accuracy": 0.5,
-            "citation_document_precision": 1.0,
-            "mean_latency_ms": 100.0,
-            "input_tokens": 30,
-            "output_tokens": 15,
-            "total_tokens": 45,
-        }
+        "evaluated_cases": 3,
+        "generation_failures": 0,
+        "retried_cases": 0,
+        "generation_attempts": 3,
+        "abstention_accuracy": pytest.approx(2 / 3),
+        "grounded_ruling_accuracy": 0.5,
+        "citation_document_precision": 1.0,
+        "mean_latency_ms": 100.0,
+        "input_tokens": 30,
+        "output_tokens": 15,
+        "total_tokens": 45,
+    }
 
 
 def test_runner_requires_an_answerer_for_answer_evaluation() -> None:
@@ -236,10 +244,14 @@ def test_runner_records_generation_failures_and_continues() -> None:
     assert report.retrieval_metrics.hit_rate_at_k == 0.0
     assert report.answer_metrics is not None
     assert report.answer_metrics.generation_failures == 1
+    assert report.answer_metrics.retried_cases == 1
+    assert report.answer_metrics.generation_attempts == 2
     assert report.answer_metrics.abstention_accuracy == 0.0
     assert report.answer_metrics.mean_latency_ms is None
     assert report.answer_cases is not None
     assert report.answer_cases[0].generation_error == "provider failed"
+    assert report.answer_cases[0].provider_status_code == 400
+    assert report.answer_cases[0].provider_error_code == "json_validate_failed"
 
 
 def test_repository_evaluation_dataset_is_valid() -> None:

@@ -44,6 +44,8 @@ def get_answer_generator() -> GroqAnswerGenerator:
         model_name=settings.generation_model,
         timeout_seconds=settings.generation_timeout_seconds,
         max_completion_tokens=settings.generation_max_completion_tokens,
+        reasoning_effort=settings.generation_reasoning_effort,
+        structured_output_retries=settings.generation_structured_output_retries,
     )
 
 

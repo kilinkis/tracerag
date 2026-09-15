@@ -81,14 +81,18 @@ class AnswerCaseResult(BaseModel):
     expected_abstained: bool
     actual_abstained: bool | None
     abstention_correct: bool
+    abstention_reason: str | None
     cited_document_ids: tuple[str, ...]
     citation_document_precision: Score | None
     grounded_ruling_correct: bool | None
     generation_error: str | None
+    provider_status_code: int | None
+    provider_error_code: str | None
     latency_ms: float | None = Field(default=None, ge=0)
     input_tokens: int = Field(ge=0)
     output_tokens: int = Field(ge=0)
     total_tokens: int = Field(ge=0)
+    generation_attempts: int | None = Field(default=None, ge=1)
 
 
 class AnswerMetrics(BaseModel):
@@ -98,6 +102,8 @@ class AnswerMetrics(BaseModel):
 
     evaluated_cases: int = Field(ge=0)
     generation_failures: int = Field(ge=0)
+    retried_cases: int = Field(ge=0)
+    generation_attempts: int = Field(ge=0)
     abstention_accuracy: Score
     grounded_ruling_accuracy: Score
     citation_document_precision: Score | None
