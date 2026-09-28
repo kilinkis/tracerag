@@ -31,7 +31,42 @@ optimization targets.
 Ambiguous and near-domain cases intentionally have no expected supporting document, so they are
 excluded from retrieval relevance metrics. They are evaluated through answer abstention behavior.
 
-## Grounded-answer benchmark (v1)
+## Grounded-answer benchmark (v2)
+
+The 50-case dataset was evaluated at `k=3` with `openai/gpt-oss-20b` and `medium` reasoning effort.
+The first pass completed 46 generations and recorded four HTTP 429 rate-limit failures. A targeted
+rerun of only those four cases completed successfully. Quality metrics below include one successful
+result for every case; usage and latency include the 50 successful generations.
+
+| Measurement | Result |
+| --- | ---: |
+| Abstention accuracy | 100% |
+| Grounded-ruling accuracy | 100% |
+| Citation-document precision | 100% |
+| Initial provider failures | 4 of 50 |
+| Targeted rerun failures | 0 of 4 |
+| Provider attempts | 54 |
+| Mean successful-answer latency | 7,888.31 ms |
+| Input tokens | 52,767 |
+| Output tokens | 20,829 |
+| Total tokens | 73,596 |
+
+| Case tag | Cases | Abstention accuracy | Grounded-ruling accuracy | Citation precision |
+| --- | ---: | ---: | ---: | ---: |
+| Baseline | 37 | 100% | 100% | 100% |
+| Paraphrase | 3 | 100% | 100% | 100% |
+| Confounder | 2 | 100% | 100% | 100% |
+| Multi-evidence | 2 | 100% | 100% | 100% |
+| Adversarial | 2 | 100% | 100% | 100% |
+| Ambiguous | 2 | 100% | N/A | N/A |
+| Near-domain | 2 | 100% | N/A | N/A |
+
+The multi-evidence cases cited both expected documents. The ambiguous and near-domain cases all
+abstained, and the adversarial cases followed the retrieved rules rather than conflicting
+instructions in the question. The initial provider failures were operational failures, not
+abstentions or generated rulings, and are reported separately from model quality.
+
+## Earlier grounded-answer benchmark (v1)
 
 The initial provider benchmark was recorded on 2026-09-15 against the earlier 37-case dataset: 31
 answerable questions and six expected abstentions. It used five retrieved passages,
@@ -47,10 +82,6 @@ answerable questions and six expected abstentions. It used five retrieved passag
 | Input tokens | 53,000 |
 | Output tokens | 14,359 |
 | Total tokens | 67,359 |
-
-The v2 answer benchmark has not yet been recorded. Its additional cases are specifically intended
-to test multi-document citation coverage, abstention on incomplete scenarios, and resistance to
-instructions that conflict with the evidence.
 
 ## Reasoning-effort experiment
 
@@ -77,8 +108,8 @@ default until repeated evaluation demonstrates an acceptable quality trade-off.
   retrieval metrics at `k=3` and v1 answer metrics do not establish general NFL-rules accuracy.
 - Citation-document precision verifies that citations belong to the expected rule explanation. It
   does not perform claim-level entailment verification.
-- Answer metrics come from one provider run. Repeated trials are needed to measure model variance
-  and intermittent generation failures.
+- The v1 answer metrics came from one provider run. The v2 run required four targeted reruns after
+  transient rate limits. Repeated full trials are still needed to measure model variance.
 - Latency depends on the local machine, network, and provider conditions at evaluation time.
 - Unsupported questions have no expected source document, so they are excluded from retrieval
   relevance metrics and included in abstention accuracy.
