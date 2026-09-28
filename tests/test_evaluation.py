@@ -111,18 +111,21 @@ def dataset() -> EvaluationDataset:
             EvaluationCase(
                 id="supported-a",
                 question="Question A?",
+                tags=("baseline",),
                 expected_document_ids=("doc-a",),
                 expected_abstained=False,
             ),
             EvaluationCase(
                 id="supported-b",
                 question="Question B?",
+                tags=("baseline", "multi_evidence"),
                 expected_document_ids=("doc-b", "doc-c"),
                 expected_abstained=False,
             ),
             EvaluationCase(
                 id="unsupported",
                 question="Question C?",
+                tags=("near_domain",),
                 expected_abstained=True,
             ),
         ),
@@ -134,6 +137,7 @@ def test_dataset_rejects_conflicting_expectations_and_duplicate_ids() -> None:
         EvaluationCase(
             id="invalid",
             question="Question?",
+            tags=("baseline",),
             expected_document_ids=("doc-a",),
             expected_abstained=True,
         )
@@ -147,12 +151,14 @@ def test_dataset_rejects_conflicting_expectations_and_duplicate_ids() -> None:
                 EvaluationCase(
                     id="duplicate",
                     question="Question A?",
+                    tags=("baseline",),
                     expected_document_ids=("doc-a",),
                     expected_abstained=False,
                 ),
                 EvaluationCase(
                     id="duplicate",
                     question="Question B?",
+                    tags=("baseline",),
                     expected_document_ids=("doc-b",),
                     expected_abstained=False,
                 ),
@@ -192,6 +198,14 @@ def test_runner_measures_retrieval_abstention_citations_and_usage() -> None:
     }
     assert report.retrieval_cases[0].first_relevant_rank == 2
     assert report.retrieval_cases[2].recall_at_k is None
+    assert report.retrieval_metrics_by_tag["baseline"].model_dump() == {
+        "evaluated_cases": 2,
+        "hit_rate_at_k": 1.0,
+        "recall_at_k": 0.75,
+        "mean_reciprocal_rank": 0.75,
+    }
+    assert report.retrieval_metrics_by_tag["multi_evidence"].recall_at_k == 0.5
+    assert report.retrieval_metrics_by_tag["near_domain"].evaluated_cases == 0
     assert report.answer_metrics is not None
     assert report.answer_metrics.model_dump() == {
         "evaluated_cases": 3,
@@ -206,6 +220,9 @@ def test_runner_measures_retrieval_abstention_citations_and_usage() -> None:
         "output_tokens": 15,
         "total_tokens": 45,
     }
+    assert report.answer_metrics_by_tag is not None
+    assert report.answer_metrics_by_tag["baseline"].abstention_accuracy == 0.5
+    assert report.answer_metrics_by_tag["near_domain"].abstention_accuracy == 1.0
 
 
 def test_runner_requires_an_answerer_for_answer_evaluation() -> None:
@@ -226,6 +243,7 @@ def test_runner_records_generation_failures_and_continues() -> None:
             EvaluationCase(
                 id="unsupported",
                 question="Unsupported question?",
+                tags=("near_domain",),
                 expected_abstained=True,
             ),
         ),
@@ -254,11 +272,38 @@ def test_runner_records_generation_failures_and_continues() -> None:
     assert report.answer_cases[0].provider_error_code == "json_validate_failed"
 
 
+def test_evaluation_case_requires_unique_normalized_tags() -> None:
+    with pytest.raises(ValidationError, match="evaluation tags must be unique"):
+        EvaluationCase(
+            id="duplicate-tags",
+            question="Question?",
+            tags=("baseline", "baseline"),
+            expected_abstained=True,
+        )
+
+    with pytest.raises(ValidationError, match="string_pattern_mismatch"):
+        EvaluationCase(
+            id="invalid-tag",
+            question="Question?",
+            tags=("Multi Evidence",),
+            expected_abstained=True,
+        )
+
+
 def test_repository_evaluation_dataset_is_valid() -> None:
     from tracerag.evaluation.dataset import load_evaluation_dataset
 
     path = Path(__file__).parents[1] / "evals" / "nfl-rules.json"
     loaded = load_evaluation_dataset(path)
 
-    assert loaded.name == "nfl-rules-v1"
-    assert len(loaded.cases) >= 30
+    assert loaded.name == "nfl-rules-v2"
+    assert len(loaded.cases) == 50
+    assert {tag for case in loaded.cases for tag in case.tags} == {
+        "adversarial",
+        "ambiguous",
+        "baseline",
+        "confounder",
+        "multi_evidence",
+        "near_domain",
+        "paraphrase",
+    }

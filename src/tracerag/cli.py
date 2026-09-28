@@ -33,11 +33,19 @@ def evaluate_corpus() -> None:
         default=Path("evals/nfl-rules.json"),
         help="path to the evaluation dataset",
     )
-    parser.add_argument(
+    top_k_group = parser.add_mutually_exclusive_group()
+    top_k_group.add_argument(
         "--top-k",
         type=int,
         default=None,
         help="number of passages to retrieve per question",
+    )
+    top_k_group.add_argument(
+        "--top-k-sweep",
+        type=int,
+        nargs="+",
+        metavar="K",
+        help="run retrieval evaluation at multiple passage limits, for example 1 3 5",
     )
     parser.add_argument(
         "--answers",
@@ -46,12 +54,35 @@ def evaluate_corpus() -> None:
     )
     arguments = parser.parse_args()
 
+    if arguments.top_k_sweep and arguments.answers:
+        parser.error("--top-k-sweep cannot be combined with --answers")
+    if arguments.top_k is not None and arguments.top_k < 1:
+        parser.error("--top-k must be at least one")
+    if arguments.top_k_sweep and any(top_k < 1 for top_k in arguments.top_k_sweep):
+        parser.error("every --top-k-sweep value must be at least one")
+
     settings = get_settings()
     dataset = load_evaluation_dataset(arguments.dataset)
-    top_k = settings.retrieval_top_k if arguments.top_k is None else arguments.top_k
     runner = EvaluationRunner(
         get_retriever(),
         get_answer_service() if arguments.answers else None,
     )
-    report = runner.run(dataset, top_k=top_k, evaluate_answers=arguments.answers)
-    print(json.dumps(report.model_dump(mode="json"), indent=2))
+    if arguments.top_k_sweep:
+        top_ks = tuple(dict.fromkeys(arguments.top_k_sweep))
+        reports = [
+            runner.run(dataset, top_k=top_k, evaluate_answers=False).model_dump(mode="json")
+            for top_k in top_ks
+        ]
+        output: dict[str, object] = {
+            "dataset": dataset.name,
+            "season": dataset.season,
+            "reports": reports,
+        }
+    else:
+        top_k = settings.retrieval_top_k if arguments.top_k is None else arguments.top_k
+        output = runner.run(
+            dataset,
+            top_k=top_k,
+            evaluate_answers=arguments.answers,
+        ).model_dump(mode="json")
+    print(json.dumps(output, indent=2))

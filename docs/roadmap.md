@@ -22,7 +22,7 @@ complexity.
 
 ## Milestone 2 — Evaluation before optimization
 
-- [x] Curate 30–50 answerable and unanswerable questions
+- [x] Curate 50 answerable, ambiguous, adversarial, and unsupported questions
 - [x] Measure recall@k, reciprocal rank, citation accuracy, and abstention accuracy
 - [x] Record latency and inference usage
 - [x] Publish baseline results and representative failures

@@ -81,8 +81,12 @@ class EvaluationRunner:
             top_k=top_k,
             embedding_model=embedding_model,
             retrieval_metrics=self._retrieval_metrics(retrieval_cases),
+            retrieval_metrics_by_tag=self._retrieval_metrics_by_tag(retrieval_cases),
             retrieval_cases=tuple(retrieval_cases),
             answer_metrics=self._answer_metrics(answer_cases) if evaluate_answers else None,
+            answer_metrics_by_tag=(
+                self._answer_metrics_by_tag(answer_cases) if evaluate_answers else None
+            ),
             answer_cases=tuple(answer_cases) if evaluate_answers else None,
         )
 
@@ -96,6 +100,7 @@ class EvaluationRunner:
             return RetrievalCaseResult(
                 case_id=case.id,
                 question=case.question,
+                tags=case.tags,
                 expected_document_ids=case.expected_document_ids,
                 retrieved_document_ids=retrieved_ids,
                 recall_at_k=None,
@@ -117,6 +122,7 @@ class EvaluationRunner:
         return RetrievalCaseResult(
             case_id=case.id,
             question=case.question,
+            tags=case.tags,
             expected_document_ids=case.expected_document_ids,
             retrieved_document_ids=retrieved_ids,
             recall_at_k=recall,
@@ -141,6 +147,7 @@ class EvaluationRunner:
 
         return AnswerCaseResult(
             case_id=case.id,
+            tags=case.tags,
             expected_abstained=case.expected_abstained,
             actual_abstained=answer.abstained,
             abstention_correct=case.expected_abstained == answer.abstained,
@@ -162,6 +169,7 @@ class EvaluationRunner:
     def _generation_failure(case: EvaluationCase, error: GenerationError) -> AnswerCaseResult:
         return AnswerCaseResult(
             case_id=case.id,
+            tags=case.tags,
             expected_abstained=case.expected_abstained,
             actual_abstained=None,
             abstention_correct=False,
@@ -199,6 +207,17 @@ class EvaluationRunner:
                 sum(case.reciprocal_rank or 0.0 for case in measured) / len(measured)
             ),
         )
+
+    @classmethod
+    def _retrieval_metrics_by_tag(
+        cls,
+        cases: list[RetrievalCaseResult],
+    ) -> dict[str, RetrievalMetrics]:
+        tags = sorted({tag for case in cases for tag in case.tags})
+        return {
+            tag: cls._retrieval_metrics([case for case in cases if tag in case.tags])
+            for tag in tags
+        }
 
     @staticmethod
     def _answer_metrics(cases: list[AnswerCaseResult]) -> AnswerMetrics:
@@ -238,3 +257,14 @@ class EvaluationRunner:
             output_tokens=sum(case.output_tokens for case in cases),
             total_tokens=sum(case.total_tokens for case in cases),
         )
+
+    @classmethod
+    def _answer_metrics_by_tag(
+        cls,
+        cases: list[AnswerCaseResult],
+    ) -> dict[str, AnswerMetrics]:
+        tags = sorted({tag for case in cases for tag in case.tags})
+        return {
+            tag: cls._answer_metrics([case for case in cases if tag in case.tags])
+            for tag in tags
+        }

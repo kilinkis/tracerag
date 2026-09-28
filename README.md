@@ -105,7 +105,17 @@ docker compose exec api tracerag-evaluate --top-k 5
 
 The report includes hit rate, recall, reciprocal rank, and a result for every evaluation case.
 Unsupported questions are excluded from retrieval relevance metrics because they intentionally have
-no expected supporting document.
+no expected supporting document. Cases are tagged by scenario type, and the report includes the
+same aggregate metrics per tag.
+
+Compare retrieval depth in one local run:
+
+```bash
+docker compose exec api tracerag-evaluate --top-k-sweep 1 3 5
+```
+
+Answer generation is intentionally unavailable during a sweep so the command cannot accidentally
+multiply provider usage.
 
 Answer evaluation is optional because it calls the configured generation provider once per case:
 

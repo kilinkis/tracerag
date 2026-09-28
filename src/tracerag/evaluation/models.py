@@ -5,6 +5,7 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 NonEmptyString = Annotated[str, Field(min_length=1)]
+EvaluationTag = Annotated[str, Field(min_length=1, pattern=r"^[a-z][a-z0-9_]*$")]
 Score = Annotated[float, Field(ge=0.0, le=1.0)]
 
 
@@ -15,6 +16,7 @@ class EvaluationCase(BaseModel):
 
     id: NonEmptyString
     question: NonEmptyString
+    tags: tuple[EvaluationTag, ...] = Field(min_length=1)
     expected_document_ids: tuple[NonEmptyString, ...] = ()
     expected_abstained: bool
 
@@ -22,6 +24,8 @@ class EvaluationCase(BaseModel):
     def validate_expectations(self) -> "EvaluationCase":
         if len(set(self.expected_document_ids)) != len(self.expected_document_ids):
             raise ValueError("expected document identifiers must be unique")
+        if len(set(self.tags)) != len(self.tags):
+            raise ValueError("evaluation tags must be unique")
         if self.expected_abstained and self.expected_document_ids:
             raise ValueError("an abstention case cannot require supporting documents")
         if not self.expected_abstained and not self.expected_document_ids:
@@ -54,6 +58,7 @@ class RetrievalCaseResult(BaseModel):
 
     case_id: str
     question: str
+    tags: tuple[str, ...]
     expected_document_ids: tuple[str, ...]
     retrieved_document_ids: tuple[str, ...]
     recall_at_k: Score | None
@@ -78,6 +83,7 @@ class AnswerCaseResult(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     case_id: str
+    tags: tuple[str, ...]
     expected_abstained: bool
     actual_abstained: bool | None
     abstention_correct: bool
@@ -123,6 +129,8 @@ class EvaluationReport(BaseModel):
     top_k: int = Field(ge=1)
     embedding_model: str
     retrieval_metrics: RetrievalMetrics
+    retrieval_metrics_by_tag: dict[str, RetrievalMetrics]
     retrieval_cases: tuple[RetrievalCaseResult, ...]
     answer_metrics: AnswerMetrics | None
+    answer_metrics_by_tag: dict[str, AnswerMetrics] | None
     answer_cases: tuple[AnswerCaseResult, ...] | None
