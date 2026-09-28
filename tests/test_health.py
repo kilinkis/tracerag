@@ -29,6 +29,23 @@ async def get(path: str) -> httpx2.Response:
     return await request("GET", path)
 
 
+def test_root_serves_demo_interface() -> None:
+    response = asyncio.run(get("/"))
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/html")
+    assert "TraceRAG — NFL rules, with receipts" in response.text
+    assert 'id="question-form"' in response.text
+
+
+def test_demo_assets_are_served() -> None:
+    response = asyncio.run(get("/assets/styles.css"))
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/css")
+    assert "--field:" in response.text
+
+
 def test_health_reports_service_version() -> None:
     response = asyncio.run(get("/health"))
 

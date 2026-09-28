@@ -43,7 +43,7 @@ complexity.
 ## Milestone 5 — Public demo
 
 - [x] Create the public GitHub repository
-- [ ] Build the evidence and retrieval-trace UI
+- [x] Build the evidence and retrieval-trace UI
 - [ ] Add rate limits, caching, and a global inference budget
 - [ ] Deploy within free-tier quotas
 - [ ] Publish architecture, evaluation results, screenshots, and a short demo

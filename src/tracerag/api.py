@@ -5,9 +5,12 @@ https://fastapi.tiangolo.com/tutorial/first-steps/
 https://fastapi.tiangolo.com/tutorial/dependencies/#declare-the-dependency-in-the-dependant
 """
 
+from pathlib import Path
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, StringConstraints
 
 from tracerag import __version__
@@ -21,12 +24,14 @@ from tracerag.retrieval.models import RetrievalResult
 from tracerag.retrieval.service import Retriever
 
 settings = get_settings()
+static_directory = Path(__file__).with_name("static")
 
 app = FastAPI(
     title=settings.app_name,
     version=__version__,
     description="Evidence-first retrieval augmented generation.",
 )
+app.mount("/assets", StaticFiles(directory=static_directory), name="assets")
 
 
 class HealthResponse(BaseModel):
@@ -58,6 +63,13 @@ class AnswerRequest(BaseModel):
 
     question: Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=500)]
     top_k: int | None = Field(default=None, ge=1, le=20)
+
+
+@app.get("/", include_in_schema=False, response_class=FileResponse)
+def demo() -> FileResponse:
+    """Serve the evidence-first browser experience."""
+
+    return FileResponse(static_directory / "index.html")
 
 
 @app.get("/health", response_model=HealthResponse, tags=["system"])

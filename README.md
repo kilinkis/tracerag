@@ -25,6 +25,7 @@ TraceRAG currently provides:
 - Server-resolved citations and explicit abstention for unsupported rulings
 - Retrieval, model, token-usage, and latency traces in answer responses
 - A versioned evaluation set with retrieval, abstention, citation, latency, and usage metrics
+- A responsive evidence-first web interface served by the API
 - A milestone-based [delivery roadmap](docs/roadmap.md)
 
 Retrieval remains available as an independent endpoint so its quality can be evaluated separately
@@ -64,6 +65,7 @@ docker compose exec api tracerag-index
 
 Then open:
 
+- Web interface: <http://localhost:8000/>
 - Health check: <http://localhost:8000/health>
 - Corpus status: <http://localhost:8000/corpus/status>
 - Interactive API documentation: <http://localhost:8000/docs>
@@ -132,10 +134,12 @@ limitations.
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.
 
-## Initial architecture
+## Architecture
 
 ```mermaid
 flowchart LR
+    ui["Evidence-first<br/>web interface"]
+
     subgraph Ingestion["Corpus ingestion"]
         docs["Versioned rules<br/>Markdown corpus"] --> parser["Loader +<br/>structural chunker"]
         parser --> chunks["Rule passages<br/>with citations"]
@@ -153,6 +157,9 @@ flowchart LR
         validate -->|No| abstain["Explicit abstention"]
     end
 
+    ui --> question
+    answer --> ui
+    abstain --> ui
     store --> retrieve
     retrieve --> trace["Retrieval, model,<br/>tokens and latency"]
     generator --> trace
@@ -164,7 +171,7 @@ flowchart LR
     classDef decision fill:#fff7ed,stroke:#ea580c,color:#7c2d12
     classDef outcome fill:#fdf2f8,stroke:#db2777,color:#831843
 
-    class docs,question source
+    class ui,docs,question source
     class parser,embed,qembed,retrieve,generator,trace process
     class chunks,store,evidence data
     class validate decision

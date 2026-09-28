@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'self'"
+    >
+    <meta
+      name="description"
+      content="TraceRAG explains selected NFL rules with visible evidence, citations, and retrieval traces."
+    >
+    <title>TraceRAG — NFL rules, with receipts</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="module" src="/assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to the question</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label="TraceRAG home">
+          <span class="brand-mark" aria-hidden="true">TR</span>
+          <span class="brand-name">TraceRAG</span>
+        </a>
+        <nav class="header-links" aria-label="Project links">
+          <a href="/docs">API docs</a>
+          <a href="https://github.com/kilinkis/tracerag" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="intro shell" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow">2026 rules corpus · evidence-first RAG</p>
+          <h1 id="page-title">Ask the rule.<br><em>See the proof.</em></h1>
+          <p class="lede">
+            Get a plain-language NFL ruling backed by the exact passages the system retrieved.
+            When the evidence is incomplete, TraceRAG says so.
+          </p>
+        </div>
+
+        <dl class="corpus-stats" aria-label="Corpus snapshot">
+          <div>
+            <dt>Season</dt>
+            <dd id="stat-season">2026</dd>
+          </div>
+          <div>
+            <dt>Documents</dt>
+            <dd id="stat-documents">—</dd>
+          </div>
+          <div>
+            <dt>Passages</dt>
+            <dd id="stat-chunks">—</dd>
+          </div>
+          <div>
+            <dt>Rule refs</dt>
+            <dd id="stat-rules">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="workspace shell" aria-labelledby="question-heading">
+        <form id="question-form" class="question-form">
+          <div class="form-heading">
+            <div>
+              <p class="section-number">01 / Question</p>
+              <h2 id="question-heading">Describe the rule or play</h2>
+            </div>
+            <span class="scope-note">Selected NFL playing rules</span>
+          </div>
+
+          <label class="sr-only" for="question">NFL rules question</label>
+          <textarea
+            id="question"
+            name="question"
+            rows="4"
+            minlength="3"
+            maxlength="500"
+            required
+            placeholder="Example: A receiver controls the ball, gets both feet down, turns upfield, then loses it. Catch or incomplete?"
+          ></textarea>
+
+          <div class="form-actions">
+            <p class="character-count"><span id="character-count">0</span> / 500</p>
+            <button id="submit-question" class="primary-action" type="submit">
+              <span>Review the play</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="examples" aria-labelledby="examples-heading">
+          <p id="examples-heading">Try an example</p>
+          <div class="example-list">
+            <button type="button" data-question="What makes a sideline catch complete?">
+              Sideline catch
+            </button>
+            <button
+              type="button"
+              data-question="On fourth down, who may advance an offensive fumble?"
+            >
+              Fourth-down fumble
+            </button>
+            <button
+              type="button"
+              data-question="The offense committed a foul with 30 seconds left. Is there a ten-second runoff?"
+            >
+              Incomplete scenario
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+
+      <section id="result-region" class="result-region shell" aria-live="polite">
+        <div class="empty-state">
+          <p class="section-number">02 / Ruling</p>
+          <p class="empty-kicker">Ready for review</p>
+          <h2>The evidence trail will appear here.</h2>
+          <p>
+            Every supported ruling includes citations, retrieved passages, model details, latency,
+            and token usage.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>TraceRAG is independent and is not affiliated with the National Football League.</p>
+        <p>Original explanations · Official rulebook links · Versioned corpus</p>
+      </div>
+    </footer>
+  </body>
+</html>
