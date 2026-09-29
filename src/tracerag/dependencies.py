@@ -2,7 +2,8 @@
 
 from functools import lru_cache
 
-from tracerag.answering.generator import GroqAnswerGenerator
+from tracerag.answering.generator import AnswerGenerator, GroqAnswerGenerator
+from tracerag.answering.langchain_generator import LangChainGroqAnswerGenerator
 from tracerag.answering.service import AnswerService
 from tracerag.config import get_settings
 from tracerag.embeddings import FastEmbedProvider
@@ -35,18 +36,22 @@ def get_retriever() -> Retriever:
 
 
 @lru_cache
-def get_answer_generator() -> GroqAnswerGenerator:
+def get_answer_generator() -> AnswerGenerator:
     settings = get_settings()
-    return GroqAnswerGenerator(
-        api_key=(
-            settings.groq_api_key.get_secret_value() if settings.groq_api_key is not None else None
-        ),
-        model_name=settings.generation_model,
-        timeout_seconds=settings.generation_timeout_seconds,
-        max_completion_tokens=settings.generation_max_completion_tokens,
-        reasoning_effort=settings.generation_reasoning_effort,
-        structured_output_retries=settings.generation_structured_output_retries,
+    api_key = (
+        settings.groq_api_key.get_secret_value() if settings.groq_api_key is not None else None
     )
+    arguments = {
+        "api_key": api_key,
+        "model_name": settings.generation_model,
+        "timeout_seconds": settings.generation_timeout_seconds,
+        "max_completion_tokens": settings.generation_max_completion_tokens,
+        "reasoning_effort": settings.generation_reasoning_effort,
+        "structured_output_retries": settings.generation_structured_output_retries,
+    }
+    if settings.generation_backend == "langchain":
+        return LangChainGroqAnswerGenerator(**arguments)
+    return GroqAnswerGenerator(**arguments)
 
 
 @lru_cache

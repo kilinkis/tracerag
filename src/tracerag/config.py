@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     corpus_season: int = 2026
     retrieval_top_k: int = 5
     groq_api_key: SecretStr | None = None
+    generation_backend: Literal["groq-sdk", "langchain"] = "groq-sdk"
     generation_model: str = "openai/gpt-oss-20b"
     generation_timeout_seconds: float = Field(default=20.0, gt=0)
     generation_max_completion_tokens: int = Field(default=1400, ge=1, le=4096)
