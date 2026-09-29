@@ -20,7 +20,7 @@ function announce(message) {
 function setSubmitting(isSubmitting) {
   questionInput.disabled = isSubmitting;
   submitButton.disabled = isSubmitting;
-  submitButton.querySelector("span").textContent = isSubmitting ? "Reviewing evidence" : "Review the play";
+  submitButton.querySelector("span").textContent = isSubmitting ? "Reviewing evidence" : "Send to review";
 }
 
 function updateCharacterCount() {

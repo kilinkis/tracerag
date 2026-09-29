@@ -19,8 +19,8 @@ function renderTrace(trace) {
   const panel = element("aside", "trace-panel");
   panel.setAttribute("aria-labelledby", "trace-heading");
   panel.append(
-    element("p", "section-number", "03 / Execution trace"),
-    element("h2", null, "How this was decided"),
+    element("p", "section-number", "Play 03 / Booth telemetry"),
+    element("h2", null, "How the call was made"),
   );
 
   const metrics = element("dl", "trace-grid");
@@ -65,8 +65,8 @@ function renderEvidence(matches, citedChunkIds) {
   const heading = element("div", "evidence-heading");
   const titleGroup = element("div");
   titleGroup.append(
-    element("p", "section-number", "04 / Retrieved evidence"),
-    element("h2", null, "Passages considered"),
+    element("p", "section-number", "Play 04 / Replay evidence"),
+    element("h2", null, "Passages reviewed"),
   );
   heading.append(titleGroup, element("p", "evidence-count", `${matches.length} ranked passages`));
   section.append(heading);
@@ -109,8 +109,8 @@ function answerPanel(result, evidenceIds) {
   const panel = element("article", `answer-panel ${result.abstained ? "is-abstention" : "is-supported"}`);
   const headingRow = element("div", "answer-heading");
   headingRow.append(
-    element("p", "section-number", "02 / Ruling"),
-    element("span", "result-status", result.abstained ? "Abstained" : "Evidence verified"),
+    element("p", "section-number", "Play 02 / Booth decision"),
+    element("span", "result-status", result.abstained ? "No ruling" : "Call verified"),
   );
   panel.append(headingRow);
 
@@ -122,7 +122,7 @@ function answerPanel(result, evidenceIds) {
     );
   } else {
     panel.append(
-      element("p", "answer-kicker", `2026 NFL rules · ${result.citations.length} citation${result.citations.length === 1 ? "" : "s"}`),
+      element("p", "answer-kicker", `Ruling on the field · ${result.citations.length} citation${result.citations.length === 1 ? "" : "s"}`),
       element("h2", null, result.ruling),
       element("p", "answer-explanation", result.explanation),
       renderCitations(result.citations, evidenceIds),
@@ -146,7 +146,7 @@ export function renderAnswer(region, result) {
 export function renderLoading(region) {
   const loading = element("div", "loading-state");
   loading.append(
-    element("p", "section-number", "02 / Reviewing"),
+    element("p", "section-number", "Play 02 / Reviewing the play"),
     element("div", "skeleton skeleton-short"),
     element("div", "skeleton skeleton-title"),
     element("div", "skeleton"),
@@ -160,7 +160,7 @@ export function renderError(region, error, retry) {
   const panel = element("div", "error-state");
   const title = error.status === 502 ? "The model provider is busy." : "The ruling could not be completed.";
   panel.append(
-    element("p", "section-number", "02 / Request interrupted"),
+    element("p", "section-number", "Play 02 / Review interrupted"),
     element("p", "error-code", error.status ? `HTTP ${error.status}` : "Connection error"),
     element("h2", null, title),
     element("p", null, error.message),

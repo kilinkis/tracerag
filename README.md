@@ -7,6 +7,18 @@ quality metrics, latency, and cost.
 The core keeps retrieval mechanics explicit and measurable. Framework integrations, including
 LangChain, remain replaceable adapters and are evaluated against the same benchmark.
 
+## Interface
+
+The browser experience frames each question as a play under review while keeping corpus scope and
+retrieval behavior visible.
+
+![TraceRAG question interface on a football field](output/playwright/tracerag-question.png)
+
+A supported ruling shows the model's answer beside execution telemetry, then exposes the ranked
+passages and identifies which ones were accepted as citations.
+
+![TraceRAG grounded ruling with citations, telemetry, and retrieved evidence](output/playwright/tracerag-grounded-answer.png)
+
 ## Features
 
 TraceRAG currently provides:
@@ -176,6 +188,31 @@ flowchart LR
     class chunks,store,evidence data
     class validate decision
     class answer,abstain outcome
+```
+
+### Grounding and citation trust boundary
+
+The generator is allowed to propose an answer and cite passage IDs, but it never creates trusted
+citation metadata. The application treats the retrieved passage IDs as an allowlist and resolves
+the final source titles, rule references, and URLs itself.
+
+```mermaid
+flowchart LR
+    question["Question"] --> retrieval["Retrieve top-k passages"]
+    store[("pgvector")] --> retrieval
+    retrieval --> evidence["Trusted passages<br/>+ chunk IDs"]
+    evidence -->|"question + evidence"| llm["LLM<br/>untrusted draft"]
+    llm -->|"answer + proposed IDs"| verifier{"Every cited ID<br/>was retrieved?"}
+    evidence -->|"allowlist"| verifier
+    verifier -->|"Yes"| citations["Server-resolved<br/>citations"]
+    verifier -->|"No"| abstention["Explicit abstention"]
+
+    classDef trusted fill:#e8f3e8,stroke:#176440,color:#14211c
+    classDef untrusted fill:#f3dfcf,stroke:#a84b1d,color:#54200f
+    classDef decision fill:#fff5c2,stroke:#9b7a00,color:#3b3100
+    class question,retrieval,store,evidence,citations,abstention trusted
+    class llm untrusted
+    class verifier decision
 ```
 
 The components will communicate through small project-owned interfaces. Provider and framework
