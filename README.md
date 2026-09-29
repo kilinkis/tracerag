@@ -33,12 +33,12 @@ TraceRAG currently provides:
 - Exact cosine retrieval through PostgreSQL and pgvector
 - A corpus status endpoint
 - Grounded answer generation through Groq and `openai/gpt-oss-20b`
+- Replaceable direct-SDK and LangChain generation adapters
 - Targeted recovery from intermittent structured-output validation failures
 - Server-resolved citations and explicit abstention for unsupported rulings
 - Retrieval, model, token-usage, and latency traces in answer responses
 - A versioned evaluation set with retrieval, abstention, citation, latency, and usage metrics
 - A responsive evidence-first web interface served by the API
-- A milestone-based [delivery roadmap](docs/roadmap.md)
 
 Retrieval remains available as an independent endpoint so its quality can be evaluated separately
 from answer generation.
@@ -109,6 +109,20 @@ Generation defaults to the model's `medium` reasoning effort. It can be changed 
 validation failures. Successful answer traces expose `generation_attempts`; exhausted provider
 errors remain HTTP 502 responses rather than being converted into abstentions.
 
+### Comparing the generation adapters
+
+The direct Groq SDK remains the default. To run the same pipeline through LangChain instead, set
+the backend before starting the stack:
+
+```bash
+TRACERAG_GENERATION_BACKEND=langchain docker compose up --build
+```
+
+Both adapters use the same model, system prompt, retrieved passages, output schema, retry budget,
+and server-side citation verification. This isolates the framework as the comparison variable. See
+the [LangChain comparison](docs/langchain-comparison.md) for the design rationale and benchmark
+commands.
+
 ## Evaluation
 
 Run the deterministic retrieval benchmark against the indexed corpus:
@@ -163,7 +177,7 @@ flowchart LR
         question["NFL rules question"] --> qembed["Query embedding"]
         qembed --> retrieve["Exact cosine<br/>retrieval"]
         retrieve --> evidence["Retrieved evidence<br/>and passage IDs"]
-        evidence --> generator["Groq generator<br/>openai/gpt-oss-20b"]
+        evidence --> generator["Generator adapter<br/>Groq SDK or LangChain"]
         generator --> validate{"Citations reference<br/>retrieved evidence?"}
         validate -->|Yes| answer["Grounded answer<br/>with resolved citations"]
         validate -->|No| abstain["Explicit abstention"]
@@ -253,4 +267,7 @@ advice, college rules, and live officiating decisions are outside its scope.
 - [Groq Python SDK](https://github.com/groq/groq-python)
 - [Groq structured outputs](https://console.groq.com/docs/structured-outputs)
 - [Groq API reference](https://console.groq.com/docs/api-reference)
+- [Groq OpenAI compatibility](https://console.groq.com/docs/openai)
+- [LangChain model structured output](https://docs.langchain.com/oss/python/langchain/models#structured-output)
+- [LangChain OpenAI integration](https://docs.langchain.com/oss/python/integrations/chat/openai)
 - [2026 NFL Rulebook](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)
