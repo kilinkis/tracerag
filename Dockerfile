@@ -1,6 +1,6 @@
 # uv's documented Docker integration uses its official image and a locked sync:
 # https://docs.astral.sh/uv/guides/integration/docker/
-FROM ghcr.io/astral-sh/uv:0.12.13 AS uv
+FROM ghcr.io/astral-sh/uv:0.12.22 AS uv
 
 FROM python:3.13-slim
 
