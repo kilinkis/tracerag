@@ -25,7 +25,7 @@ tracerag-evaluate = "tracerag.cli:evaluate_corpus"
 
 [dependency-groups]
 dev = [
-  "httpx2==2.12.0",
+  "httpx2==2.13.1",
   "pytest>=9.1,<10",
   "pytest-cov>=7,<8",
   "ruff>=0.13,<1",
