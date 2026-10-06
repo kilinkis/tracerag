@@ -2,7 +2,7 @@
 # https://docs.astral.sh/uv/guides/integration/docker/
 FROM ghcr.io/astral-sh/uv:0.12.13 AS uv
 
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 COPY --from=uv /uv /uvx /bin/
 
