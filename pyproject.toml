@@ -11,7 +11,7 @@ description = "An evidence-first RAG system with transparent retrieval and evalu
 readme = "README.md"
 requires-python = ">=3.13,<3.15"
 dependencies = [
-  "fastapi[standard-no-fastapi-cloud-cli]==0.141.1",
+  "fastapi[standard-no-fastapi-cloud-cli]==0.143.0",
   "fastembed==0.8.0",
   "groq==1.7.0",
   "pgvector==0.5.0",
