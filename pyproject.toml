@@ -9,7 +9,7 @@ name = "tracerag"
 version = "0.1.0"
 description = "An evidence-first RAG system with transparent retrieval and evaluation"
 readme = "README.md"
-requires-python = ">=3.13,<3.15"
+requires-python = ">=3.15,<3.16"
 dependencies = [
   "fastapi[standard-no-fastapi-cloud-cli]==0.141.1",
   "fastembed==0.8.0",
