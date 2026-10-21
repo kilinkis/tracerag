@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "dataset_fingerprint": "f12fa30beca64a22f37d1f874e7b5ff43c095e56c1fc9979f40bb7e4a4a350c7",
+  "report_fingerprint": "ecce23aecf9e3f8ea007e94ab2434199e903d77c46328b410a98e302a9e8a13f",
+  "reviewer": "Codex assistant; qualitative review against frozen local-corpus rubrics",
+  "review_kind": "model_assisted",
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "question": "What actions count as a football act after controlling a pass?",
+      "ruling": "A football act after controlling a pass is any act common to the game, such as taking an additional step, tucking the ball and turning upfield, extending the ball, or avoiding an opponent.",
+      "explanation": "The rule states that once a player has first controlled the ball and established in\u2011bounds status, he must either maintain control long enough to perform a football act or actually perform an act common to the game. The rule lists examples of such acts: taking an additional step, tucking the ball and turning upfield, extending the ball, or avoiding an opponent. These actions satisfy the requirement for a football act after the catch.",
+      "criteria": [
+        {
+          "requirement": "Names corpus examples such as an additional step, tucking and turning upfield, extending the ball, or avoiding an opponent.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "ruling": "The pass is ruled incomplete when the receiver has established control of the ball and has gotten both feet (or another qualifying body part) down, but has not yet performed a football act nor maintained control long enough to perform one, and then loses control as he contacts the ground.",
+      "explanation": "The evidence states that a player must first control the ball and get two feet (or another qualifying body part) down. If, at that point, the player has neither performed a football act nor kept control long enough to do so, losing control when the ground is contacted makes the pass incomplete. Once all elements of the catch are completed, a later loss would be a fumble, not an incompletion.",
+      "criteria": [
+        {
+          "requirement": "Losing control on ground contact before a football act (or sufficient time for one) makes the pass incomplete.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "After all catch requirements are satisfied, maintaining control through the ground is not required; a later loss can be a fumble.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "question": "Is a pass automatically incomplete whenever the ball touches the ground?",
+      "ruling": "No, a pass is not automatically incomplete when the ball touches the ground; it is incomplete only if the receiver loses control upon contact with the ground before completing the catch.",
+      "explanation": "The evidence states that if a player has control and gets both feet down but has not yet performed a football act or maintained control long enough, losing control when contacting the ground makes the pass incomplete. However, it also says the ball may touch the ground without causing an incompletion when the player maintains control and the ground does not cause loss of control. Therefore, a pass is not automatically incomplete merely because the ball touches the ground.",
+      "criteria": [
+        {
+          "requirement": "Answers no: ground contact alone does not automatically make the pass incomplete.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Explains that control must be maintained and the ground must not cause its loss.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling says incomplete only if control is lost on ground contact; this is an overbroad exclusive condition and does not retain other ways catch requirements can fail."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "question": "Can a defensive penalty award the offense a new series?",
+      "ruling": "Yes, a defensive penalty can award the offense a new series.",
+      "explanation": "The rules state that the offense normally gets a new series when the ball is declared dead in its possession at or beyond the line to gain. Additionally, a defensive penalty can create a new series by moving the ball to the line to gain or by awarding an automatic first down, which directly gives the offense a fresh set of downs.",
+      "criteria": [
+        {
+          "requirement": "Answers yes: a defensive penalty can produce a new series.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Distinguishes reaching the line to gain through enforcement from an automatic first down; does not say every defensive penalty awards one.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "question": "What conditions make a forward pass legal?",
+      "ruling": "A forward pass is legal when it is the only forward pass thrown during the down, is released while the passer\u2019s entire body and the ball are still behind the line of scrimmage, and is not thrown after a change of possession or after the ball has crossed the line of scrimmage and been brought back behind it.",
+      "explanation": "The evidence states the offense may throw one forward pass per down and the pass must be released from behind the line of scrimmage. It also lists illegal situations: a second forward pass, a pass released after a change of possession, or a pass released when the passer\u2019s entire body and the ball are beyond the line of scrimmage. Therefore, meeting the opposite of those illegal conditions\u2014being the first (only) forward pass, released from behind the LOS, and before any change of possession\u2014makes the forward pass legal.",
+      "criteria": [
+        {
+          "requirement": "Allows one forward pass by the offense during a down, released from behind the line of scrimmage.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "The ball cannot cross the line, return behind it, and then be thrown forward.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "A forward pass after a change of possession is illegal.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling requires the entire body and ball behind the line; evidence prohibits entire body and ball beyond it. This adds a stricter requirement."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "question": "How can a passer outside the pocket avoid intentional grounding?",
+      "ruling": "A passer who is outside the pocket can avoid an intentional\u2011grounding penalty by throwing the ball to or beyond the line of scrimmage, even if no eligible receiver is in the immediate area to catch it.",
+      "explanation": "The evidence states that intentional grounding occurs when a passer under pressure throws a forward pass without a realistic eligible receiver in the direction and vicinity of the throw. It further explains that a passer who has left the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, regardless of whether a receiver has a realistic chance to catch it. Therefore, the way for a passer outside the pocket to avoid the penalty is to ensure the throw reaches or passes the line of scrimmage.",
+      "criteria": [
+        {
+          "requirement": "A passer who has been outside the pocket can avoid grounding by throwing to or beyond the line of scrimmage.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "No nearby receiver is required for that exception; does not imply that leaving the pocket alone is sufficient.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "eligibility-positions",
+      "question": "Which offensive positions are eligible receivers?",
+      "ruling": "The eligible offensive receivers are the players positioned at the two ends of the line of scrimmage and any players who line up at least one yard behind the line (provided they wear eligible numbers or have reported eligibility).",
+      "explanation": "The question asks which offensive positions can legally catch a forward pass. The evidence states that for a forward pass, eligible offensive receivers include the players on the two ends of the line and players positioned at least one yard behind the line, and they must wear eligible numbers or have reported an eligible status. It also clarifies that interior linemen are not eligible merely because of their numbers. Thus, the eligible positions are the line\u2011ends and backfield players meeting the number/reporting requirements.",
+      "criteria": [
+        {
+          "requirement": "Identifies the two ends of the line and players at least one yard behind it as eligible offensive positions.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Requires eligible numbers or permitted reporting; interior linemen are not eligible merely because of their numbers.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "question": "He secures the pass, taps both toes inbounds, turns upfield, and only then loses the ball. Was the reception already completed?",
+      "ruling": "Reception completed; the later loss of the ball is a fumble.",
+      "explanation": "The player first secured control of the ball, then got both feet (toes) down inbounds, satisfying the control and two\u2011feet requirement. After that he performed a football act by turning upfield. According to the rules, once control, both feet inbounds, and a football act (or sufficient time) are achieved, the catch is complete, and any subsequent loss of the ball is treated as a fumble, not an incomplete pass.",
+      "criteria": [
+        {
+          "requirement": "Concludes that the stated control, both toes inbounds, and turn upfield satisfy the catch requirements before the loss.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Explains that a later loss does not retroactively make that reception incomplete and may be a fumble.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "question": "A pressured quarterback escapes the tackle box and sails the throw past the original line of scrimmage with nobody nearby. Can that avoid grounding?",
+      "ruling": "The pass is not intentional grounding; the quarterback avoids grounding by being outside the pocket and throwing beyond the line of scrimmage.",
+      "explanation": "The evidence states that a passer who has left the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if no realistic eligible receiver is in the area. In the scenario the quarterback escapes the tackle box (outside the pocket) and sails the throw past the original line of scrimmage with nobody nearby, satisfying that condition, so grounding does not apply.",
+      "criteria": [
+        {
+          "requirement": "Answers that the described throw can avoid grounding because the passer escaped the tackle box and threw beyond the original line of scrimmage.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Explains that no nearby receiver is needed for the outside-pocket exception.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "question": "For a receiver at the goal line, how do the completed-catch requirements and the touchdown rule work together?",
+      "ruling": "The receiver must first satisfy the completed\u2011catch elements\u2014establish control, get both feet (or another qualifying body part) inbounds, and then either perform a football act or maintain control long enough to perform one\u2014before the ball is considered possessed on, above, or beyond the goal\u2011line plane; once those catch requirements are met and the ball is in that position, a touchdown is scored and the ball is dead.",
+      "explanation": "The scoring rule states a runner scores when possessing the ball on, above, or beyond the plane of the opponent\u2019s goal line and the ball becomes dead as soon as the touchdown requirement is satisfied (Chunk 8b21666e2612b579). However, for a receiver in the end zone the rule adds that the receiver must first complete the catch requirements. The catch rule requires control of the ball, both feet (or another body part) inbounds, and then a football act or enough time to perform one (Chunk 0a20866cb0efeb92). Thus the receiver must first meet those catch criteria, and only after the catch is complete does the possession on the goal\u2011line plane trigger the touchdown.",
+      "criteria": [
+        {
+          "requirement": "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Explains that merely reaching the goal-line plane does not replace catch requirements for a receiver; possession for a completed catch must support the touchdown.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Connects the catch and scoring rules without unconditionally awarding a touchdown from unspecified play facts.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "question": "On fourth down, a runner fumbles before the line to gain and a teammate recovers beyond it. Which rule areas must be resolved to decide whether the offense earned a new series?",
+      "ruling": "The determination hinges on the Downs/Series rules (turnover on downs and the criteria for earning a new series) and the Fumbles rules that restrict advancing a fumble on fourth down.",
+      "explanation": "The scenario involves a fourth\u2011down play, so the \"Turnover on downs\" provision (3716ae2e830730a8) and the \"Earning a new series\" provision (ee8002689e24b782) must be examined to see if the ball was dead in the offense\u2019s possession at or beyond the line to gain. At the same time, the \"Fumbles\" provision (94b8e4f86e459655) must be applied because special restrictions govern whether an offensive player may advance a fumble on fourth down. Both rule areas must be resolved to decide if the offense earned a new series or turned the ball over.",
+      "criteria": [
+        {
+          "requirement": "Identifies fourth-down offensive fumble-advancement restrictions as an issue that must be resolved.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Connects the resulting dead-ball position and possession to the line-to-gain/new-series rule.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Does not assume teammate recovery beyond the line automatically earns a first down or invent detailed restrictions absent from the corpus.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Meets the frozen criterion when ruling and explanation are read together."
+        }
+      ]
+    }
+  ]
+}

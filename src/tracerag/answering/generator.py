@@ -59,11 +59,13 @@ class GenerationError(RuntimeError):
         attempts: int = 0,
         provider_status_code: int | None = None,
         provider_error_code: str | None = None,
+        rate_limit_headers: dict[str, str] | None = None,
     ) -> None:
         super().__init__(message)
         self.attempts = attempts
         self.provider_status_code = provider_status_code
         self.provider_error_code = provider_error_code
+        self.rate_limit_headers = rate_limit_headers or {}
 
 
 class GenerationUnavailableError(GenerationError):
@@ -96,6 +98,7 @@ class GroqAnswerGenerator:
         reasoning_effort: Literal["low", "medium", "high"] = "medium",
         structured_output_retries: int = 1,
         client: Groq | None = None,
+        system_prompt: str = SYSTEM_PROMPT,
     ) -> None:
         if structured_output_retries < 0:
             raise ValueError("structured_output_retries cannot be negative")
@@ -106,6 +109,7 @@ class GroqAnswerGenerator:
         self._reasoning_effort = reasoning_effort
         self._structured_output_retries = structured_output_retries
         self._provided_client = client
+        self._system_prompt = system_prompt
 
     @property
     def model_name(self) -> str:
@@ -116,9 +120,7 @@ class GroqAnswerGenerator:
         if self._provided_client is not None:
             return self._provided_client
         if not self._api_key:
-            raise GenerationUnavailableError(
-                "answer generation requires TRACERAG_GROQ_API_KEY"
-            )
+            raise GenerationUnavailableError("answer generation requires TRACERAG_GROQ_API_KEY")
         return Groq(
             api_key=self._api_key,
             timeout=self._timeout_seconds,
@@ -140,7 +142,7 @@ class GroqAnswerGenerator:
                 completion = self._client.chat.completions.create(
                     model=self.model_name,
                     messages=[
-                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "system", "content": self._system_prompt},
                         {
                             "role": "user",
                             "content": self._build_user_message(question, evidence),
@@ -217,11 +219,19 @@ class GroqAnswerGenerator:
             details = body.get("error")
             if isinstance(details, dict) and isinstance(details.get("code"), str):
                 provider_error_code = details["code"]
+        response = getattr(error, "response", None)
         return GenerationError(
             "the generation provider request failed",
             attempts=attempts,
             provider_status_code=getattr(error, "status_code", None),
             provider_error_code=provider_error_code,
+            rate_limit_headers={
+                key: value
+                for key, value in response.headers.items()
+                if key.lower().startswith(("retry-after", "x-ratelimit-"))
+            }
+            if response is not None
+            else {},
         )
 
     @staticmethod

@@ -1,0 +1,111 @@
+{
+  "dataset": "nfl-rules-v3.1-guardrail-check",
+  "report_fingerprint": "ecce23aecf9e3f8ea007e94ab2434199e903d77c46328b410a98e302a9e8a13f",
+  "reviewer": "Codex assistant; qualitative review against frozen local-corpus rubrics",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 11,
+  "answer_correctness": 0.8181818181818182,
+  "mean_criterion_score": 0.9469696969696969,
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling says incomplete only if control is lost on ground contact; this is an overbroad exclusive condition and does not retain other ways catch requirements can fail."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling requires the entire body and ball behind the line; evidence prohibits entire body and ball beyond it. This adds a stricter requirement."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    }
+  ]
+}
