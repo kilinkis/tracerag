@@ -1,11 +1,56 @@
 # Evaluation baseline
 
-The current v3 dataset preserves the 50 questions and source labels from v2 and adds correctness
-rubrics for all 40 answerable cases. The results below are historical v1/v2 measurements; no v3
-answer-correctness result has been recorded. The benchmark contains 40 questions answerable from
+The current v3.1 dataset preserves the 50 questions and source labels from v2 and adds correctness
+rubrics for all 40 answerable cases. Historical v1/v2 measurements are retained below. A fresh v3
+text review and its raw artifacts are recorded in the [2026-10-21 experiment](../evals/runs/2026-10-21-v3/README.md). The benchmark contains 40 questions answerable from
 the corpus and ten that should produce an abstention. Tags separate ordinary questions from paraphrases, confounders,
 multi-document questions, incomplete scenarios, near-domain questions, and adversarial
 instructions.
+
+## Fresh text review (2026-10-21)
+
+These are model-assisted Codex reviews of the saved answer text, with an independent model checking
+material errors. They are not human-adjudicated NFL accuracy measurements. Both full runs contain
+the same 50 questions: 40 answerable cases and ten expected abstentions.
+
+| Measurement | Initial v3, k=3 | Follow-up v3.1, k=5 |
+| --- | ---: | ---: |
+| All rubric requirements passed | 24/40 (60%) | 31/40 (77.5%) |
+| Mean per-case criterion score | 81.875% | 90.625% |
+| Abstention accuracy, including generation failures | 98% | 96% |
+| Expected abstentions actually produced | 10/10 | 8/10 |
+| Expected-document coverage | 97.5% | 97.5% |
+| Citation-document precision | 100% | 96.08% |
+| Generation failures | 1/50 | 1/50 |
+| Mean successful-answer latency | 6,592.17 ms | 12,967.09 ms |
+| Reported tokens for successful answers | 71,498 | 99,006 |
+
+The initial rubric had unnecessary mandatory details, such as requiring a general fumble-timing
+answer to explicitly request more play facts. V3.1 makes those demands conditional and scopes the
+out-of-bounds rule to eligible offensive receivers. The follow-up also changes the prompt and
+retrieval depth. The aggregate score difference therefore is **not a controlled prompt-only effect**.
+
+The text review detected errors invisible to the document matcher: an incomplete ruling for a
+scenario that already stated a turn upfield, an added entire-body-behind-the-line requirement for
+legal passes, and an explanation that treated mere ground contact as incompletion. Those particular
+errors were corrected in the full follow-up outputs. Other mistakes remained, and the follow-up
+incorrectly answered an ambiguous catch question rather than abstaining. Its late-foul question
+failed local structured-answer validation; the initial run's failure was a provider request failure
+without an HTTP status. Neither failure is silently replaced by a successful rerun.
+
+A valid extra citation can also lower the automatic citation-document precision: the follow-up
+ball-touching-ground answer correctly explains backward passes and cites `passes-and-fumbles`,
+which is outside that case's annotated `completing-a-catch` document set. This metric measures
+agreement with source labels, not an exhaustive judgment of every valid supporting document.
+
+The [recorded experiment](../evals/runs/2026-10-21-v3/README.md) contains frozen datasets, prompts,
+raw reports, reviews, scores, manifests, and later targeted checks. The final guard changes and
+corpus clarification are checked on a selected subset rather than another full 50-case run; those
+checks must not be presented as a new full-set correctness percentage. The first selected check
+completed 13 generations, correctly abstained on both ambiguous scenarios, and passed every
+requirement on 6/11 answerable cases. Its repetition hit eight HTTP 429s; that operationally
+limited attempt and a paced retry are preserved separately. All eight paced retries also
+returned HTTP 429, so repeated text validation could not be completed for those cases.
 
 ## Retrieval benchmark (v2)
 
@@ -25,10 +70,13 @@ of `scoring`. Each multi-evidence question retrieved one of its two required doc
 50% recall for that tag. All expected documents were present by `k=3`; increasing to five passages
 did not improve retrieval quality on this dataset.
 
-The perfect recall at `k=3` leaves no measured recall headroom for a hybrid retriever yet. A lexical
+The perfect document-level recall at `k=3` leaves no measured document-level recall headroom for
+a hybrid retriever on this dataset. A lexical
 or fused retriever should be added only with harder cases or a larger corpus that demonstrates a
 failure it can address. Rank quality and the amount of evidence sent to generation remain useful
-optimization targets.
+optimization targets. The fresh v3 experiment found a limitation of this metric: a required
+catch-definition section ranked fourth or fifth even though its document was already present
+at `k=3`. Document recall alone therefore does not establish that generation has all needed context.
 
 Ambiguous and near-domain cases intentionally have no expected supporting document, so they are
 excluded from retrieval relevance metrics. They are evaluated through answer abstention behavior.
@@ -120,7 +168,7 @@ numbers above are unchanged; only the label has been corrected. JSON fields are 
 `grounded_ruling_accuracy` and `grounded_ruling_correct`. Consumers must update their field names.
 Neither citation metric reads ruling text or establishes answer correctness.
 
-## Answer correctness (v3): human rubric review
+## Answer correctness (v3): attributed rubric review
 
 Each answerable question in `evals/nfl-rules.json` now has an `answer_rubric` with explicit rule
 facts, necessary qualifications, and a check for other material unsupported or contradictory
@@ -134,7 +182,8 @@ New answer reports save the generated `ruling`, `explanation`, `generation_model
 rubric and the actual retrieved passages, and marks each requirement `passed: true` or
 `passed: false`. Accept equivalent wording; matching keywords alone is insufficient. Conditional
 requirements apply only when that subject is discussed. Every failed requirement needs a note
-explaining the error or omission. Identify the reviewer in the review file.
+explaining the error or omission. Identify the reviewer in the review file. Set `review_kind` to
+`human` or `model_assisted` so the score records how the judgments were made.
 
 The offline scorer reports:
 
@@ -154,9 +203,9 @@ For example, an answer saying "a touchdown is worth ten points" while citing `sc
 expected-document coverage. It must fail the six-point correctness criterion and the check for
 contradictory rule claims. Correct citations alone no longer determine its correctness score.
 
-This is a human scoring workflow: the script calculates metrics from explicit reviewer judgments;
-it does not automatically understand or judge the answer text. No correctness percentage is
-claimed until a fresh report has been reviewed. Historical reports lack the saved text required
+The script calculates metrics from explicit reviewer judgments; it does not automatically
+understand or judge the answer text. Model-assisted reviews must be labeled as such, and do not
+establish human agreement with the judgments. A correctness percentage is reported only for a saved, completed review. Historical reports lack the saved text required
 for this review and cannot be retroactively assigned correctness scores from their old metrics.
 
 ## Interpretation and limitations
@@ -190,7 +239,7 @@ docker compose exec api tracerag-evaluate --top-k-sweep 1 3 5
 Run the complete answer evaluation:
 
 ```bash
-docker compose exec -T api tracerag-evaluate --top-k 3 --answers > answer-report.json
+docker compose exec -T api tracerag-evaluate --top-k 5 --answers > answer-report.json
 ```
 
 Export an offline review template on the host (using the updated checkout):
@@ -199,7 +248,8 @@ Export an offline review template on the host (using the updated checkout):
 uv run tracerag-review --report answer-report.json > answer-review.json
 ```
 
-Edit `answer-review.json`: fill in `reviewer` and replace each `passed: null` with a boolean.
+Edit `answer-review.json`: fill in `reviewer`, set the appropriate `review_kind`, and replace each
+`passed: null` with a boolean.
 Read the corresponding `evidence` in `answer-report.json` while grading. Add notes for every
 failed requirement. Leave the answer text, rubric requirements, and fingerprints unchanged.
 Then score the completed review without calling the generation provider:

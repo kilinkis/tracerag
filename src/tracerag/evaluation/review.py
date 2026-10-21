@@ -1,4 +1,4 @@
-"""Create and score human rubric reviews bound to saved benchmark outputs."""
+"""Create and score attributed rubric reviews bound to saved benchmark outputs."""
 
 from __future__ import annotations
 
@@ -36,6 +36,7 @@ class AnswerReview(BaseModel):
     dataset_fingerprint: str
     report_fingerprint: str
     reviewer: str = ""
+    review_kind: Literal["human", "model_assisted"] = "human"
     cases: tuple[CaseReview, ...]
 
 
@@ -147,7 +148,7 @@ def score_review(
         "dataset": dataset.name,
         "report_fingerprint": review.report_fingerprint,
         "reviewer": review.reviewer,
-        "scoring_method": "human_rubric_review",
+        "scoring_method": f"{review.review_kind}_rubric_review",
         "evaluated_cases": len(scores),
         "answer_correctness": sum(s["answer_correct"] for s in scores) / len(scores),
         "mean_criterion_score": sum(s["criterion_score"] for s in scores) / len(scores),

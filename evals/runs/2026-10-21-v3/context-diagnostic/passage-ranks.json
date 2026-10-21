@@ -1,0 +1,117 @@
+{
+  "note": "Post-hoc diagnosis of two failures, not a new full retrieval benchmark.",
+  "cases": [
+    {
+      "case_id": "catch-going-to-ground",
+      "required_context_heading": "Elements of a completed catch",
+      "passages": [
+        {
+          "rank": 1,
+          "chunk_id": "0ef8334898d575f2",
+          "document_id": "completing-a-catch",
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "score": 0.8543211221694946
+        },
+        {
+          "rank": 2,
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "score": 0.796360969543457
+        },
+        {
+          "rank": 3,
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "score": 0.7830336689949036
+        },
+        {
+          "rank": 4,
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "score": 0.7802971136392897
+        },
+        {
+          "rank": 5,
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "score": 0.7675903300994845
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "required_context_heading": "Elements of a completed catch",
+      "passages": [
+        {
+          "rank": 1,
+          "chunk_id": "0ef8334898d575f2",
+          "document_id": "completing-a-catch",
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "score": 0.684508204460144
+        },
+        {
+          "rank": 2,
+          "chunk_id": "5aea1979b4065689",
+          "document_id": "completing-a-catch",
+          "heading_path": [
+            "Completing a Catch",
+            "Sideline catches"
+          ],
+          "score": 0.6729722023010254
+        },
+        {
+          "rank": 3,
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "score": 0.6701269543019636
+        },
+        {
+          "rank": 4,
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "score": 0.6635013618172039
+        },
+        {
+          "rank": 5,
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "score": 0.642974853515625
+        }
+      ]
+    }
+  ]
+}

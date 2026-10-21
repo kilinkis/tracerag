@@ -1,0 +1,39 @@
+{
+  "schema_version": 3,
+  "name": "nfl-rules-v3-context-diagnostic",
+  "season": 2026,
+  "cases": [
+    {
+      "id": "catch-going-to-ground",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Losing control on ground contact before a football act (or sufficient time for one) makes the pass incomplete.",
+        "After all catch requirements are satisfied, maintaining control through the ground is not required; a later loss can be a fumble.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "paraphrase-sideline-control",
+      "question": "He secures the pass, taps both toes inbounds, turns upfield, and only then loses the ball. Was the reception already completed?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Concludes that the stated control, both toes inbounds, and turn upfield satisfy the catch requirements before the loss.",
+        "Explains that a later loss does not retroactively make that reception incomplete and may be a fumble.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    }
+  ]
+}

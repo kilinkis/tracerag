@@ -1,0 +1,376 @@
+{
+  "dataset": "nfl-rules-v3-context-diagnostic",
+  "dataset_fingerprint": "56ca3399edf6fc9445d249c02bd85e0e14bdfd7b0c14b6b95fd1a59d4094c4a2",
+  "season": 2026,
+  "top_k": 5,
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "retrieval_metrics": {
+    "evaluated_cases": 2,
+    "hit_rate_at_k": 1.0,
+    "recall_at_k": 1.0,
+    "mean_reciprocal_rank": 1.0
+  },
+  "retrieval_metrics_by_tag": {
+    "baseline": {
+      "evaluated_cases": 1,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mean_reciprocal_rank": 1.0
+    },
+    "paraphrase": {
+      "evaluated_cases": 1,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mean_reciprocal_rank": 1.0
+    }
+  },
+  "retrieval_cases": [
+    {
+      "case_id": "catch-going-to-ground",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "retrieved_document_ids": [
+        "completing-a-catch",
+        "passes-and-fumbles",
+        "passes-and-fumbles",
+        "passes-and-fumbles",
+        "completing-a-catch"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "question": "He secures the pass, taps both toes inbounds, turns upfield, and only then loses the ball. Was the reception already completed?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "retrieved_document_ids": [
+        "completing-a-catch",
+        "completing-a-catch",
+        "receiver-eligibility",
+        "completing-a-catch",
+        "passes-and-fumbles"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    }
+  ],
+  "answer_metrics": {
+    "evaluated_cases": 2,
+    "generation_failures": 0,
+    "retried_cases": 0,
+    "generation_attempts": 2,
+    "abstention_accuracy": 1.0,
+    "expected_document_coverage": 1.0,
+    "citation_document_precision": 1.0,
+    "mean_latency_ms": 1462.3000000000002,
+    "input_tokens": 2922,
+    "output_tokens": 1081,
+    "total_tokens": 4003
+  },
+  "answer_metrics_by_tag": {
+    "baseline": {
+      "evaluated_cases": 1,
+      "generation_failures": 0,
+      "retried_cases": 0,
+      "generation_attempts": 1,
+      "abstention_accuracy": 1.0,
+      "expected_document_coverage": 1.0,
+      "citation_document_precision": 1.0,
+      "mean_latency_ms": 1903.89,
+      "input_tokens": 1436,
+      "output_tokens": 530,
+      "total_tokens": 1966
+    },
+    "paraphrase": {
+      "evaluated_cases": 1,
+      "generation_failures": 0,
+      "retried_cases": 0,
+      "generation_attempts": 1,
+      "abstention_accuracy": 1.0,
+      "expected_document_coverage": 1.0,
+      "citation_document_precision": 1.0,
+      "mean_latency_ms": 1020.71,
+      "input_tokens": 1486,
+      "output_tokens": 551,
+      "total_tokens": 2037
+    }
+  },
+  "answer_cases": [
+    {
+      "case_id": "catch-going-to-ground",
+      "tags": [
+        "baseline"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": false,
+      "abstention_correct": true,
+      "abstention_reason": null,
+      "evidence": [
+        {
+          "chunk_id": "0ef8334898d575f2",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has not yet\ncompleted a football act, losing control when contacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.8543211221694946
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.796360969543457
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7830336689949036
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7802971136392897
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7675903300994845
+        }
+      ],
+      "generation_model": "openai/gpt-oss-20b",
+      "ruling": "If a player has control and has gotten two feet or another qualifying body part down but has not yet completed a football act, losing control when contacting the ground makes the pass incomplete.",
+      "explanation": "A pass is incomplete when a player who has control and has established a catch by getting two feet (or another qualifying body part) down loses control upon touching the ground before completing a football act. Once all elements of the catch are completed, a later loss of control would be a fumble instead.",
+      "cited_document_ids": [
+        "completing-a-catch"
+      ],
+      "citation_document_precision": 1.0,
+      "expected_documents_matched": true,
+      "generation_error": null,
+      "provider_status_code": null,
+      "provider_error_code": null,
+      "latency_ms": 1903.89,
+      "input_tokens": 1436,
+      "output_tokens": 530,
+      "total_tokens": 1966,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": false,
+      "abstention_correct": true,
+      "abstention_reason": null,
+      "evidence": [
+        {
+          "chunk_id": "0ef8334898d575f2",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has not yet\ncompleted a football act, losing control when contacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.684508204460144
+        },
+        {
+          "chunk_id": "5aea1979b4065689",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Sideline catches"
+          ],
+          "text": "A player can complete a catch at the sideline by establishing control and getting both feet inbounds\nbefore touching out of bounds, followed by the required football act or enough time to perform one.\nA toe drag can establish an inbounds foot. If a continuous heel-to-toe or toe-to-heel step places any\npart of that same foot out of bounds, that foot is out of bounds.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.6729722023010254
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.6701269543019636
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.6635013618172039
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.642974853515625
+        }
+      ],
+      "generation_model": "openai/gpt-oss-20b",
+      "ruling": "Yes, the reception was completed; the loss of the ball after the completion is a fumble.",
+      "explanation": "The player first secured control of the pass, then placed both feet inbounds, and performed a football act by turning upfield. According to the rules, once control, two inbounds feet, and a football act have been achieved, the catch is complete. Any loss of control after that point is treated as a fumble, not an incomplete pass.",
+      "cited_document_ids": [
+        "completing-a-catch",
+        "completing-a-catch"
+      ],
+      "citation_document_precision": 1.0,
+      "expected_documents_matched": true,
+      "generation_error": null,
+      "provider_status_code": null,
+      "provider_error_code": null,
+      "latency_ms": 1020.71,
+      "input_tokens": 1486,
+      "output_tokens": 551,
+      "total_tokens": 2037,
+      "generation_attempts": 1
+    }
+  ]
+}

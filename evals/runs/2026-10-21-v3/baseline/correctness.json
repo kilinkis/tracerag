@@ -1,0 +1,467 @@
+{
+  "dataset": "nfl-rules-v3",
+  "report_fingerprint": "f1c61d86e3433dc2c299612949c3107e49159d462ed9184eac20f80f4ea1093d",
+  "reviewer": "Codex; qualitative model-assisted review of ruling, explanation, and retrieved passages; independently checked for material errors",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 40,
+  "answer_correctness": 0.6,
+  "mean_criterion_score": 0.81875,
+  "cases": [
+    {
+      "case_id": "catch-elements",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Explanation lists tucking alone; the retrieved example requires tucking AND turning upfield."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Places the football act after control and the required inbounds contact.",
+          "passed": false,
+          "notes": "Lists supported acts, but does not place them after qualifying inbounds contact. This criterion asks for context beyond the question about examples."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Losing control on ground contact before a football act (or sufficient time for one) makes the pass incomplete.",
+          "passed": false,
+          "notes": "Omits the sufficient-time alternative to performing a football act required by this rubric; that alternative is not present in the retrieved going-to-ground section."
+        },
+        {
+          "requirement": "After all catch requirements are satisfied, maintaining control through the ground is not required; a later loss can be a fumble.",
+          "passed": false,
+          "notes": "Does not explain the completed-catch exception: a later loss may be a fumble, even though this exception is in retrieved evidence."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Explains that control must be maintained and the ground must not cause its loss.",
+          "passed": false,
+          "notes": "Does not state the maintained-control/ground-not-causing-loss exception."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Incorrectly says ground contact before a football act makes the pass incomplete. The retrieved rule permits contact while control is maintained."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-toe-drag",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Defines a toe drag as a continuous heel-to-toe/toe-to-heel step. The corpus distinguishes an inbounds toe drag from the continuous-step out-of-bounds qualification."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-new-series",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-measurement",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-turnover",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-illegal-acts",
+      "criteria_passed": 2,
+      "criteria_total": 4,
+      "criterion_score": 0.5,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Identifies the after-two-minute-warning, running-clock context for illegally conserving time.",
+          "passed": false,
+          "notes": "Mentions after the two-minute warning but omits the running-clock condition."
+        },
+        {
+          "requirement": "Describes the usual yardage penalty plus ten-second runoff without implying every offensive foul triggers it.",
+          "passed": false,
+          "notes": "Does not mention the underlying yardage penalty. This detail is outside the question asking which acts trigger the runoff."
+        }
+      ]
+    },
+    {
+      "case_id": "runoff-timeout-option",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-excess-timeout",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Acknowledges that fouls, injuries to both teams, remaining timeouts, or earlier excess timeouts may affect a definitive scenario ruling.",
+          "passed": false,
+          "notes": "Does not list potential effects of fouls, injuries, or timeout history. It gives the general rule without resolving a specific play; this is an ancillary checklist omission."
+        }
+      ]
+    },
+    {
+      "case_id": "runoff-defense",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-replay",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Adds an entire-body-and-ball-behind-the-line requirement. Evidence says illegal when the entire body AND ball are BEYOND; the converse does not require everything to be behind."
+        }
+      ]
+    },
+    {
+      "case_id": "pass-second-forward",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-arm-motion",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-backward-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-advancement-restrictions",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Acknowledges that additional facts are required for a specific ruling; does not invent detailed advancement mechanics missing from the corpus.",
+          "passed": false,
+          "notes": "Correctly identifies fourth down and after the two-minute warning but does not explicitly ask for additional facts; the question only asks when restrictions apply."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires eligible numbers or permitted reporting; interior linemen are not eligible merely because of their numbers.",
+          "passed": false,
+          "notes": "Correctly lists positions and excludes interior linemen, but omits the required eligible number or permitted reporting condition."
+        }
+      ]
+    },
+    {
+      "case_id": "eligibility-seven-on-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-reporting",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-out-of-bounds",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-point-values",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-goal-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-field-goal",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling is correct, but explanation changes the no-prior-ground/offensive-touch condition to before crossing the goal line instead of before passing the crossbar/uprights."
+        }
+      ]
+    },
+    {
+      "case_id": "scoring-try-clock",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-safety",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Acknowledges that possession, impetus, dead-ball reason, and enforcement spot matter for unusual cases.",
+          "passed": false,
+          "notes": "Omits caveats for unusual scenarios. It answers the question about common safety circumstances without ruling on an unusual play; this is an ancillary checklist omission."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Concludes that the stated control, both toes inbounds, and turn upfield satisfy the catch requirements before the loss.",
+          "passed": false,
+          "notes": "Incorrectly rules incomplete despite the stated control, both toes inbounds, and turn upfield before losing the ball."
+        },
+        {
+          "requirement": "Explains that a later loss does not retroactively make that reception incomplete and may be a fumble.",
+          "passed": false,
+          "notes": "Explicitly denies that the subsequent loss may be a fumble."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Discards the turn-upfield fact. The retrieved passages do not include the elements section defining examples of football acts; document-level recall hid that missing context."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-turnover-on-downs",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "confounder-backward-pass-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "confounder-reported-lineman",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Answers no: reporting alone does not make an interior lineman between the ends an eligible receiver.",
+          "passed": false,
+          "notes": "No ruling: generation failed or system abstained."
+        },
+        {
+          "requirement": "Requires an eligible position in addition to reported status.",
+          "passed": false,
+          "notes": "No ruling: generation failed or system abstained."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "No ruling: generation failed or system abstained."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 2,
+      "criteria_total": 4,
+      "criterion_score": 0.5,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+          "passed": false,
+          "notes": "Says another body part without excluding hands, which are explicitly excluded from the qualifying-contact alternative."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "The explanation also states both feet as mandatory while the ruling gives an unqualified other-body-part alternative; the evidence permits qualifying non-hand body parts."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "adversarial-scoring-instruction",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "adversarial-catch-instruction",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Explanation adds both feet inbounds before the ball touches the ground, while the source requires control before ground contact and permits maintained-control contact. It also shortens tucking-and-turning to tucking alone."
+        }
+      ]
+    }
+  ]
+}

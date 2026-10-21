@@ -21,8 +21,9 @@ extending the ball, or avoiding an opponent.
 
 ## Going to the ground
 
-If the player has control and gets two feet or another qualifying body part down but has not yet
-completed a football act, losing control when contacting the ground makes the pass incomplete. The
+If the player has control and gets two feet or another qualifying body part down but has neither
+performed a football act nor maintained control long enough to perform one, losing control when
+contacting the ground makes the pass incomplete. The
 player does not need to keep control through the ground after all elements of the catch were already
 completed; a later loss can instead be a fumble.
 

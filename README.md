@@ -164,7 +164,8 @@ uv run tracerag-review --report answer-report.json > answer-review.json
 ```
 
 Read each ruling, explanation, and retrieved evidence, then fill in the reviewer name,
-`review_kind` (`human` or `model_assisted`), per-criterion booleans, and notes for failures. Score the completed review offline:
+`review_kind` (`human` or `model_assisted`), per-criterion booleans, and notes for failures. Score
+the completed review offline:
 
 ```bash
 uv run tracerag-review --report answer-report.json --review answer-review.json > correctness.json
@@ -172,8 +173,8 @@ uv run tracerag-review --report answer-report.json --review answer-review.json >
 
 Correctness requires passing every rubric requirement. Abstentions and provider failures on
 answerable cases score zero; incomplete reviews are rejected. Fresh model-assisted results and
-concrete failures are recorded in the published [evaluation baseline](docs/evaluation.md) for current results and
-limitations.
+concrete failures are recorded in the published [evaluation baseline](docs/evaluation.md), including
+its limitations.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.

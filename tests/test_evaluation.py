@@ -294,7 +294,7 @@ def test_repository_evaluation_dataset_is_valid() -> None:
     path = Path(__file__).parents[1] / "evals" / "nfl-rules.json"
     loaded = load_evaluation_dataset(path)
 
-    assert loaded.name == "nfl-rules-v3"
+    assert loaded.name == "nfl-rules-v3.1"
     assert len(loaded.cases) == 50
     assert {tag for case in loaded.cases for tag in case.tags} == {
         "adversarial",
@@ -504,3 +504,16 @@ def test_review_rejects_changed_dataset_even_when_name_and_case_ids_match(field,
     benchmark = benchmark.model_copy(update={"cases": (changed, *benchmark.cases[1:])})
     with pytest.raises(ValueError, match="report dataset fingerprint differs"):
         create_review(benchmark, report)
+
+
+def test_model_assisted_review_is_identified_in_score() -> None:
+    from tracerag.evaluation.review import score_review
+
+    benchmark, report, review = review_fixture()
+    review.review_kind = "model_assisted"
+    review.reviewer = "Codex (model-assisted review)"
+    for criterion in review.cases[0].criteria:
+        criterion.passed = True
+    scored = score_review(benchmark, report, review)
+    assert scored["scoring_method"] == "model_assisted_rubric_review"
+    assert scored["reviewer"] == review.reviewer

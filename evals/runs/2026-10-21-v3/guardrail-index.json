@@ -1,0 +1,7 @@
+{
+  "season": 2026,
+  "documents": 6,
+  "chunks": 21,
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "dimensions": 384
+}

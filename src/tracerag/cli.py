@@ -89,7 +89,7 @@ def evaluate_corpus() -> None:
 
 
 def review_answers() -> None:
-    """Export a rubric review template or score a completed human review offline."""
+    """Export a rubric review template or score a completed attributed review offline."""
     from tracerag.evaluation.models import EvaluationReport
     from tracerag.evaluation.review import AnswerReview, create_review, score_review
 

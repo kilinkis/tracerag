@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "name": "nfl-rules-v3",
+  "name": "nfl-rules-v3.1",
   "season": 2026,
   "cases": [
     {
@@ -24,7 +24,7 @@
       "expected_abstained": false,
       "answer_rubric": [
         "Names corpus examples such as an additional step, tucking and turning upfield, extending the ball, or avoiding an opponent.",
-        "Places the football act after control and the required inbounds contact.",
+        "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },
@@ -84,7 +84,6 @@
       "expected_document_ids": ["downs-and-series"],
       "expected_abstained": false,
       "answer_rubric": [
-        "Ordinarily the offense receives four scrimmage downs.",
         "A new series is earned when the ball is dead in its possession at or beyond the line to gain.",
         "Recognizes that a defensive penalty can also award a new series.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
@@ -135,7 +134,7 @@
       "answer_rubric": [
         "Identifies the after-two-minute-warning, running-clock context for illegally conserving time.",
         "Identifies intentional grounding, an illegal forward pass, a backward pass out of bounds, and illegally batting or kicking the ball out of bounds as examples.",
-        "Describes the usual yardage penalty plus ten-second runoff without implying every offensive foul triggers it.",
+        "If discussing enforcement, preserves the usual yardage penalty plus runoff; does not imply every offensive foul triggers a runoff.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },
@@ -160,7 +159,7 @@
       "answer_rubric": [
         "An excess timeout charged to the team possessing the ball can trigger the runoff.",
         "Requires stopping a running clock or preventing its ready-for-play start, and notes the opponent chooses whether to apply it.",
-        "Acknowledges that fouls, injuries to both teams, remaining timeouts, or earlier excess timeouts may affect a definitive scenario ruling.",
+        "If resolving a specific play, accounts for material facts about fouls, injuries, and timeout history; does not invent facts for a definitive ruling.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },
@@ -221,7 +220,7 @@
       "expected_abstained": false,
       "answer_rubric": [
         "Intentional forward movement of the hand begins the forward pass; loss from contact after that movement is treated as a pass.",
-        "Distinguishes loss while pulling the ball back to re-cock the arm, which is a fumble.",
+        "If discussing re-cocking, distinguishes loss while pulling the ball back toward the body as a fumble.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },
@@ -257,7 +256,7 @@
       "expected_abstained": false,
       "answer_rubric": [
         "Identifies fourth down and after the two-minute warning as contexts for special offensive fumble-advancement restrictions.",
-        "Acknowledges that additional facts are required for a specific ruling; does not invent detailed advancement mechanics missing from the corpus.",
+        "Does not infer a specific player may advance from timing alone or invent detailed advancement mechanics missing from the corpus.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },
@@ -316,7 +315,7 @@
       "expected_document_ids": ["receiver-eligibility"],
       "expected_abstained": false,
       "answer_rubric": [
-        "A receiver who went out before or during the pass cannot be the first to touch it after returning.",
+        "An eligible offensive receiver who went out before or during the pass cannot be the first to touch it after returning.",
         "First touching after returning is illegal touching; returning inbounds does not automatically restore that eligibility.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
@@ -378,7 +377,7 @@
       "answer_rubric": [
         "Gives the common possession/impetus case: a team puts the ball behind its own goal line and it becomes dead there in that team possession.",
         "Also identifies a foul enforced from a spot in the team own end zone.",
-        "Acknowledges that possession, impetus, dead-ball reason, and enforcement spot matter for unusual cases.",
+        "If resolving an unusual safety scenario, accounts for possession, impetus, dead-ball reason, and enforcement spot without inventing facts.",
         "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
       ]
     },

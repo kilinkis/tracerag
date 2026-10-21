@@ -1,0 +1,134 @@
+{
+  "dataset": "nfl-rules-v3.1-guardrail-check",
+  "report_fingerprint": "91d5f3b2b771044035d4b019e4a5bdf45521827f89925d858aaa60047b92d972",
+  "reviewer": "Codex; model-assisted qualitative review of successful outputs; generation failures scored zero automatically",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 11,
+  "answer_correctness": 0.5454545454545454,
+  "mean_criterion_score": 0.8409090909090909,
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Defines maintaining control long enough as a football act; the source makes it an alternative to performing an act. Conditional catch-completion criterion does not require extra context for a definition-only answer."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Distinguishes reaching the line to gain through enforcement from an automatic first down; does not say every defensive penalty awards one.",
+          "passed": false,
+          "notes": "Still concludes every accepted defensive penalty gives a new set of downs."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Changes a conditional can into a universal result."
+        }
+      ]
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "The ball cannot cross the line, return behind it, and then be thrown forward.",
+          "passed": false,
+          "notes": "Omits the prohibition after the ball crosses the line and is brought back behind it."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+          "passed": false,
+          "notes": "Says football act or sufficient control without explaining the duration: control long enough to perform a football act. This is an important omission, not a separate contrary rule claim."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Identifies fourth-down offensive fumble-advancement restrictions as an issue that must be resolved.",
+          "passed": false,
+          "notes": "Discusses recovery legality rather than explicitly identifying restrictions on which offensive player may advance the fourth-down fumble."
+        }
+      ]
+    }
+  ]
+}

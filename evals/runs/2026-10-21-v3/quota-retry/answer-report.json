@@ -1,0 +1,468 @@
+{
+  "dataset": "nfl-rules-v3.1-quota-retry",
+  "dataset_fingerprint": "53dc5032862f39b0f335ce30305e2c39d764f4b97b0ce579a97a819971e1cb70",
+  "season": 2026,
+  "top_k": 5,
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "retrieval_metrics": {
+    "evaluated_cases": 6,
+    "hit_rate_at_k": 1.0,
+    "recall_at_k": 1.0,
+    "mean_reciprocal_rank": 1.0
+  },
+  "retrieval_metrics_by_tag": {
+    "ambiguous": {
+      "evaluated_cases": 0,
+      "hit_rate_at_k": 0.0,
+      "recall_at_k": 0.0,
+      "mean_reciprocal_rank": 0.0
+    },
+    "baseline": {
+      "evaluated_cases": 2,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mean_reciprocal_rank": 1.0
+    },
+    "multi_evidence": {
+      "evaluated_cases": 2,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mean_reciprocal_rank": 1.0
+    },
+    "paraphrase": {
+      "evaluated_cases": 2,
+      "hit_rate_at_k": 1.0,
+      "recall_at_k": 1.0,
+      "mean_reciprocal_rank": 1.0
+    }
+  },
+  "retrieval_cases": [
+    {
+      "case_id": "grounding-outside-pocket",
+      "question": "How can a passer outside the pocket avoid intentional grounding?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles"
+      ],
+      "retrieved_document_ids": [
+        "passes-and-fumbles",
+        "completing-a-catch",
+        "receiver-eligibility",
+        "passes-and-fumbles",
+        "passes-and-fumbles"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "eligibility-positions",
+      "question": "Which offensive positions are eligible receivers?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "receiver-eligibility"
+      ],
+      "retrieved_document_ids": [
+        "receiver-eligibility",
+        "receiver-eligibility",
+        "receiver-eligibility",
+        "passes-and-fumbles",
+        "scoring"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "question": "He secures the pass, taps both toes inbounds, turns upfield, and only then loses the ball. Was the reception already completed?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "retrieved_document_ids": [
+        "completing-a-catch",
+        "completing-a-catch",
+        "receiver-eligibility",
+        "completing-a-catch",
+        "passes-and-fumbles"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "question": "A pressured quarterback escapes the tackle box and sails the throw past the original line of scrimmage with nobody nearby. Can that avoid grounding?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles"
+      ],
+      "retrieved_document_ids": [
+        "passes-and-fumbles",
+        "completing-a-catch",
+        "passes-and-fumbles",
+        "receiver-eligibility",
+        "completing-a-catch"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "question": "For a receiver at the goal line, how do the completed-catch requirements and the touchdown rule work together?",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch",
+        "scoring"
+      ],
+      "retrieved_document_ids": [
+        "scoring",
+        "completing-a-catch",
+        "completing-a-catch",
+        "completing-a-catch",
+        "receiver-eligibility"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "question": "On fourth down, a runner fumbles before the line to gain and a teammate recovers beyond it. Which rule areas must be resolved to decide whether the offense earned a new series?",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles",
+        "downs-and-series"
+      ],
+      "retrieved_document_ids": [
+        "downs-and-series",
+        "downs-and-series",
+        "passes-and-fumbles",
+        "scoring",
+        "passes-and-fumbles"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1
+    },
+    {
+      "case_id": "ambiguous-late-foul-runoff",
+      "question": "The offense committed a foul with 30 seconds left in the half. Is there a ten-second runoff?",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_document_ids": [],
+      "retrieved_document_ids": [
+        "clock-runoffs",
+        "clock-runoffs",
+        "clock-runoffs",
+        "passes-and-fumbles",
+        "receiver-eligibility"
+      ],
+      "recall_at_k": null,
+      "reciprocal_rank": null,
+      "first_relevant_rank": null
+    },
+    {
+      "case_id": "ambiguous-ground-contact",
+      "question": "A receiver lost the ball as he hit the ground. Was the pass complete?",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_document_ids": [],
+      "retrieved_document_ids": [
+        "completing-a-catch",
+        "passes-and-fumbles",
+        "receiver-eligibility",
+        "passes-and-fumbles",
+        "completing-a-catch"
+      ],
+      "recall_at_k": null,
+      "reciprocal_rank": null,
+      "first_relevant_rank": null
+    }
+  ],
+  "answer_metrics": {
+    "evaluated_cases": 8,
+    "generation_failures": 8,
+    "retried_cases": 0,
+    "generation_attempts": 8,
+    "abstention_accuracy": 0.0,
+    "expected_document_coverage": 0.0,
+    "citation_document_precision": null,
+    "mean_latency_ms": null,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "total_tokens": 0
+  },
+  "answer_metrics_by_tag": {
+    "ambiguous": {
+      "evaluated_cases": 2,
+      "generation_failures": 2,
+      "retried_cases": 0,
+      "generation_attempts": 2,
+      "abstention_accuracy": 0.0,
+      "expected_document_coverage": 0.0,
+      "citation_document_precision": null,
+      "mean_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    },
+    "baseline": {
+      "evaluated_cases": 2,
+      "generation_failures": 2,
+      "retried_cases": 0,
+      "generation_attempts": 2,
+      "abstention_accuracy": 0.0,
+      "expected_document_coverage": 0.0,
+      "citation_document_precision": null,
+      "mean_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    },
+    "multi_evidence": {
+      "evaluated_cases": 2,
+      "generation_failures": 2,
+      "retried_cases": 0,
+      "generation_attempts": 2,
+      "abstention_accuracy": 0.0,
+      "expected_document_coverage": 0.0,
+      "citation_document_precision": null,
+      "mean_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    },
+    "paraphrase": {
+      "evaluated_cases": 2,
+      "generation_failures": 2,
+      "retried_cases": 0,
+      "generation_attempts": 2,
+      "abstention_accuracy": 0.0,
+      "expected_document_coverage": 0.0,
+      "citation_document_precision": null,
+      "mean_latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    }
+  },
+  "answer_cases": [
+    {
+      "case_id": "grounding-outside-pocket",
+      "tags": [
+        "baseline"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "eligibility-positions",
+      "tags": [
+        "baseline"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_abstained": false,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": false,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "ambiguous-late-foul-runoff",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_abstained": true,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": null,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    },
+    {
+      "case_id": "ambiguous-ground-contact",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_abstained": true,
+      "actual_abstained": null,
+      "abstention_correct": false,
+      "abstention_reason": null,
+      "evidence": [],
+      "generation_model": null,
+      "ruling": null,
+      "explanation": null,
+      "cited_document_ids": [],
+      "citation_document_precision": null,
+      "expected_documents_matched": null,
+      "generation_error": "the generation provider request failed",
+      "provider_status_code": 429,
+      "provider_error_code": "rate_limit_exceeded",
+      "latency_ms": null,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "generation_attempts": 1
+    }
+  ]
+}

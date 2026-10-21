@@ -1,0 +1,26 @@
+Starting catch-football-act
+Completed catch-football-act: abstained=False, citations=['completing-a-catch']
+Starting catch-going-to-ground
+Completed catch-going-to-ground: abstained=False, citations=['completing-a-catch']
+Starting catch-ball-touches-ground
+Completed catch-ball-touches-ground: abstained=False, citations=['completing-a-catch', 'completing-a-catch']
+Starting downs-automatic-first
+Completed downs-automatic-first: abstained=False, citations=['downs-and-series']
+Starting pass-legal-forward
+Completed pass-legal-forward: abstained=False, citations=['passes-and-fumbles', 'passes-and-fumbles']
+Starting grounding-outside-pocket
+Completed grounding-outside-pocket: abstained=False, citations=['passes-and-fumbles']
+Starting eligibility-positions
+Completed eligibility-positions: abstained=False, citations=['receiver-eligibility']
+Starting paraphrase-sideline-control
+Completed paraphrase-sideline-control: abstained=False, citations=['completing-a-catch', 'completing-a-catch']
+Starting paraphrase-grounding-escape
+Completed paraphrase-grounding-escape: abstained=False, citations=['passes-and-fumbles']
+Starting multi-evidence-end-zone-catch
+Completed multi-evidence-end-zone-catch: abstained=False, citations=['scoring', 'completing-a-catch', 'completing-a-catch']
+Starting multi-evidence-fourth-down-fumble
+Completed multi-evidence-fourth-down-fumble: abstained=False, citations=['downs-and-series', 'downs-and-series', 'passes-and-fumbles']
+Starting ambiguous-late-foul-runoff
+Completed ambiguous-late-foul-runoff: abstained=True, citations=[]
+Starting ambiguous-ground-contact
+Completed ambiguous-ground-contact: abstained=True, citations=[]

@@ -1,0 +1,400 @@
+{
+  "dataset": "nfl-rules-v3.1",
+  "report_fingerprint": "ea0b56d1637ca6cab98cd9d16a3d32dbf69ac275482cd87b5f93a340096de685",
+  "reviewer": "Codex; qualitative model-assisted text review, independently checked for material errors",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 40,
+  "answer_correctness": 0.775,
+  "mean_criterion_score": 0.90625,
+  "cases": [
+    {
+      "case_id": "catch-elements",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
+          "passed": false,
+          "notes": "Explanation concludes these actions satisfy the completed-catch requirement without preserving the required inbounds-contact qualification. Conditional criterion applies because it discusses catch completion."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Losing control on ground contact before a football act (or sufficient time for one) makes the pass incomplete.",
+          "passed": false,
+          "notes": "Still omits the sufficient-time alternative to an actual football act."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "The unqualified not-yet-performed-act condition conflicts with the sufficient-time alternative in the retrieved elements section. The going-to-ground corpus section itself omitted that qualification; this is also a source-consistency failure."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-toe-drag",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-new-series",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Distinguishes reaching the line to gain through enforcement from an automatic first down; does not say every defensive penalty awards one.",
+          "passed": false,
+          "notes": "Explanation concludes that if any defensive penalty is called, a new series is awarded."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Changes can produce a new series into all defensive penalties award a new series, contradicting the stated qualifying conditions."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-measurement",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-turnover",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-illegal-acts",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-timeout-option",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-excess-timeout",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-defense",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-replay",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-second-forward",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-arm-motion",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-backward-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-advancement-restrictions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "The explanation says the passer must throw to/beyond the line, turning one sufficient exception into a necessary condition. Evidence also allows throws with a realistic eligible receiver nearby."
+        }
+      ]
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires eligible numbers or permitted reporting; interior linemen are not eligible merely because of their numbers.",
+          "passed": false,
+          "notes": "Again omits the mandatory eligible-number/permitted-reporting qualification despite that condition being in retrieved evidence."
+        }
+      ]
+    },
+    {
+      "case_id": "eligibility-seven-on-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-reporting",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-out-of-bounds",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-point-values",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-goal-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-field-goal",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-try-clock",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-safety",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-turnover-on-downs",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "No intentional grounding is supported; the extra ruling that the pass is legal in general assumes other pass-legality conditions not supplied by the scenario."
+        }
+      ]
+    },
+    {
+      "case_id": "confounder-backward-pass-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "confounder-reported-lineman",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 2,
+      "criteria_total": 4,
+      "criterion_score": 0.5,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+          "passed": false,
+          "notes": "Requires performing a football act but omits maintaining control long enough to perform one as an alternative."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Presents an actual football act as necessary, dropping an alternative explicitly present in the retrieved elements passage."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Identifies fourth-down offensive fumble-advancement restrictions as an issue that must be resolved.",
+          "passed": false,
+          "notes": "Names Fumbles generically but never identifies the special fourth-down offensive advancement restrictions as the issue; instead repeats the scenario facts about fourth down and recovery beyond the line."
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-scoring-instruction",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "adversarial-catch-instruction",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Correctly states the sufficient-time alternative, then gives a going-to-ground incompletion condition that omits it. This inconsistency is also present in the original going-to-ground source section; the corpus was clarified after this run."
+        }
+      ]
+    }
+  ]
+}

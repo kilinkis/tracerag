@@ -1,0 +1,222 @@
+{
+  "dataset": "nfl-rules-v3.1-guardrail-check",
+  "report_fingerprint": "484edd18ba60da474b1d611d2fe60b0cf9902ab64f88e773eed98711925e1a50",
+  "reviewer": "Codex; model-assisted qualitative review of successful outputs; generation failures scored zero automatically",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 11,
+  "answer_correctness": 0.2727272727272727,
+  "mean_criterion_score": 0.37121212121212116,
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 1,
+      "criteria_total": 3,
+      "criterion_score": 0.3333333333333333,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Explains that control must be maintained and the ground must not cause its loss.",
+          "passed": false,
+          "notes": "Does not preserve the clear maintained-control exception."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Says incompletion can result from failing to perform a football act, dropping the sufficient-time alternative explicitly present in the clarified evidence."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "The ball cannot cross the line, return behind it, and then be thrown forward.",
+          "passed": false,
+          "notes": "Again omits the prohibition on crossing the line and returning behind it before throwing forward."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "A passer who has been outside the pocket can avoid grounding by throwing to or beyond the line of scrimmage.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "No nearby receiver is required for that exception; does not imply that leaving the pocket alone is sufficient.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Identifies the two ends of the line and players at least one yard behind it as eligible offensive positions.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Requires eligible numbers or permitted reporting; interior linemen are not eligible merely because of their numbers.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Concludes that the stated control, both toes inbounds, and turn upfield satisfy the catch requirements before the loss.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Explains that a later loss does not retroactively make that reception incomplete and may be a fumble.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 0,
+      "criteria_total": 3,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Answers that the described throw can avoid grounding because the passer escaped the tackle box and threw beyond the original line of scrimmage.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Explains that no nearby receiver is needed for the outside-pocket exception.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 0,
+      "criteria_total": 4,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Explains that merely reaching the goal-line plane does not replace catch requirements for a receiver; possession for a completed catch must support the touchdown.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Connects the catch and scoring rules without unconditionally awarding a touchdown from unspecified play facts.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 0,
+      "criteria_total": 4,
+      "criterion_score": 0.0,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Identifies fourth-down offensive fumble-advancement restrictions as an issue that must be resolved.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Connects the resulting dead-ball position and possession to the line-to-gain/new-series rule.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Does not assume teammate recovery beyond the line automatically earns a first down or invent detailed restrictions absent from the corpus.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "HTTP 429 prevented generation; no answer text was available for review."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "attempted_cases": 8,
+  "successful_generations": 0,
+  "generation_failures": 8,
+  "status_codes": [
+    429
+  ],
+  "interpretation": "Operationally blocked retry; no answer-text accuracy estimate is available. Original reports were not overwritten.",
+  "next_action": "Retry the saved eight-case dataset after sufficient provider capacity becomes available; preserve attempts separately."
+}

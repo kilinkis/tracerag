@@ -1,0 +1,208 @@
+{
+  "schema_version": 3,
+  "name": "nfl-rules-v3.1-guardrail-check",
+  "season": 2026,
+  "cases": [
+    {
+      "id": "catch-football-act",
+      "question": "What actions count as a football act after controlling a pass?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Names corpus examples such as an additional step, tucking and turning upfield, extending the ball, or avoiding an opponent.",
+        "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "catch-going-to-ground",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Losing control on ground contact before a football act (or sufficient time for one) makes the pass incomplete.",
+        "After all catch requirements are satisfied, maintaining control through the ground is not required; a later loss can be a fumble.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "catch-ball-touches-ground",
+      "question": "Is a pass automatically incomplete whenever the ball touches the ground?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Answers no: ground contact alone does not automatically make the pass incomplete.",
+        "Explains that control must be maintained and the ground must not cause its loss.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "downs-automatic-first",
+      "question": "Can a defensive penalty award the offense a new series?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "downs-and-series"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Answers yes: a defensive penalty can produce a new series.",
+        "Distinguishes reaching the line to gain through enforcement from an automatic first down; does not say every defensive penalty awards one.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "pass-legal-forward",
+      "question": "What conditions make a forward pass legal?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Allows one forward pass by the offense during a down, released from behind the line of scrimmage.",
+        "The ball cannot cross the line, return behind it, and then be thrown forward.",
+        "A forward pass after a change of possession is illegal.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "grounding-outside-pocket",
+      "question": "How can a passer outside the pocket avoid intentional grounding?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "A passer who has been outside the pocket can avoid grounding by throwing to or beyond the line of scrimmage.",
+        "No nearby receiver is required for that exception; does not imply that leaving the pocket alone is sufficient.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "eligibility-positions",
+      "question": "Which offensive positions are eligible receivers?",
+      "tags": [
+        "baseline"
+      ],
+      "expected_document_ids": [
+        "receiver-eligibility"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Identifies the two ends of the line and players at least one yard behind it as eligible offensive positions.",
+        "Requires eligible numbers or permitted reporting; interior linemen are not eligible merely because of their numbers.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "paraphrase-sideline-control",
+      "question": "He secures the pass, taps both toes inbounds, turns upfield, and only then loses the ball. Was the reception already completed?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Concludes that the stated control, both toes inbounds, and turn upfield satisfy the catch requirements before the loss.",
+        "Explains that a later loss does not retroactively make that reception incomplete and may be a fumble.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "paraphrase-grounding-escape",
+      "question": "A pressured quarterback escapes the tackle box and sails the throw past the original line of scrimmage with nobody nearby. Can that avoid grounding?",
+      "tags": [
+        "paraphrase"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Answers that the described throw can avoid grounding because the passer escaped the tackle box and threw beyond the original line of scrimmage.",
+        "Explains that no nearby receiver is needed for the outside-pocket exception.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "multi-evidence-end-zone-catch",
+      "question": "For a receiver at the goal line, how do the completed-catch requirements and the touchdown rule work together?",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_document_ids": [
+        "completing-a-catch",
+        "scoring"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Requires control, qualifying inbounds contact, and a football act or sufficient time for one to complete the reception.",
+        "Explains that merely reaching the goal-line plane does not replace catch requirements for a receiver; possession for a completed catch must support the touchdown.",
+        "Connects the catch and scoring rules without unconditionally awarding a touchdown from unspecified play facts.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "multi-evidence-fourth-down-fumble",
+      "question": "On fourth down, a runner fumbles before the line to gain and a teammate recovers beyond it. Which rule areas must be resolved to decide whether the offense earned a new series?",
+      "tags": [
+        "multi_evidence"
+      ],
+      "expected_document_ids": [
+        "passes-and-fumbles",
+        "downs-and-series"
+      ],
+      "expected_abstained": false,
+      "answer_rubric": [
+        "Identifies fourth-down offensive fumble-advancement restrictions as an issue that must be resolved.",
+        "Connects the resulting dead-ball position and possession to the line-to-gain/new-series rule.",
+        "Does not assume teammate recovery beyond the line automatically earns a first down or invent detailed restrictions absent from the corpus.",
+        "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence."
+      ]
+    },
+    {
+      "id": "ambiguous-late-foul-runoff",
+      "question": "The offense committed a foul with 30 seconds left in the half. Is there a ten-second runoff?",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_document_ids": [],
+      "expected_abstained": true,
+      "answer_rubric": []
+    },
+    {
+      "id": "ambiguous-ground-contact",
+      "question": "A receiver lost the ball as he hit the ground. Was the pass complete?",
+      "tags": [
+        "ambiguous"
+      ],
+      "expected_document_ids": [],
+      "expected_abstained": true,
+      "answer_rubric": []
+    }
+  ]
+}
