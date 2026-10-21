@@ -2,10 +2,19 @@
 
 TraceRAG is an open-source, evidence-first NFL rules explainer. It resolves questions and play
 scenarios against a versioned rules corpus while exposing its retrieved evidence, citations,
-quality metrics, latency, and cost.
+quality metrics, latency, and token usage.
 
 The core keeps retrieval mechanics explicit and measurable. Framework integrations, including
 LangChain, remain replaceable adapters and are evaluated against the same benchmark.
+
+## Reading order
+
+1. **This README** — project scope, setup, and architecture diagrams.
+2. [CONTEXT.md](CONTEXT.md) — the precise meanings of ruling, evidence, citation, and abstention.
+3. [Corpus guide](data/nfl/README.md), then [Completing a Catch](data/nfl/completing-a-catch.md)
+   and [Scoring Plays](data/nfl/scoring.md) — concrete examples of what the system can know.
+4. [Evaluation](docs/evaluation.md) — scoring mechanisms, measured results, and their limits.
+5. [Roadmap](docs/roadmap.md) — completed work and planned improvements.
 
 ## Interface
 
@@ -14,8 +23,9 @@ retrieval behavior visible.
 
 ![TraceRAG question interface on a football field](output/playwright/tracerag-question.png)
 
-A supported ruling shows the model's answer beside execution telemetry, then exposes the ranked
-passages and identifies which ones were accepted as citations.
+A supported ruling shows the model's answer beside execution telemetry: retrieved passages, response
+time, token count, generation attempts, and the embedding and generation models. It then exposes the
+ranked passages and identifies which ones were accepted as citations.
 
 ![TraceRAG grounded ruling with citations, telemetry, and retrieved evidence](output/playwright/tracerag-grounded-answer.png)
 
@@ -37,6 +47,7 @@ TraceRAG currently provides:
 - Server-resolved citations and explicit abstention for unsupported rulings
 - Retrieval, model, token-usage, and latency traces in answer responses
 - A versioned evaluation set with retrieval, abstention, citation, latency, and usage metrics
+- Case-specific answer-correctness rubrics and attributed review scores
 - A responsive evidence-first web interface served by the API
 - A milestone-based [delivery roadmap](docs/roadmap.md)
 
@@ -144,24 +155,24 @@ and cites exactly the expected document set. These automatic checks do not grade
 The former `grounded_ruling_accuracy` JSON field is now `expected_document_coverage`; the per-case
 field is now `expected_documents_matched`.
 
-The v3 dataset adds correctness rubrics for all 40 answerable cases. Save a new answer report and
-export a human review template:
+The v3.1 dataset includes correctness rubrics for all 40 answerable cases. Save a new answer report
+and export a review template:
 
 ```bash
-docker compose exec -T api tracerag-evaluate --top-k 3 --answers > answer-report.json
+docker compose exec -T api tracerag-evaluate --top-k 5 --answers > answer-report.json
 uv run tracerag-review --report answer-report.json > answer-review.json
 ```
 
-Read each ruling, explanation, and retrieved evidence, then fill in the reviewer name, per-criterion
-booleans, and notes for failures. Score the completed review offline:
+Read each ruling, explanation, and retrieved evidence, then fill in the reviewer name,
+`review_kind` (`human` or `model_assisted`), per-criterion booleans, and notes for failures. Score the completed review offline:
 
 ```bash
 uv run tracerag-review --report answer-report.json --review answer-review.json > correctness.json
 ```
 
 Correctness requires passing every rubric requirement. Abstentions and provider failures on
-answerable cases score zero; incomplete reviews are rejected. No new correctness results have been
-recorded yet. See the published [evaluation baseline](docs/evaluation.md) for current results and
+answerable cases score zero; incomplete reviews are rejected. Fresh model-assisted results and
+concrete failures are recorded in the published [evaluation baseline](docs/evaluation.md) for current results and
 limitations.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
