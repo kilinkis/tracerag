@@ -271,19 +271,3 @@ advice, college rules, and live officiating decisions are outside its scope.
 - Keep ingestion reproducible and the evaluation corpus version-controlled.
 - Track quality, latency, and inference usage together.
 
-## Documentation sources used by the scaffold
-
-- [FastAPI first steps](https://fastapi.tiangolo.com/tutorial/first-steps/)
-- [FastAPI testing](https://fastapi.tiangolo.com/tutorial/testing/)
-- [Python `pyproject.toml` guide](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
-- [Pydantic settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/)
-- [uv project guide](https://docs.astral.sh/uv/guides/projects/)
-- [uv Docker integration](https://docs.astral.sh/uv/guides/integration/docker/)
-- [Docker Compose startup ordering](https://docs.docker.com/compose/how-tos/startup-order/)
-- [pgvector](https://github.com/pgvector/pgvector)
-- [FastEmbed](https://qdrant.github.io/fastembed/Getting%20Started/)
-- [`BAAI/bge-small-en-v1.5`](https://huggingface.co/BAAI/bge-small-en-v1.5)
-- [Groq Python SDK](https://github.com/groq/groq-python)
-- [Groq structured outputs](https://console.groq.com/docs/structured-outputs)
-- [Groq API reference](https://console.groq.com/docs/api-reference)
-- [2026 NFL Rulebook](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)
