@@ -6,6 +6,7 @@ from typing import Protocol
 
 from tracerag.answering.generator import GenerationError
 from tracerag.answering.models import AnswerResult
+from tracerag.evaluation.dataset import fingerprint_dataset
 from tracerag.evaluation.models import (
     AnswerCaseResult,
     AnswerMetrics,
@@ -77,6 +78,7 @@ class EvaluationRunner:
 
         return EvaluationReport(
             dataset=dataset.name,
+            dataset_fingerprint=fingerprint_dataset(dataset),
             season=dataset.season,
             top_k=top_k,
             embedding_model=embedding_model,
@@ -136,10 +138,10 @@ class EvaluationRunner:
         cited_ids = tuple(citation.document_id for citation in answer.citations)
         matching_citations = sum(document_id in expected_ids for document_id in cited_ids)
         citation_precision = matching_citations / len(cited_ids) if cited_ids else None
-        grounded_ruling_correct = None
+        expected_documents_matched = None
         if not case.expected_abstained:
             cited_unique = set(cited_ids)
-            grounded_ruling_correct = (
+            expected_documents_matched = (
                 not answer.abstained
                 and bool(cited_ids)
                 and cited_unique == expected_ids
@@ -152,9 +154,13 @@ class EvaluationRunner:
             actual_abstained=answer.abstained,
             abstention_correct=case.expected_abstained == answer.abstained,
             abstention_reason=answer.abstention_reason,
+            evidence=answer.evidence,
+            generation_model=answer.trace.generation_model,
+            ruling=answer.ruling,
+            explanation=answer.explanation,
             cited_document_ids=cited_ids,
             citation_document_precision=citation_precision,
-            grounded_ruling_correct=grounded_ruling_correct,
+            expected_documents_matched=expected_documents_matched,
             generation_error=None,
             provider_status_code=None,
             provider_error_code=None,
@@ -176,7 +182,7 @@ class EvaluationRunner:
             abstention_reason=None,
             cited_document_ids=(),
             citation_document_precision=None,
-            grounded_ruling_correct=False if not case.expected_abstained else None,
+            expected_documents_matched=False if not case.expected_abstained else None,
             generation_error=str(error),
             provider_status_code=error.provider_status_code,
             provider_error_code=error.provider_error_code,
@@ -221,7 +227,7 @@ class EvaluationRunner:
 
     @staticmethod
     def _answer_metrics(cases: list[AnswerCaseResult]) -> AnswerMetrics:
-        answerable = [case for case in cases if case.grounded_ruling_correct is not None]
+        answerable = [case for case in cases if case.expected_documents_matched is not None]
         citation_cases = [case for case in cases if case.citation_document_precision is not None]
         citation_count = sum(len(case.cited_document_ids) for case in citation_cases)
         matching_citations = sum(
@@ -238,8 +244,8 @@ class EvaluationRunner:
             ),
             generation_attempts=sum(case.generation_attempts or 0 for case in cases),
             abstention_accuracy=sum(case.abstention_correct for case in cases) / len(cases),
-            grounded_ruling_accuracy=(
-                sum(bool(case.grounded_ruling_correct) for case in answerable) / len(answerable)
+            expected_document_coverage=(
+                sum(bool(case.expected_documents_matched) for case in answerable) / len(answerable)
                 if answerable
                 else 0.0
             ),

@@ -22,6 +22,7 @@ dependencies = [
 [project.scripts]
 tracerag-index = "tracerag.cli:index_corpus"
 tracerag-evaluate = "tracerag.cli:evaluate_corpus"
+tracerag-review = "tracerag.cli:review_answers"
 
 [dependency-groups]
 dev = [

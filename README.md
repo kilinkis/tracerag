@@ -137,10 +137,31 @@ Answer evaluation is optional because it calls the configured generation provide
 docker compose exec api tracerag-evaluate --top-k 5 --answers
 ```
 
-That mode additionally measures abstention accuracy, citation-document precision, grounded-ruling
-accuracy, latency, and token usage. Citation-document precision verifies that citations point to the
-expected rule explanation; it does not claim that every generated sentence is entailed by that
-document. See the published [evaluation baseline](docs/evaluation.md) for current results and
+That mode additionally measures abstention accuracy, citation-document precision, expected-document
+coverage, latency, and token usage. Citation-document precision verifies that citations point to the
+expected rule explanation. Expected-document coverage checks whether each answerable case answers
+and cites exactly the expected document set. These automatic checks do not grade the ruling text.
+The former `grounded_ruling_accuracy` JSON field is now `expected_document_coverage`; the per-case
+field is now `expected_documents_matched`.
+
+The v3 dataset adds correctness rubrics for all 40 answerable cases. Save a new answer report and
+export a human review template:
+
+```bash
+docker compose exec -T api tracerag-evaluate --top-k 3 --answers > answer-report.json
+uv run tracerag-review --report answer-report.json > answer-review.json
+```
+
+Read each ruling, explanation, and retrieved evidence, then fill in the reviewer name, per-criterion
+booleans, and notes for failures. Score the completed review offline:
+
+```bash
+uv run tracerag-review --report answer-report.json --review answer-review.json > correctness.json
+```
+
+Correctness requires passing every rubric requirement. Abstentions and provider failures on
+answerable cases score zero; incomplete reviews are rejected. No new correctness results have been
+recorded yet. See the published [evaluation baseline](docs/evaluation.md) for current results and
 limitations.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker

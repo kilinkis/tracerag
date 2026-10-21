@@ -86,3 +86,26 @@ def evaluate_corpus() -> None:
             evaluate_answers=arguments.answers,
         ).model_dump(mode="json")
     print(json.dumps(output, indent=2))
+
+
+def review_answers() -> None:
+    """Export a rubric review template or score a completed human review offline."""
+    from tracerag.evaluation.models import EvaluationReport
+    from tracerag.evaluation.review import AnswerReview, create_review, score_review
+
+    parser = argparse.ArgumentParser(description="Review saved answers against case rubrics.")
+    parser.add_argument("--dataset", type=Path, default=Path("evals/nfl-rules.json"))
+    parser.add_argument("--report", type=Path, required=True, help="saved --answers JSON report")
+    parser.add_argument("--review", type=Path, help="completed review; omit to export a template")
+    arguments = parser.parse_args()
+    try:
+        dataset = load_evaluation_dataset(arguments.dataset)
+        report = EvaluationReport.model_validate_json(arguments.report.read_text(encoding="utf-8"))
+        if arguments.review:
+            review = AnswerReview.model_validate_json(arguments.review.read_text(encoding="utf-8"))
+            output = score_review(dataset, report, review)
+        else:
+            output = create_review(dataset, report).model_dump(mode="json")
+    except (ValueError, OSError) as exc:
+        parser.error(str(exc))
+    print(json.dumps(output, indent=2))

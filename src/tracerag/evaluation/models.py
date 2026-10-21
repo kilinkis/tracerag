@@ -4,6 +4,8 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from tracerag.retrieval.models import RetrievalMatch
+
 NonEmptyString = Annotated[str, Field(min_length=1)]
 EvaluationTag = Annotated[str, Field(min_length=1, pattern=r"^[a-z][a-z0-9_]*$")]
 Score = Annotated[float, Field(ge=0.0, le=1.0)]
@@ -19,6 +21,7 @@ class EvaluationCase(BaseModel):
     tags: tuple[EvaluationTag, ...] = Field(min_length=1)
     expected_document_ids: tuple[NonEmptyString, ...] = ()
     expected_abstained: bool
+    answer_rubric: tuple[NonEmptyString, ...] = ()
 
     @model_validator(mode="after")
     def validate_expectations(self) -> "EvaluationCase":
@@ -48,6 +51,10 @@ class EvaluationDataset(BaseModel):
         case_ids = [case.id for case in self.cases]
         if len(set(case_ids)) != len(case_ids):
             raise ValueError("evaluation case identifiers must be unique")
+        if self.schema_version >= 3 and any(
+            not case.expected_abstained and not case.answer_rubric for case in self.cases
+        ):
+            raise ValueError("answerable cases in schema v3 require an answer rubric")
         return self
 
 
@@ -88,9 +95,13 @@ class AnswerCaseResult(BaseModel):
     actual_abstained: bool | None
     abstention_correct: bool
     abstention_reason: str | None
+    evidence: tuple[RetrievalMatch, ...] = ()
+    generation_model: str | None = None
+    ruling: str | None = None
+    explanation: str | None = None
     cited_document_ids: tuple[str, ...]
     citation_document_precision: Score | None
-    grounded_ruling_correct: bool | None
+    expected_documents_matched: bool | None
     generation_error: str | None
     provider_status_code: int | None
     provider_error_code: str | None
@@ -111,7 +122,7 @@ class AnswerMetrics(BaseModel):
     retried_cases: int = Field(ge=0)
     generation_attempts: int = Field(ge=0)
     abstention_accuracy: Score
-    grounded_ruling_accuracy: Score
+    expected_document_coverage: Score
     citation_document_precision: Score | None
     mean_latency_ms: float | None = Field(default=None, ge=0)
     input_tokens: int = Field(ge=0)
@@ -125,6 +136,7 @@ class EvaluationReport(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     dataset: str
+    dataset_fingerprint: str | None = None
     season: int
     top_k: int = Field(ge=1)
     embedding_model: str
