@@ -174,7 +174,8 @@ uv run tracerag-review --report answer-report.json --review answer-review.json >
 Correctness requires passing every rubric requirement. Abstentions and provider failures on
 answerable cases score zero; incomplete reviews are rejected. Fresh model-assisted results and
 concrete failures are recorded in the published [evaluation baseline](docs/evaluation.md), including
-its limitations.
+its limitations. See the [four separate answer-quality experiments](evals/runs/2026-10-21-improvements/README.md)
+for controlled prompt/model checks, the optional semantic gate, and full-set/holdout run status.
 
 Stop the services with `docker compose down`. The PostgreSQL data remains in the named Docker
 volume between restarts.

@@ -1,0 +1,113 @@
+{
+  "dataset": "nfl-new-holdout-v1",
+  "report_fingerprint": "a46883c6c854510b1c69ccc50a1b0b762222c828112f383518554b1f6d7c3db0",
+  "reviewer": "Codex assistant; qualitative review of saved answers against pre-generation rubrics",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 12,
+  "answer_correctness": 0.9166666666666666,
+  "mean_criterion_score": 0.9722222222222222,
+  "cases": [
+    {
+      "case_id": "holdout-returned-ball",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-receiver-target",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Explanation says an outside-pocket passer must reach the line to avoid grounding, incorrectly making one sufficient exception necessary despite the stated nearby-receiver alternative."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-interior-number",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-reported-alignment",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-replay-decline",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-penalty-decline",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-dead-ball-measure",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-catch-time",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-backward-live",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-kick-ground",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-try-clock",
+      "criteria_passed": 2,
+      "criteria_total": 2,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "holdout-runner-plane",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    }
+  ]
+}

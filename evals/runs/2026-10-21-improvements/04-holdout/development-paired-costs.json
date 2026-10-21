@@ -1,0 +1,29 @@
+{
+  "paired_nonabstained_cases": 11,
+  "case_ids": [
+    "catch-ball-touches-ground",
+    "catch-football-act",
+    "catch-going-to-ground",
+    "downs-automatic-first",
+    "eligibility-positions",
+    "grounding-outside-pocket",
+    "multi-evidence-end-zone-catch",
+    "multi-evidence-fourth-down-fumble",
+    "paraphrase-grounding-escape",
+    "paraphrase-sideline-control",
+    "pass-legal-forward"
+  ],
+  "note": "Same valid answerable cases. Visible words exclude hidden reasoning; provider output tokens include it.",
+  "baseline": {
+    "input_tokens": 18248,
+    "output_tokens": 6257,
+    "total_tokens": 24505,
+    "visible_words": 1267
+  },
+  "concise": {
+    "input_tokens": 19348,
+    "output_tokens": 5847,
+    "total_tokens": 25195,
+    "visible_words": 1182
+  }
+}

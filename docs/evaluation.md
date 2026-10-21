@@ -263,3 +263,37 @@ Rebuild the API image with `docker compose up --build -d` before generating a v3
 still running an older checkout. Keep the dataset, report, review, and score together so the
 measurement is reproducible. Repeat generation and review runs to assess model variance; consider
 a second reviewer to assess disagreement on the rubrics.
+
+
+## Separate answer-quality interventions (2026-10-21)
+
+The [four-experiment record](../evals/runs/2026-10-21-improvements/README.md) separates model size,
+explanation constraints, semantic validation, and a newly authored holdout. It freezes retrieval
+and scoring inputs and saves interrupted provider attempts instead of treating unattempted cases
+as model failures.
+
+On the 13-case development subset, 120B's baseline prompt passed every criterion on 9/11 answerable
+cases; the concise prompt also passed 9/11. These are model-assisted rubric judgments on a small set.
+The 20B head-to-head comparison remains incomplete because of provider rate limits. No model
+winner or prompt improvement is claimed from those incomplete/small runs.
+
+An optional model-assisted evidence consistency gate now checks the ruling and explanation before
+citation resolution returns an answer. Rejected drafts abstain; provider outages remain errors.
+Quote identity is checked in code after whitespace normalization. Semantic support is still a
+fallible model judgment, not a sentence-level entailment guarantee. The gate remains off by default.
+On 12 labeled development draft controls, fixing paragraph-wrap handling reduced false rejects
+from 4/5 good drafts to 0/5; false accepts stayed at 0/7 bad drafts. That does not establish
+performance on arbitrary generated answers. Audits and both calls' usage are retained in traces
+and evaluation reports; the independent rubric review remains the answer correctness measure.
+
+Full-set and holdout run status, repeated outputs, latency, usage and any incomplete coverage are
+recorded in [stage four](../evals/runs/2026-10-21-improvements/04-holdout/README.md). Do not count
+planned, interrupted or frozen-only datasets as completed answer evaluations.
+
+The completed experimental 120B baseline full run scores **36/40 answerable cases (90%)**, with
+**8/10 proper expected abstentions** and two invalid output failures. The new 20-case holdout's
+first run scores **11/12 answerable cases (91.7%)**, but only **4/8 proper expected abstentions**:
+one unsupported definite answer and three invalid output failures. Reviews are model-assisted;
+conditional grading adjudications are recorded without changing any frozen rubrics. The second
+holdout run and an additional check on actual generated drafts remain quota-blocked. There is no
+complete repeated holdout result and no production promotion claim.

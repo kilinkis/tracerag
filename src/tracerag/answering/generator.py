@@ -60,12 +60,14 @@ class GenerationError(RuntimeError):
         provider_status_code: int | None = None,
         provider_error_code: str | None = None,
         rate_limit_headers: dict[str, str] | None = None,
+        output_error_codes: tuple[str, ...] = (),
     ) -> None:
         super().__init__(message)
         self.attempts = attempts
         self.provider_status_code = provider_status_code
         self.provider_error_code = provider_error_code
         self.rate_limit_headers = rate_limit_headers or {}
+        self.output_error_codes = output_error_codes
 
 
 class GenerationUnavailableError(GenerationError):
@@ -184,6 +186,7 @@ class GroqAnswerGenerator:
             raise GenerationError(
                 "the generation provider returned an invalid answer",
                 attempts=attempts,
+                output_error_codes=self._invalid_output_codes(content),
             ) from exc
 
         usage = completion.usage
@@ -202,6 +205,32 @@ class GroqAnswerGenerator:
                 total_tokens=usage.total_tokens,
             ),
         )
+
+    @staticmethod
+    def _invalid_output_codes(content: str) -> tuple[str, ...]:
+        """Describe local invariant failures without retaining provider text or question data."""
+        try:
+            value = json.loads(content)
+        except ValueError:
+            return ("invalid_json",)
+        if not isinstance(value, dict):
+            return ("invalid_schema",)
+        codes = []
+        if value.get("abstained") is True:
+            if value.get("ruling") is not None:
+                codes.append("abstained_with_ruling")
+            if value.get("cited_chunk_ids"):
+                codes.append("abstained_with_citations")
+            if not value.get("abstention_reason"):
+                codes.append("abstained_without_reason")
+        elif value.get("abstained") is False:
+            if not value.get("ruling"):
+                codes.append("supported_without_ruling")
+            if not value.get("cited_chunk_ids"):
+                codes.append("supported_without_citations")
+            if value.get("abstention_reason") is not None:
+                codes.append("supported_with_abstention_reason")
+        return tuple(codes) or ("invalid_schema",)
 
     @staticmethod
     def _is_json_validation_failure(error: BadRequestError) -> bool:

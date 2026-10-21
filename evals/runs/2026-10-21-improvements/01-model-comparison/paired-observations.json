@@ -1,0 +1,25 @@
+{
+  "scope": "Four available paired outputs from the 13-case frozen comparison; descriptive assistant review only. Other cases remain unavailable under 20B provider limits. This availability subset is not a full model benchmark or a model-winner claim.",
+  "source_runs": [
+    "20b.json",
+    "120b.json"
+  ],
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "observation": "Both provide valid examples. Apply the same conditional-rubric adjudication as in stage 2; neither claims to enumerate all catch-completion requirements."
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "observation": "Both preserve the football-act/sufficient-time alternative and distinguish incompletion before completion from later fumble."
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "observation": "20B says a player can lose control on ground contact only if control was not maintained long enough, incorrectly ruling out a later fumble. 120B uses an overbroad only-if incompletion condition. Both have material explanation/ruling limitations."
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "observation": "20B correctly lists two penalty routes, then wrongly generalizes that accepting any defensive penalty awards new downs. 120B retains the two qualifying routes without that generalization."
+    }
+  ]
+}

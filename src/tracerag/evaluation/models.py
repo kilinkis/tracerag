@@ -107,6 +107,7 @@ class AnswerCaseResult(BaseModel):
     generation_error: str | None
     provider_status_code: int | None
     provider_error_code: str | None
+    output_error_codes: tuple[str, ...] = Field(default=(), exclude_if=lambda v: not v)
     latency_ms: float | None = Field(default=None, ge=0)
     input_tokens: int = Field(ge=0)
     output_tokens: int = Field(ge=0)

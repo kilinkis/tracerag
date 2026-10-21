@@ -1,0 +1,10 @@
+{
+  "case_id": "holdout-dead-ball-measure",
+  "criterion_index_zero_based": 2,
+  "previous_grade": false,
+  "adjudicated_grade": true,
+  "previous_all_criteria_score": "10/12",
+  "adjudicated_all_criteria_score": "11/12",
+  "reason": "Specific ordinary-measurement scenario is correctly answered; requiring unrelated defensive-penalty alternatives was overstrict.",
+  "provenance": "Independent assistant review and primary assistant adjudication; no human review. No question, rubric, evidence or output changed."
+}

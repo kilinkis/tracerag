@@ -1,0 +1,20 @@
+{
+  "planned": 50,
+  "attempted": 50,
+  "valid": 48,
+  "generation_failures": 2,
+  "provider_http_errors": 0,
+  "invalid_outputs": 2,
+  "not_attempted": 0,
+  "expected_abstentions": 10,
+  "correct_abstentions": 8,
+  "false_abstentions": 0,
+  "incorrect_answers_on_abstention_cases": 0,
+  "mean_successful_generation_latency_ms": 1841.765625,
+  "abstention_scope": "Drafts before server citation validation; use reports for final behavior.",
+  "text_accuracy": "Requires an attributed rubric review; not derived from citations.",
+  "token_usage_note": "Successful final results only; failed-call usage unknown.",
+  "input_tokens": 78523,
+  "output_tokens": 20818,
+  "total_tokens": 99341
+}

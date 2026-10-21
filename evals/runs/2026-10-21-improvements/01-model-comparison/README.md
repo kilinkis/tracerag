@@ -19,3 +19,10 @@ against frozen corpus rubrics, not human gold evaluation.
 Do not compare this 9/11 with the older 6/11 targeted run as a controlled model effect. Only the
 new paired runs share this experiment's frozen inputs and retry configuration. Until both models
 finish, there is no complete head-to-head result and no justified automatic model promotion.
+
+After honoring two provider retry delays, 20B saved **four valid answers**, a current HTTP 429,
+and eight unattempted questions. Earlier failed attempts are retained. `paired-observations.json`
+records the four available paired comparisons without presenting them as a completed benchmark.
+For example, both models see the same defensive-penalty passage: 20B adds that any accepted
+penalty gives new downs, while 120B preserves the two qualifying routes. Both still make other
+logical errors. The tiny availability subset does not establish which model is better overall.

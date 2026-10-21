@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "dataset_fingerprint": "e6320074dd8c920dd21daa41687d95110968da8049b987c92c6906c03d6d94a8",
+  "report_fingerprint": "a46883c6c854510b1c69ccc50a1b0b762222c828112f383518554b1f6d7c3db0",
+  "reviewer": "Codex assistant; qualitative review of saved answers against pre-generation rubrics",
+  "review_kind": "model_assisted",
+  "cases": [
+    {
+      "case_id": "holdout-returned-ball",
+      "question": "The runner crosses the line of scrimmage, retreats behind it, and throws the first forward pass of the down. Is releasing it behind the line enough to make that pass legal?",
+      "ruling": "Illegal forward pass",
+      "explanation": "The rule states that a forward pass must be released from behind the line of scrimmage, but once the ball has crossed the line of scrimmage the offense cannot bring it back behind the line and then throw a forward pass. In the scenario the ball crossed the line of scrimmage first, was brought back behind it, and then released. Even though the release point is behind the line, the prior crossing makes the pass illegal.",
+      "criteria": [
+        {
+          "requirement": "Answers no; once the ball crossed the line it cannot be brought back to enable a forward pass.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-receiver-target",
+      "question": "The quarterback has been outside the pocket and, while under pressure, throws short of the line of scrimmage toward a realistic eligible receiver in the direction and vicinity of the pass. Does the short throw alone establish intentional grounding?",
+      "ruling": "No, intentional grounding is not established.",
+      "explanation": "The question states the quarterback is outside the pocket, under pressure, and throws a short pass that lands short of the line of scrimmage but is directed toward a realistic eligible receiver in the direction and vicinity of the pass. According to the rule, intentional grounding requires a forward pass thrown without a realistic eligible receiver in its direction and vicinity, or, if the passer is outside the pocket, the ball must be thrown to or beyond the line of scrimmage to avoid grounding. Here, although the ball does not reach the line of scrimmage, there is a realistic eligible receiver in the pass\u2019s direction and vicinity, satisfying the receiver\u2011availability condition and preventing an intentional grounding call. (c99a841d32edd0f0)",
+      "criteria": [
+        {
+          "requirement": "Answers no; a realistic eligible receiver in direction and vicinity defeats the stated grounding condition.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Does not claim that the pass is legal in all other respects.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Explanation says an outside-pocket passer must reach the line to avoid grounding, incorrectly making one sufficient exception necessary despite the stated nearby-receiver alternative."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-interior-number",
+      "question": "An interior offensive lineman between the two ends wears an eligible number. Does that number alone make him an eligible receiver?",
+      "ruling": "No, the eligible number alone does not make an interior offensive lineman an eligible receiver.",
+      "explanation": "The evidence states that interior linemen positioned between the two ends of the line are not eligible receivers merely because they wear an eligible number. Eligibility requires being on the ends of the line or at least one yard behind the line, not just the jersey number.",
+      "criteria": [
+        {
+          "requirement": "Answers no; the interior alignment does not become eligible merely from an eligible number.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-reported-alignment",
+      "question": "A player with an ordinarily ineligible number reports as eligible, then aligns as an interior lineman between the two ends. Does reporting excuse that alignment?",
+      "ruling": "No, reporting does not excuse the interior\u2011lineman alignment; the player must line up in an eligible position, and aligning between the two ends is illegal even after reporting.",
+      "explanation": "The scenario states the player reports as eligible but then lines up as an interior lineman between the two ends. Evidence says that reporting changes a player's declared status but does not excuse an illegal alignment and that the player must occupy an eligible position in a legal formation (2e25db1c71683b8e). Interior linemen between the two ends are not eligible positions (6b039a18421d7153). Therefore the alignment remains illegal despite the report.",
+      "criteria": [
+        {
+          "requirement": "Answers no; reporting still requires an eligible position and legal formation.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-replay-decline",
+      "question": "After the two-minute warning, a replay reversal corrects a ruling to one that would have left the clock running. Can the defense decline that replay runoff?",
+      "ruling": "No, the defense cannot decline the replay runoff.",
+      "explanation": "The scenario describes a replay reversal after the two\u2011minute warning that would have left the game clock running. The rule on replay runoffs states that after the two\u2011minute warning, a replay reversal that requires a ten\u2011second runoff cannot be declined by either team, though a team may use a timeout to avoid it. Therefore the defense does not have the option to decline the runoff.",
+      "criteria": [
+        {
+          "requirement": "Answers no; neither team can decline this replay runoff.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "If discussing prevention, either team may use a remaining charged timeout.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-penalty-decline",
+      "question": "After an offensive act illegally conserves time with the clock running after the two-minute warning, can the defense decline the usual ten-second runoff?",
+      "ruling": "Yes, the defense may decline the ten\u2011second runoff.",
+      "explanation": "The rule for illegal time\u2011conserving acts after the two\u2011minute warning states that the usual consequence is a yardage penalty plus a ten\u2011second runoff, but it also specifies that the defense can decline the runoff. Therefore, after such an offensive infraction, the defensive team has the option to refuse the runoff.",
+      "criteria": [
+        {
+          "requirement": "Answers yes; defense may decline the runoff.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Does not conflate it with the replay runoff that neither team may decline.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-dead-ball-measure",
+      "question": "The ball reaches the line to gain while the play is live, then becomes dead short of it in offensive possession. Is merely reaching the line while live sufficient for a new series?",
+      "ruling": "No, merely reaching the line to gain while the ball is still live does not earn a new series; the ball must be declared dead in offensive possession at or beyond the line to gain.",
+      "explanation": "The scenario states the ball reached the line to gain while the play was live, but then became dead short of the line while still in offensive possession. According to the rules, a new series is earned only when the ball is declared dead in possession at or beyond the line to gain (ee8002689e24b782). The forward\u2011most point of the ball at the dead\u2011ball spot is used to determine if the line to gain was reached. Since the ball was dead short of the line, the condition for a new series was not met. The rule about a new series being awarded only when the ball is dead at or beyond the line to gain confirms that merely reaching the line while live is insufficient (3716ae2e830730a8).",
+      "criteria": [
+        {
+          "requirement": "Answers no; ordinary new-series measurement uses the forward-most point when the ball becomes dead.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Does not invent a forward-progress exception absent from this corpus.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Independent review adjudication: answer correctly applies the specific ordinary-measurement scenario; unrelated penalty alternatives need not be recited. No labels or requirements changed."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-catch-time",
+      "question": "A receiver controls the pass, gets two feet inbounds, and maintains control long enough to perform a football act without actually performing one. Must a later loss on ground contact make the pass incomplete?",
+      "ruling": "The pass is complete; a later loss of the ball when the player contacts the ground is treated as a fumble, not an incompletion.",
+      "explanation": "The evidence states that after gaining control and getting two feet inbounds, a player must either perform a football act or maintain control long enough to perform one to complete the catch (Chunk 0a20866cb0efeb92). In this scenario the receiver has maintained control long enough, satisfying the requirement even though no act was performed. Because the catch is complete, the rule in Chunk 728ecff588868d07 that makes a pass incomplete only applies when the player has neither performed an act nor maintained control long enough. Since the receiver did maintain control long enough, that condition is not met, and a later loss of the ball on ground contact is treated as a fumble rather than an incomplete pass.",
+      "criteria": [
+        {
+          "requirement": "Answers no; sufficient time to perform a football act is an alternative to actually performing one.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Once all catch requirements are complete, maintaining control through the ground is not required.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-backward-live",
+      "question": "A backward pass first hits the ground behind the point where it was thrown. Does hitting the ground end the play?",
+      "ruling": "No, hitting the ground does not end the play; the ball remains live and can be recovered and advanced by either team.",
+      "explanation": "The scenario describes a backward pass that first touches the ground behind the point where it left the passer\u2019s hand. According to the rule, a backward pass that hits the ground remains live and may be recovered and advanced by either team, so the play continues after the ball contacts the ground.",
+      "criteria": [
+        {
+          "requirement": "Answers no; a backward pass remains live after hitting the ground and either team may recover and advance it.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-kick-ground",
+      "question": "A field-goal kick hits the ground before going over the crossbar between the uprights. Does passing between the uprights make it a scoring field goal?",
+      "ruling": "No, the kick does not count as a field goal.",
+      "explanation": "The evidence says a field goal scores only when the kick passes completely over the crossbar and between the uprights (or above the uprights) without first touching the ground or an offensive player. Because the ball hit the ground before going over the crossbar, that required condition was not met, so the play is not a scoring field goal even though it later passed between the uprights.",
+      "criteria": [
+        {
+          "requirement": "Answers no; a scoring field goal must not first touch the ground.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-try-clock",
+      "question": "Does the game clock run during the scrimmage down used for a try after a touchdown?",
+      "ruling": "No, the game clock does not run during the try.",
+      "explanation": "The evidence states that a try is a single scrimmage down after a touchdown and explicitly notes that \"the game clock does not run\" during that down. Therefore, the clock is stopped while the try is attempted.",
+      "criteria": [
+        {
+          "requirement": "Answers no; the game clock does not run during the try.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    },
+    {
+      "case_id": "holdout-runner-plane",
+      "question": "A runner possesses the ball when it breaks the plane of the opponent goal line and then loses it. When did the ball become dead under the supplied scoring rule?",
+      "ruling": "The ball became dead at the moment the runner broke the plane of the opponent\u2019s goal line while in possession.",
+      "explanation": "The scoring rule states that a runner scores when possessing the ball on, above, or beyond the plane of the opponent's goal line, and that the ball becomes dead as soon as the touchdown requirement is satisfied. Thus, once the runner broke the plane while still possessing the ball, the ball was dead, even though the runner later lost it.",
+      "criteria": [
+        {
+          "requirement": "The touchdown requirement is satisfied while possessing the ball at the plane; the ball becomes dead then.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Does not impose receiver catch requirements on a runner.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": true,
+          "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+        }
+      ]
+    }
+  ]
+}

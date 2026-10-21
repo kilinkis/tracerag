@@ -42,7 +42,11 @@ if state["configuration"] != config:
     raise ValueError("Challenge set, prompt or model differs from existing run")
 cooldown = active_cooldown(args.output, args.model)
 if time.time() < cooldown:
-    raise SystemExit(f"Provider retry delay active; resume after epoch {cooldown}")
+    state["status"] = "provider_retry_delay"
+    state["blocked_until_epoch"] = cooldown
+    save(args.output, state)
+    print(f"Provider retry delay active; resume after epoch {cooldown}")
+    raise SystemExit(0)
 settings = Settings()
 if settings.groq_api_key is None:
     raise ValueError("Groq key required")

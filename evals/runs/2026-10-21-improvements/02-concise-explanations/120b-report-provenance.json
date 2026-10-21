@@ -12,5 +12,6 @@
   },
   "previous_attempts": {},
   "usage_note": "Failed-call token use is unknown; final successful usage only.",
-  "latency_note": "Latency includes archived failed attempts, excluding pacing/retrieval."
+  "latency_note": "Latency includes archived failed attempts, excluding pacing/retrieval.",
+  "source_run_sha256": "a079f9abb934cb846b1dafd11f89601b689c4d829c1acef399be6e3214d52059"
 }

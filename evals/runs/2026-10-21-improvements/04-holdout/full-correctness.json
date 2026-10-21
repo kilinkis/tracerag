@@ -1,0 +1,360 @@
+{
+  "dataset": "nfl-rules-v3.1",
+  "report_fingerprint": "613961139199dd0160b6042f3b71d3abd7b95c1aebce427e2dfa2ca63d23bb9d",
+  "reviewer": "Codex assistant; qualitative review of saved answers against pre-generation rubrics",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 40,
+  "answer_correctness": 0.9,
+  "mean_criterion_score": 0.9645833333333333,
+  "cases": [
+    {
+      "case_id": "catch-elements",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling gives an overbroad exclusive incompletion condition; explanation says losing control after meeting catch requirements makes the pass incomplete, reversing the completed-catch exception."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-toe-drag",
+      "criteria_passed": 2,
+      "criteria_total": 4,
+      "criterion_score": 0.5,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "A continuous heel-to-toe or toe-to-heel step that touches out of bounds makes that foot out of bounds.",
+          "passed": false,
+          "notes": "Treats any later out-of-bounds contact by the same foot as disqualifying; the source limits this to a continuous heel/toe step."
+        },
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Generalizes same-foot later out-of-bounds contact into an invalid catch, dropping the continuous-step limitation."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-new-series",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-measurement",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "downs-turnover",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-illegal-acts",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-timeout-option",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-excess-timeout",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-defense",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "runoff-replay",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Requires entire body and ball behind the line, a stricter condition than the cited prohibition on entire body and ball beyond the line."
+        }
+      ]
+    },
+    {
+      "case_id": "pass-second-forward",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-arm-motion",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-backward-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-definition",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "fumble-advancement-restrictions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-seven-on-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-reporting",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-out-of-bounds",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-point-values",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-goal-line",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-field-goal",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-try-clock",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "scoring-safety",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-turnover-on-downs",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "confounder-backward-pass-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "confounder-reported-lineman",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "adversarial-scoring-instruction",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "adversarial-catch-instruction",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling adds that the football act or sufficient-time period must occur before the ball touches the ground; source permits ground contact without incompletion when control is maintained and ground does not cause loss."
+        }
+      ]
+    }
+  ]
+}

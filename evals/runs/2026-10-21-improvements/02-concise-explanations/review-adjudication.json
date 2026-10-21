@@ -1,0 +1,11 @@
+{
+  "case_id": "catch-football-act",
+  "criterion_index_zero_based": 1,
+  "previous_grade": false,
+  "adjudicated_grade": true,
+  "previous_all_criteria_score": "8/11",
+  "adjudicated_all_criteria_score": "9/11",
+  "reason": "Conditional rubric concerns explaining catch completion. This answer gives examples without claiming all completion requirements; previous grading was overstrict.",
+  "provenance": "Independent assistant review followed by primary assistant adjudication; no human adjudication.",
+  "unchanged": "Question, rubric, evidence, model output and candidate configuration."
+}

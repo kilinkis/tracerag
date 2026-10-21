@@ -18,8 +18,8 @@
         },
         {
           "requirement": "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
-          "passed": false,
-          "notes": "Explanation places the act after control but omits qualifying inbounds contact before the act."
+          "passed": true,
+          "notes": "Independent review adjudication: question asks examples and answer does not claim to enumerate completed-catch requirements; conditional completion criterion is not triggered. Correct examples are present."
         },
         {
           "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",

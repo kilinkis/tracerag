@@ -1,0 +1,42 @@
+{
+  "scope": "Five shared valid outputs only; no full-repeat accuracy or variance estimate. HTTP failure excluded from semantic change counts.",
+  "shared_valid": 5,
+  "rubric_outcome_changes": 1,
+  "cases": [
+    {
+      "case_id": "holdout-interior-number",
+      "first_abstained": false,
+      "second_abstained": false,
+      "first_all_criteria_passed": true,
+      "second_all_criteria_passed": true
+    },
+    {
+      "case_id": "holdout-receiver-target",
+      "first_abstained": false,
+      "second_abstained": false,
+      "first_all_criteria_passed": false,
+      "second_all_criteria_passed": true
+    },
+    {
+      "case_id": "holdout-replay-decline",
+      "first_abstained": false,
+      "second_abstained": false,
+      "first_all_criteria_passed": true,
+      "second_all_criteria_passed": true
+    },
+    {
+      "case_id": "holdout-reported-alignment",
+      "first_abstained": false,
+      "second_abstained": false,
+      "first_all_criteria_passed": true,
+      "second_all_criteria_passed": true
+    },
+    {
+      "case_id": "holdout-returned-ball",
+      "first_abstained": false,
+      "second_abstained": false,
+      "first_all_criteria_passed": true,
+      "second_all_criteria_passed": true
+    }
+  ]
+}

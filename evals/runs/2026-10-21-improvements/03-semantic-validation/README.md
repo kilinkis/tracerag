@@ -57,3 +57,16 @@ This is a small development control set. Zero errors here does not establish sen
 entailment accuracy or justify calling all generated answers correct. The full benchmark still
 uses independent rubric review. Runtime quote matching now means whitespace-normalized literal
 matching, not exact character identity.
+
+## Actual generated drafts: additional check blocked
+
+`actual-draft-challenges.json` freezes seven known bad generated drafts and three supported drafts
+from the completed full/holdout runs and the available 20B comparison. Selection is deliberately
+focused on observed errors, not an unbiased accuracy sample. Labels derive from the existing frozen
+rubrics and expected-abstention labels; the checker receives neither. No checker prompt was tuned
+on these outputs. Provider quota blocked this additional run **before any judgments**. Its saved
+`actual-120b.json` is a blocked checkpoint, not a success or failure score. A fresh run on actual
+drafts is still required before interpreting the control-set result as a practical quality gain.
+
+The control-set manifest describes the stage-3 implementation at `aca9a5d`; subsequent resume
+and diagnostic helpers are hashed in `../04-holdout/manifest.json`.

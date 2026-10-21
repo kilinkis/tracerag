@@ -9,7 +9,7 @@ cap. The existing 11 answer rubrics are unchanged. Review remains explicitly mod
 
 | Measurement | Baseline | Concise variant |
 | --- | ---: | ---: |
-| Answerable cases passing every criterion | 9/11 | 8/11 |
+| Answerable cases passing every criterion | 9/11 | 9/11 |
 | Correct abstentions / two ambiguous cases | 1/2; other output invalid | 1/2; other incorrectly answered |
 | Valid outputs / 13 attempts | 12/13 | 13/13 |
 | Output tokens, valid calls | 6,803 | 7,265 |
@@ -22,9 +22,15 @@ Output tokens include model reasoning, so they do not directly measure visible e
 The baseline latency includes an archived 429 attempt on an eventually successful case. Neither
 latency includes pacing or retrieval. These single small runs do not establish latency superiority.
 
-The concise variant drops the crossed-and-returned forward-pass restriction, overgeneralizes
-incompletion on ground contact, and explains the football act without prior qualifying contact.
+The concise variant drops the crossed-and-returned forward-pass restriction and overgeneralizes
+incompletion on ground contact.
 It also turns the omitted football-act/sufficient-time fact into a definite incompletion on the
 ambiguous ground-contact case. This experiment did not improve accuracy and is not the default.
 
 For further experiments only: `TRACERAG_GENERATION_PROMPT_PROFILE=concise` (wired with stage 3).
+
+Independent review corrected an initially overstrict football-act grade (8/11 → 9/11).
+The answer gave examples without claiming all catch-completion requirements, so the conditional
+rubric requirement did not apply. `review-adjudication.json` records this grading correction.
+No rubric, output or evidence changed. The final comparison is tied at 9/11, not a demonstrated
+accuracy regression or improvement.

@@ -141,10 +141,13 @@ def run(args):
     retriever = FrozenRetriever(snapshot)
     for case in snapshot["dataset"]["cases"]:
         case_id = case["id"]
-        # Failed calls are retained; retry only by explicitly creating a new run file.
+        # Failed attempts are retained; retries require an explicit flag.
         previous = state["results"].get(case_id)
         if previous is not None:
-            if not args.retry_errors or "error" not in previous:
+            eligible_retry = args.retry_errors or (
+                args.retry_rate_limits and previous.get("status") == 429
+            )
+            if not eligible_retry or "error" not in previous:
                 continue
             retry_at = previous.get("retry_at_epoch", 0)
             if time.time() < retry_at:
@@ -168,6 +171,7 @@ def run(args):
                 status=error.provider_status_code,
                 code=error.provider_error_code,
                 attempts=error.attempts,
+                output_error_codes=error.output_error_codes,
             )
             cause = error.__cause__
             response = getattr(cause, "response", None)
@@ -225,6 +229,7 @@ def export(args):
                     ),
                     provider_status_code=record["status"],
                     provider_error_code=record["code"],
+                    output_error_codes=tuple(record.get("output_error_codes", [])),
                 )
             generation = GenerationResult.model_validate(record["generation"])
             previous = state.get("previous_attempts", {}).get(by_question[question], [])
@@ -255,6 +260,7 @@ def export(args):
         args.output.with_name(args.output.stem + "-provenance.json"),
         dict(
             source_run=str(args.run),
+            source_run_sha256=digest(state),
             configuration=state["configuration"],
             previous_attempts=state.get("previous_attempts", {}),
             usage_note="Failed-call token use is unknown; final successful usage only.",
@@ -278,6 +284,7 @@ r.add_argument("--model", required=True)
 r.add_argument("--prompt", type=Path)
 r.add_argument("--pause-seconds", type=float, default=20)
 r.add_argument("--retry-errors", action="store_true")
+r.add_argument("--retry-rate-limits", action="store_true")
 r.add_argument("--output", type=Path, required=True)
 e = commands.add_parser("export")
 e.add_argument("--inputs", type=Path, required=True)

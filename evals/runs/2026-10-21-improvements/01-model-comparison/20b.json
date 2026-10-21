@@ -77,22 +77,45 @@
       "latency_ms": 1360.32
     },
     "downs-automatic-first": {
+      "generation": {
+        "model": "openai/gpt-oss-20b",
+        "draft": {
+          "ruling": "Yes, a defensive penalty can award the offense a new series.",
+          "explanation": "According to the rule, a defensive penalty can produce a new series by moving the ball to the line to gain or by awarding an automatic first down. This means that if a defensive penalty is accepted, the offense receives a new set of downs.",
+          "cited_chunk_ids": [
+            "ee8002689e24b782"
+          ],
+          "abstained": false,
+          "abstention_reason": null
+        },
+        "attempts": 1,
+        "usage": {
+          "input_tokens": 1668,
+          "output_tokens": 717,
+          "total_tokens": 2385
+        },
+        "verification": null
+      },
+      "completed_at": "2026-10-21T12:03:24.470263+00:00",
+      "latency_ms": 1484.8
+    },
+    "pass-legal-forward": {
       "error": "the generation provider request failed",
       "status": 429,
       "code": "rate_limit_exceeded",
       "attempts": 1,
       "rate_limit_headers": {
-        "retry-after": "778",
+        "retry-after": "669",
         "x-ratelimit-limit-requests": "1000",
         "x-ratelimit-limit-tokens": "8000",
-        "x-ratelimit-remaining-requests": "933",
+        "x-ratelimit-remaining-requests": "944",
         "x-ratelimit-remaining-tokens": "8000",
-        "x-ratelimit-reset-requests": "1h36m28.8s",
+        "x-ratelimit-reset-requests": "1h20m38.4s",
         "x-ratelimit-reset-tokens": "1ms"
       },
-      "completed_at": "2026-10-21T11:45:04.545127+00:00",
-      "retry_at_epoch": 1792583882.54514,
-      "latency_ms": 153.24
+      "completed_at": "2026-10-21T12:03:44.572147+00:00",
+      "retry_at_epoch": 1792584893.5721579,
+      "latency_ms": 89.96
     }
   },
   "previous_attempts": {
@@ -114,6 +137,27 @@
         "latency_ms": 51.62,
         "retry_at_epoch": 1792583071.668659
       }
+    ],
+    "downs-automatic-first": [
+      {
+        "error": "the generation provider request failed",
+        "status": 429,
+        "code": "rate_limit_exceeded",
+        "attempts": 1,
+        "rate_limit_headers": {
+          "retry-after": "778",
+          "x-ratelimit-limit-requests": "1000",
+          "x-ratelimit-limit-tokens": "8000",
+          "x-ratelimit-remaining-requests": "933",
+          "x-ratelimit-remaining-tokens": "8000",
+          "x-ratelimit-reset-requests": "1h36m28.8s",
+          "x-ratelimit-reset-tokens": "1ms"
+        },
+        "completed_at": "2026-10-21T11:45:04.545127+00:00",
+        "retry_at_epoch": 1792583882.54514,
+        "latency_ms": 153.24
+      }
     ]
-  }
+  },
+  "status": "interrupted"
 }

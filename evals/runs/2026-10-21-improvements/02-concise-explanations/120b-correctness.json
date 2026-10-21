@@ -4,22 +4,16 @@
   "reviewer": "Codex assistant; qualitative review against frozen local-corpus rubrics",
   "scoring_method": "model_assisted_rubric_review",
   "evaluated_cases": 11,
-  "answer_correctness": 0.7272727272727273,
-  "mean_criterion_score": 0.9166666666666667,
+  "answer_correctness": 0.8181818181818182,
+  "mean_criterion_score": 0.9469696969696969,
   "cases": [
     {
       "case_id": "catch-football-act",
-      "criteria_passed": 2,
+      "criteria_passed": 3,
       "criteria_total": 3,
-      "criterion_score": 0.6666666666666666,
-      "answer_correct": false,
-      "failures": [
-        {
-          "requirement": "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
-          "passed": false,
-          "notes": "Explanation places the act after control but omits qualifying inbounds contact before the act."
-        }
-      ]
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
     },
     {
       "case_id": "catch-going-to-ground",

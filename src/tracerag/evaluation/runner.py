@@ -187,6 +187,7 @@ class EvaluationRunner:
             generation_error=str(error),
             provider_status_code=error.provider_status_code,
             provider_error_code=error.provider_error_code,
+            output_error_codes=error.output_error_codes,
             latency_ms=None,
             input_tokens=0,
             output_tokens=0,

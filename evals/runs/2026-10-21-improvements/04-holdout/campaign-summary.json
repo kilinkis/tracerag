@@ -1,0 +1,31 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "prompt": "baseline",
+  "semantic_gate": false,
+  "runs": {
+    "full": {
+      "planned": 50,
+      "attempted": 50,
+      "valid": 48,
+      "errors": 2,
+      "status": "complete",
+      "blocked_until_epoch": null
+    },
+    "holdout-1": {
+      "planned": 20,
+      "attempted": 20,
+      "valid": 17,
+      "errors": 3,
+      "status": "complete",
+      "blocked_until_epoch": null
+    },
+    "holdout-2": {
+      "planned": 20,
+      "attempted": 6,
+      "valid": 5,
+      "errors": 1,
+      "status": "interrupted",
+      "blocked_until_epoch": null
+    }
+  }
+}

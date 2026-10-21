@@ -1,0 +1,77 @@
+{
+  "scope": "Five observed valid outputs only. One provider429 and fourteen unattempted cases. This is not a full holdout score.",
+  "review_kind": "model_assisted",
+  "reviewer": "Codex assistant",
+  "cases": {
+    "holdout-returned-ball": [
+      {
+        "requirement": "Answers no; once the ball crossed the line it cannot be brought back to enable a forward pass.",
+        "passed": true,
+        "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+      },
+      {
+        "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+        "passed": true,
+        "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+      }
+    ],
+    "holdout-receiver-target": [
+      {
+        "requirement": "Answers no; a realistic eligible receiver in direction and vicinity defeats the stated grounding condition.",
+        "passed": true,
+        "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+      },
+      {
+        "requirement": "Does not claim that the pass is legal in all other respects.",
+        "passed": true,
+        "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+      },
+      {
+        "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+        "passed": true,
+        "notes": "Reviewed ruling and explanation together against this frozen corpus criterion."
+      }
+    ],
+    "holdout-interior-number": [
+      {
+        "requirement": "Answers no; the interior alignment does not become eligible merely from an eligible number.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      },
+      {
+        "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      }
+    ],
+    "holdout-reported-alignment": [
+      {
+        "requirement": "Answers no; reporting still requires an eligible position and legal formation.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      },
+      {
+        "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      }
+    ],
+    "holdout-replay-decline": [
+      {
+        "requirement": "Answers no; neither team can decline this replay runoff.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      },
+      {
+        "requirement": "If discussing prevention, either team may use a remaining charged timeout.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      },
+      {
+        "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+        "passed": true,
+        "notes": "Reviewed observed ruling and explanation against frozen local-corpus rubric."
+      }
+    ]
+  }
+}
