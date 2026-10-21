@@ -173,6 +173,7 @@ def test_answer_endpoint_returns_grounded_contract() -> None:
             "total_tokens": 0,
             "generation_attempts": 1,
             "latency_ms": 1.5,
+            "verification": None,
         },
     }
 

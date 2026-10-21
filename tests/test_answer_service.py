@@ -1,7 +1,18 @@
 """Unit tests for grounded ruling orchestration and citation verification."""
 
-from tracerag.answering.models import AnswerDraft, GenerationResult, GenerationUsage
+import pytest
+
+from tracerag.answering.generator import GenerationError
+from tracerag.answering.models import (
+    AnswerDraft,
+    EvidenceQuote,
+    GenerationResult,
+    GenerationUsage,
+    VerificationDecision,
+    VerificationResult,
+)
 from tracerag.answering.service import NO_EVIDENCE_REASON, UNVERIFIED_REASON, AnswerService
+from tracerag.answering.verification import REJECTED_REASON, VerifiedAnswerGenerator
 from tracerag.retrieval.models import RetrievalMatch, RetrievalResult
 
 
@@ -159,3 +170,86 @@ def test_answer_service_skips_generation_when_retrieval_returns_nothing() -> Non
     assert result.trace.total_tokens == 0
     assert result.trace.generation_attempts == 0
     assert generator.calls == []
+
+
+class StubVerifier:
+    def __init__(self, *, accepted: bool, error: GenerationError | None = None) -> None:
+        self.accepted = accepted
+        self.error = error
+        self.calls = 0
+
+    def verify(self, question, draft, evidence) -> VerificationResult:
+        self.calls += 1
+        if self.error is not None:
+            raise self.error
+        return VerificationResult(
+            model="test-verifier",
+            decision=VerificationDecision(
+                accepted=self.accepted,
+                reason="Supported." if self.accepted else "Unsupported claim.",
+                supporting_quotes=(
+                    EvidenceQuote(chunk_id=evidence[0].chunk_id, quote=evidence[0].text),
+                )
+                if self.accepted
+                else (),
+            ),
+            usage=GenerationUsage(input_tokens=10, output_tokens=5, total_tokens=15),
+        )
+
+
+def supported_generator(match: RetrievalMatch) -> StubGenerator:
+    return StubGenerator(
+        AnswerDraft(
+            ruling="The cited passage requires control and both feet inbounds.",
+            explanation="Those requirements appear in the retrieved passage.",
+            cited_chunk_ids=(match.chunk_id,),
+            abstained=False,
+            abstention_reason=None,
+        )
+    )
+
+
+@pytest.mark.parametrize("accepted", [True, False])
+def test_answer_service_preserves_verifier_verdict_and_combined_usage(accepted: bool) -> None:
+    match = retrieval_match()
+    verifier = StubVerifier(accepted=accepted)
+    service = AnswerService(
+        StubRetriever((match,)),
+        VerifiedAnswerGenerator(supported_generator(match), verifier),
+        clock=iter((1.0, 1.125)).__next__,
+    )
+
+    result = service.answer("What does the passage require?", season=2026, limit=3)
+
+    assert verifier.calls == 1
+    assert result.abstained is (not accepted)
+    if accepted:
+        assert result.ruling is not None
+        assert result.citations[0].source_url == match.source_url
+    else:
+        assert result.ruling is None
+        assert result.citations == ()
+        assert result.abstention_reason == REJECTED_REASON
+    assert result.trace.verification is not None
+    assert result.trace.verification.decision.accepted is accepted
+    assert result.trace.verification.model == "test-verifier"
+    assert result.trace.input_tokens == 110
+    assert result.trace.output_tokens == 45
+    assert result.trace.total_tokens == 155
+    assert result.model_dump(mode="json")["trace"]["verification"]["model"] == "test-verifier"
+
+
+def test_verifier_provider_failure_is_an_error_not_a_successful_abstention() -> None:
+    match = retrieval_match()
+    failure = GenerationError("Verifier unavailable", attempts=1, provider_status_code=429)
+    verifier = StubVerifier(accepted=False, error=failure)
+    service = AnswerService(
+        StubRetriever((match,)),
+        VerifiedAnswerGenerator(supported_generator(match), verifier),
+    )
+
+    with pytest.raises(GenerationError) as raised:
+        service.answer("What does the passage require?", season=2026, limit=3)
+
+    assert raised.value is failure
+    assert verifier.calls == 1
