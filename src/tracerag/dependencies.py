@@ -2,7 +2,8 @@
 
 from functools import lru_cache
 
-from tracerag.answering.generator import GroqAnswerGenerator
+from tracerag.answering.generator import SYSTEM_PROMPT, GroqAnswerGenerator
+from tracerag.answering.prompts import CONCISE_EXPLANATION
 from tracerag.answering.service import AnswerService
 from tracerag.config import get_settings
 from tracerag.embeddings import FastEmbedProvider
@@ -46,6 +47,9 @@ def get_answer_generator() -> GroqAnswerGenerator:
         max_completion_tokens=settings.generation_max_completion_tokens,
         reasoning_effort=settings.generation_reasoning_effort,
         structured_output_retries=settings.generation_structured_output_retries,
+        system_prompt=SYSTEM_PROMPT + (
+            CONCISE_EXPLANATION if settings.generation_prompt_profile == "concise" else ""
+        ),
     )
 
 

@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     generation_max_completion_tokens: int = Field(default=1400, ge=1, le=4096)
     generation_reasoning_effort: Literal["low", "medium", "high"] = "medium"
     generation_structured_output_retries: int = Field(default=1, ge=0, le=3)
+    generation_prompt_profile: Literal["baseline", "concise"] = "baseline"
     log_level: str = "INFO"
 
 

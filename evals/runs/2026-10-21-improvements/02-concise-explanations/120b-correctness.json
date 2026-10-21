@@ -1,0 +1,117 @@
+{
+  "dataset": "nfl-rules-v3.1-guardrail-check",
+  "report_fingerprint": "90d375060a07e5ad41e2d8c1174036c4acaf585a8f42682e321a1a594ea2d3ca",
+  "reviewer": "Codex assistant; qualitative review against frozen local-corpus rubrics",
+  "scoring_method": "model_assisted_rubric_review",
+  "evaluated_cases": 11,
+  "answer_correctness": 0.7272727272727273,
+  "mean_criterion_score": 0.9166666666666667,
+  "cases": [
+    {
+      "case_id": "catch-football-act",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "If explaining when the act completes a catch, places it after control and qualifying inbounds contact.",
+          "passed": false,
+          "notes": "Explanation places the act after control but omits qualifying inbounds contact before the act."
+        }
+      ]
+    },
+    {
+      "case_id": "catch-going-to-ground",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "catch-ball-touches-ground",
+      "criteria_passed": 2,
+      "criteria_total": 3,
+      "criterion_score": 0.6666666666666666,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "Contains no other material rule claim that contradicts or exceeds the supplied corpus evidence.",
+          "passed": false,
+          "notes": "Ruling uses an exclusive only-if control-loss condition; explanation further drops the football-act/sufficient-time qualification on loss at ground contact."
+        }
+      ]
+    },
+    {
+      "case_id": "downs-automatic-first",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "pass-legal-forward",
+      "criteria_passed": 3,
+      "criteria_total": 4,
+      "criterion_score": 0.75,
+      "answer_correct": false,
+      "failures": [
+        {
+          "requirement": "The ball cannot cross the line, return behind it, and then be thrown forward.",
+          "passed": false,
+          "notes": "Omits the prohibition after the ball crosses the line and is brought back behind it."
+        }
+      ]
+    },
+    {
+      "case_id": "grounding-outside-pocket",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "eligibility-positions",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-sideline-control",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "paraphrase-grounding-escape",
+      "criteria_passed": 3,
+      "criteria_total": 3,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-end-zone-catch",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    },
+    {
+      "case_id": "multi-evidence-fourth-down-fumble",
+      "criteria_passed": 4,
+      "criteria_total": 4,
+      "criterion_score": 1.0,
+      "answer_correct": true,
+      "failures": []
+    }
+  ]
+}
