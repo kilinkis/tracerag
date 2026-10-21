@@ -94,6 +94,7 @@ def test_answer_service_resolves_citations_from_retrieved_metadata() -> None:
         "total_tokens": 140,
         "generation_attempts": 1,
         "latency_ms": 125.0,
+        "verification": None,
     }
     assert generator.calls == [("Is the sideline catch complete?", (match,))]
 

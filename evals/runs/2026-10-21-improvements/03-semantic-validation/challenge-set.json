@@ -1,0 +1,1494 @@
+{
+  "schema_version": 1,
+  "provenance": "Assistant-authored labels from frozen local corpus; not human-adjudicated.",
+  "cases": [
+    {
+      "id": "penalty-good",
+      "question": "Can a defensive penalty award the offense a new series?",
+      "evidence": [
+        {
+          "chunk_id": "ee8002689e24b782",
+          "document_id": "downs-and-series",
+          "document_title": "Downs, Series, and the Line to Gain",
+          "season": 2026,
+          "heading_path": [
+            "Downs, Series, and the Line to Gain",
+            "Earning a new series"
+          ],
+          "text": "The offense ordinarily receives a series of four scrimmage downs. It earns a new series when the\nball is declared dead in its possession at or beyond the line to gain. A defensive penalty can also\nproduce a new series by moving the ball to the line to gain or by awarding an automatic first down.\n\nThe forward-most point of the ball when it becomes dead is used when measuring whether the line to\ngain was reached.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-8",
+            "7-3"
+          ],
+          "relative_path": "downs-and-series.md",
+          "score": 0.8076743368908382
+        },
+        {
+          "chunk_id": "3716ae2e830730a8",
+          "document_id": "downs-and-series",
+          "document_title": "Downs, Series, and the Line to Gain",
+          "season": 2026,
+          "heading_path": [
+            "Downs, Series, and the Line to Gain",
+            "Turnover on downs"
+          ],
+          "text": "If the offense has not reached the line to gain by the end of fourth down, the opponent receives a\nnew series. The next possession begins at the dead-ball spot after any accepted penalties are\nenforced.\n\nA change of possession during a play can produce a new series for the team that possesses the ball\nat the end of the down. Interceptions and recovered fumbles are common examples.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-8",
+            "7-3"
+          ],
+          "relative_path": "downs-and-series.md",
+          "score": 0.757078914990576
+        },
+        {
+          "chunk_id": "2e25db1c71683b8e",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Reporting as eligible"
+          ],
+          "text": "A player wearing an ordinarily ineligible number can report to the referee as eligible for a play.\nThe player must then occupy an eligible position in a legal formation. Reporting changes the\nplayer's declared status; it does not excuse an illegal alignment.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7112872640449346
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.704011517524044
+        },
+        {
+          "chunk_id": "c351d5b27beffc6b",
+          "document_id": "clock-runoffs",
+          "document_title": "Clock Management and Ten-Second Runoffs",
+          "season": 2026,
+          "heading_path": [
+            "Clock Management and Ten-Second Runoffs",
+            "Illegally conserving time"
+          ],
+          "text": "After the two-minute warning of either half, the offense cannot conserve time through specified\nillegal acts while the clock is running. Examples include intentional grounding, an illegal forward\npass, throwing a backward pass out of bounds, or illegally batting or kicking the ball out of\nbounds.\n\nThe usual consequence for an offensive act that illegally conserves time is the applicable yardage\npenalty plus a ten-second runoff. The play clock is reset to 30 seconds and the game clock starts on\nthe ready-for-play signal. The offense can use an available timeout instead of the runoff, and the\ndefense can decline the runoff. A runoff can end the half.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "4-5-4",
+            "4-7",
+            "15-5-2"
+          ],
+          "relative_path": "clock-runoffs.md",
+          "score": 0.7009253323629709
+        }
+      ],
+      "draft": {
+        "ruling": "Yes, a defensive penalty can award a new series.",
+        "explanation": "It can move the ball to the line to gain or award an automatic first down.",
+        "cited_chunk_ids": [
+          "ee8002689e24b782",
+          "3716ae2e830730a8"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": true,
+      "label_reason": "Preserves can and both routes."
+    },
+    {
+      "id": "penalty-bad",
+      "question": "Can a defensive penalty award the offense a new series?",
+      "evidence": [
+        {
+          "chunk_id": "ee8002689e24b782",
+          "document_id": "downs-and-series",
+          "document_title": "Downs, Series, and the Line to Gain",
+          "season": 2026,
+          "heading_path": [
+            "Downs, Series, and the Line to Gain",
+            "Earning a new series"
+          ],
+          "text": "The offense ordinarily receives a series of four scrimmage downs. It earns a new series when the\nball is declared dead in its possession at or beyond the line to gain. A defensive penalty can also\nproduce a new series by moving the ball to the line to gain or by awarding an automatic first down.\n\nThe forward-most point of the ball when it becomes dead is used when measuring whether the line to\ngain was reached.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-8",
+            "7-3"
+          ],
+          "relative_path": "downs-and-series.md",
+          "score": 0.8076743368908382
+        },
+        {
+          "chunk_id": "3716ae2e830730a8",
+          "document_id": "downs-and-series",
+          "document_title": "Downs, Series, and the Line to Gain",
+          "season": 2026,
+          "heading_path": [
+            "Downs, Series, and the Line to Gain",
+            "Turnover on downs"
+          ],
+          "text": "If the offense has not reached the line to gain by the end of fourth down, the opponent receives a\nnew series. The next possession begins at the dead-ball spot after any accepted penalties are\nenforced.\n\nA change of possession during a play can produce a new series for the team that possesses the ball\nat the end of the down. Interceptions and recovered fumbles are common examples.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-8",
+            "7-3"
+          ],
+          "relative_path": "downs-and-series.md",
+          "score": 0.757078914990576
+        },
+        {
+          "chunk_id": "2e25db1c71683b8e",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Reporting as eligible"
+          ],
+          "text": "A player wearing an ordinarily ineligible number can report to the referee as eligible for a play.\nThe player must then occupy an eligible position in a legal formation. Reporting changes the\nplayer's declared status; it does not excuse an illegal alignment.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7112872640449346
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.704011517524044
+        },
+        {
+          "chunk_id": "c351d5b27beffc6b",
+          "document_id": "clock-runoffs",
+          "document_title": "Clock Management and Ten-Second Runoffs",
+          "season": 2026,
+          "heading_path": [
+            "Clock Management and Ten-Second Runoffs",
+            "Illegally conserving time"
+          ],
+          "text": "After the two-minute warning of either half, the offense cannot conserve time through specified\nillegal acts while the clock is running. Examples include intentional grounding, an illegal forward\npass, throwing a backward pass out of bounds, or illegally batting or kicking the ball out of\nbounds.\n\nThe usual consequence for an offensive act that illegally conserves time is the applicable yardage\npenalty plus a ten-second runoff. The play clock is reset to 30 seconds and the game clock starts on\nthe ready-for-play signal. The offense can use an available timeout instead of the runoff, and the\ndefense can decline the runoff. A runoff can end the half.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "4-5-4",
+            "4-7",
+            "15-5-2"
+          ],
+          "relative_path": "clock-runoffs.md",
+          "score": 0.7009253323629709
+        }
+      ],
+      "draft": {
+        "ruling": "Yes.",
+        "explanation": "Every accepted defensive penalty gives the offense a new series.",
+        "cited_chunk_ids": [
+          "ee8002689e24b782",
+          "3716ae2e830730a8"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Changes can to every."
+    },
+    {
+      "id": "catch-time-good",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.8555924382452719
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.796360969543457
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7830336689949036
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7802971136392897
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7675903300994845
+        }
+      ],
+      "draft": {
+        "ruling": "Loss on ground contact makes the pass incomplete if the player has not performed a football act or maintained control long enough for one after control and qualifying inbounds contact.",
+        "explanation": "Once those catch requirements are completed, maintaining control through the ground is not required; a later loss can be a fumble.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": true,
+      "label_reason": "Preserves alternative and before/after distinction."
+    },
+    {
+      "id": "catch-time-bad",
+      "question": "When does losing the ball while going to the ground make a pass incomplete?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.8555924382452719
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.796360969543457
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7830336689949036
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7802971136392897
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7675903300994845
+        }
+      ],
+      "draft": {
+        "ruling": "If the receiver does not actually perform a football act, any loss on ground contact makes the pass incomplete.",
+        "explanation": "The receiver must always perform a football act.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Deletes sufficient-time alternative."
+    },
+    {
+      "id": "ground-good",
+      "question": "Is a pass automatically incomplete whenever the ball touches the ground?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.8365276705183977
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.8044723395531513
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7858573177244246
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.776948163832563
+        },
+        {
+          "chunk_id": "0fefac6cd902f3c8",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Backward passes"
+          ],
+          "text": "A pass is backward when it first touches a player or the ground at a yard line parallel to or behind\nthe point where it left the passer's hand. A backward pass that hits the ground remains live and may\nbe recovered and advanced by either team. A snap is a backward pass.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7663066197677358
+        }
+      ],
+      "draft": {
+        "ruling": "No, contact with the ground alone does not automatically make a pass incomplete.",
+        "explanation": "The ball can touch the ground if control is maintained and the ground does not cause its loss.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": true,
+      "label_reason": "Preserves maintained-control exception."
+    },
+    {
+      "id": "ground-bad",
+      "question": "Is a pass automatically incomplete whenever the ball touches the ground?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.8365276705183977
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.8044723395531513
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7858573177244246
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.776948163832563
+        },
+        {
+          "chunk_id": "0fefac6cd902f3c8",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Backward passes"
+          ],
+          "text": "A pass is backward when it first touches a player or the ground at a yard line parallel to or behind\nthe point where it left the passer's hand. A backward pass that hits the ground remains live and may\nbe recovered and advanced by either team. A snap is a backward pass.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7663066197677358
+        }
+      ],
+      "draft": {
+        "ruling": "Yes, touching the ground always makes a pass incomplete.",
+        "explanation": "The ground always ends a forward pass.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Contradicts explicit ground-contact exception."
+    },
+    {
+      "id": "pass-good",
+      "question": "What conditions make a forward pass legal?",
+      "evidence": [
+        {
+          "chunk_id": "0f214c9be67378d7",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Legal forward passes"
+          ],
+          "text": "The offense may throw one forward pass during a down, and the pass must be released from behind the\nline of scrimmage. Once the ball has crossed the line of scrimmage, the offense cannot bring it back\nbehind the line and then throw a forward pass.\n\nA pass is illegal when it is a second forward pass, is released after a change of possession, or is\nreleased when the passer's entire body and the ball are beyond the line of scrimmage. The exact\npenalty depends on which restriction was violated.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7738320827484131
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7076194882392883
+        },
+        {
+          "chunk_id": "0fefac6cd902f3c8",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Backward passes"
+          ],
+          "text": "A pass is backward when it first touches a player or the ground at a yard line parallel to or behind\nthe point where it left the passer's hand. A backward pass that hits the ground remains live and may\nbe recovered and advanced by either team. A snap is a backward pass.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7074530968014168
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7049589157104492
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.6762035682080061
+        }
+      ],
+      "draft": {
+        "ruling": "The offense may throw one forward pass in a down from behind the line of scrimmage, before any change of possession and before the ball has crossed the line.",
+        "explanation": "A second forward pass is illegal, as is a pass after the ball crossed the line and was returned behind it; a pass with the entire body and ball beyond the line is illegal.",
+        "cited_chunk_ids": [
+          "0f214c9be67378d7",
+          "f863dc681ed93e5b",
+          "0fefac6cd902f3c8",
+          "c99a841d32edd0f0",
+          "94b8e4f86e459655"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": true,
+      "label_reason": "Retains all stated material restrictions."
+    },
+    {
+      "id": "pass-bad",
+      "question": "What conditions make a forward pass legal?",
+      "evidence": [
+        {
+          "chunk_id": "0f214c9be67378d7",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Legal forward passes"
+          ],
+          "text": "The offense may throw one forward pass during a down, and the pass must be released from behind the\nline of scrimmage. Once the ball has crossed the line of scrimmage, the offense cannot bring it back\nbehind the line and then throw a forward pass.\n\nA pass is illegal when it is a second forward pass, is released after a change of possession, or is\nreleased when the passer's entire body and the ball are beyond the line of scrimmage. The exact\npenalty depends on which restriction was violated.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7738320827484131
+        },
+        {
+          "chunk_id": "f863dc681ed93e5b",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Forward movement and loss of control"
+          ],
+          "text": "An intentional forward movement of the passer's hand begins a forward pass. If contact causes the\npasser to lose the ball after that movement begins, the play is treated as a pass. If the passer loses\nthe ball while pulling it back toward the body to re-cock the arm, it is a fumble.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7076194882392883
+        },
+        {
+          "chunk_id": "0fefac6cd902f3c8",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Backward passes"
+          ],
+          "text": "A pass is backward when it first touches a player or the ground at a yard line parallel to or behind\nthe point where it left the passer's hand. A backward pass that hits the ground remains live and may\nbe recovered and advanced by either team. A snap is a backward pass.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7074530968014168
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7049589157104492
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.6762035682080061
+        }
+      ],
+      "draft": {
+        "ruling": "A forward pass is legal whenever it is the first one and is released from behind the line before a change of possession.",
+        "explanation": "Bringing the ball back behind the line restores the right to pass.",
+        "cited_chunk_ids": [
+          "0f214c9be67378d7",
+          "f863dc681ed93e5b",
+          "0fefac6cd902f3c8",
+          "c99a841d32edd0f0",
+          "94b8e4f86e459655"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Contradicts crossed-and-returned restriction."
+    },
+    {
+      "id": "eligibility-good",
+      "question": "Which offensive positions are eligible receivers?",
+      "evidence": [
+        {
+          "chunk_id": "6b039a18421d7153",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Eligible positions"
+          ],
+          "text": "For a forward pass thrown from behind the line of scrimmage, eligible offensive receivers include\nthe players on the two ends of the line and players positioned at least one yard behind the line.\nThey must wear eligible numbers or have reported an eligible status when the rules permit reporting.\nAll defensive players are eligible receivers.\n\nAn offensive formation must have at least seven players on the line. The interior linemen between\nthe two ends are not eligible receivers merely because they wear an eligible number.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.8684571565798398
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7539384658410048
+        },
+        {
+          "chunk_id": "2e25db1c71683b8e",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Reporting as eligible"
+          ],
+          "text": "A player wearing an ordinarily ineligible number can report to the referee as eligible for a play.\nThe player must then occupy an eligible position in a legal formation. Reporting changes the\nplayer's declared status; it does not excuse an illegal alignment.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7443842513675768
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.6640949249267578
+        },
+        {
+          "chunk_id": "8b21666e2612b579",
+          "document_id": "scoring",
+          "document_title": "Scoring Plays",
+          "season": 2026,
+          "heading_path": [
+            "Scoring Plays",
+            "Touchdowns and the goal line"
+          ],
+          "text": "A runner scores when possessing the ball on, above, or beyond the plane of the opponent's goal line.\nThe ball becomes dead as soon as the touchdown requirement is satisfied. A runner crossing the goal\nline is different from a receiver completing a catch in the end zone: the receiver must first\ncomplete the catch requirements.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "11-1",
+            "11-2",
+            "11-3",
+            "11-4",
+            "11-5"
+          ],
+          "relative_path": "scoring.md",
+          "score": 0.6474589705467224
+        }
+      ],
+      "draft": {
+        "ruling": "The two ends and players at least one yard behind the line can be eligible if they have eligible numbers or report when permitted; all defensive players are eligible.",
+        "explanation": "Interior linemen do not become eligible merely by wearing an eligible number; the offensive formation must have at least seven players on the line.",
+        "cited_chunk_ids": [
+          "6b039a18421d7153",
+          "61e6c1289b5b403b",
+          "2e25db1c71683b8e"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": true,
+      "label_reason": "Preserves position and number/reporting requirements."
+    },
+    {
+      "id": "eligibility-bad",
+      "question": "Which offensive positions are eligible receivers?",
+      "evidence": [
+        {
+          "chunk_id": "6b039a18421d7153",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Eligible positions"
+          ],
+          "text": "For a forward pass thrown from behind the line of scrimmage, eligible offensive receivers include\nthe players on the two ends of the line and players positioned at least one yard behind the line.\nThey must wear eligible numbers or have reported an eligible status when the rules permit reporting.\nAll defensive players are eligible receivers.\n\nAn offensive formation must have at least seven players on the line. The interior linemen between\nthe two ends are not eligible receivers merely because they wear an eligible number.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.8684571565798398
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7539384658410048
+        },
+        {
+          "chunk_id": "2e25db1c71683b8e",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Reporting as eligible"
+          ],
+          "text": "A player wearing an ordinarily ineligible number can report to the referee as eligible for a play.\nThe player must then occupy an eligible position in a legal formation. Reporting changes the\nplayer's declared status; it does not excuse an illegal alignment.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7443842513675768
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.6640949249267578
+        },
+        {
+          "chunk_id": "8b21666e2612b579",
+          "document_id": "scoring",
+          "document_title": "Scoring Plays",
+          "season": 2026,
+          "heading_path": [
+            "Scoring Plays",
+            "Touchdowns and the goal line"
+          ],
+          "text": "A runner scores when possessing the ball on, above, or beyond the plane of the opponent's goal line.\nThe ball becomes dead as soon as the touchdown requirement is satisfied. A runner crossing the goal\nline is different from a receiver completing a catch in the end zone: the receiver must first\ncomplete the catch requirements.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "11-1",
+            "11-2",
+            "11-3",
+            "11-4",
+            "11-5"
+          ],
+          "relative_path": "scoring.md",
+          "score": 0.6474589705467224
+        }
+      ],
+      "draft": {
+        "ruling": "Every offensive player on an end or in the backfield is eligible, regardless of number or reporting.",
+        "explanation": "Position is the only eligibility requirement.",
+        "cited_chunk_ids": [
+          "6b039a18421d7153",
+          "61e6c1289b5b403b",
+          "2e25db1c71683b8e"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Drops number/reporting qualification."
+    },
+    {
+      "id": "missing-fact-complete",
+      "question": "A receiver lost the ball as he hit the ground. Was the pass complete?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7697162169387225
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7208993434906006
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7208299373591072
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7157256176635267
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.71148054072145
+        }
+      ],
+      "draft": {
+        "ruling": "The pass is complete.",
+        "explanation": "Ground contact decides the result regardless of whether the player had time for a football act.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Question omits decisive catch-completion facts."
+    },
+    {
+      "id": "missing-fact-incomplete",
+      "question": "A receiver lost the ball as he hit the ground. Was the pass complete?",
+      "evidence": [
+        {
+          "chunk_id": "728ecff588868d07",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Going to the ground"
+          ],
+          "text": "If the player has control and gets two feet or another qualifying body part down but has neither\nperformed a football act nor maintained control long enough to perform one, losing control when\ncontacting the ground makes the pass incomplete. The\nplayer does not need to keep control through the ground after all elements of the catch were already\ncompleted; a later loss can instead be a fumble.\n\nThe ball may touch the ground without forcing an incompletion when the player maintains control and\nthe ground does not cause the loss of control.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.7697162169387225
+        },
+        {
+          "chunk_id": "c99a841d32edd0f0",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Intentional grounding"
+          ],
+          "text": "Intentional grounding can occur when a passer facing an imminent loss of yardage throws a forward\npass without a realistic eligible receiver in its direction and vicinity. A passer who has been\noutside the pocket avoids grounding by throwing the ball to or beyond the line of scrimmage, even if\nno receiver has a realistic chance to catch it. Other exceptions and timing rules may affect the\nruling, so the passer's location, pressure, target, and landing point all matter.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7208993434906006
+        },
+        {
+          "chunk_id": "61e6c1289b5b403b",
+          "document_id": "receiver-eligibility",
+          "document_title": "Receiver Eligibility and Illegal Touching",
+          "season": 2026,
+          "heading_path": [
+            "Receiver Eligibility and Illegal Touching",
+            "Going out of bounds"
+          ],
+          "text": "An eligible offensive receiver who goes out of bounds before or during a pass becomes ineligible to\nbe the first player to touch that pass, even after reestablishing inbounds. If the receiver is the\nfirst to touch or catch the pass after returning, illegal touching applies.\n\nWhether the receiver went out voluntarily or was legally forced out can affect other parts of the\nplay, but neither circumstance automatically restores eligibility to touch the pass first.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "5-1-2",
+            "5-3-1",
+            "7-5-1",
+            "8-1-5",
+            "8-1-6",
+            "8-1-8"
+          ],
+          "relative_path": "receiver-eligibility.md",
+          "score": 0.7208299373591072
+        },
+        {
+          "chunk_id": "94b8e4f86e459655",
+          "document_id": "passes-and-fumbles",
+          "document_title": "Forward Passes, Backward Passes, and Fumbles",
+          "season": 2026,
+          "heading_path": [
+            "Forward Passes, Backward Passes, and Fumbles",
+            "Fumbles"
+          ],
+          "text": "A fumble is a loss of player possession that is not a pass or kick. The ball ordinarily remains live,\nand either team may recover it. Special restrictions govern which offensive player may advance a\nfumble on fourth down or after the two-minute warning, so a ruling in either situation requires those\nadditional facts.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-21",
+            "8-1",
+            "8-2",
+            "8-7"
+          ],
+          "relative_path": "passes-and-fumbles.md",
+          "score": 0.7157256176635267
+        },
+        {
+          "chunk_id": "0a20866cb0efeb92",
+          "document_id": "completing-a-catch",
+          "document_title": "Completing a Catch",
+          "season": 2026,
+          "heading_path": [
+            "Completing a Catch",
+            "Elements of a completed catch"
+          ],
+          "text": "For a forward pass to be complete, an inbounds player must first control the ball before it touches\nthe ground. The player must then touch the ground inbounds with both feet, or with another body part\nother than the hands. After those requirements, the player must perform an act common to the game or\nmaintain control long enough to perform one.\n\nExamples of a football act include taking an additional step, tucking the ball and turning upfield,\nextending the ball, or avoiding an opponent.",
+          "source_title": "2026 Official Playing Rules of the National Football League",
+          "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+          "rule_references": [
+            "3-2",
+            "8-1-3",
+            "8-1-4"
+          ],
+          "relative_path": "completing-a-catch.md",
+          "score": 0.71148054072145
+        }
+      ],
+      "draft": {
+        "ruling": "The pass is incomplete.",
+        "explanation": "Ground contact decides the result regardless of whether the player had time for a football act.",
+        "cited_chunk_ids": [
+          "728ecff588868d07",
+          "0a20866cb0efeb92"
+        ],
+        "abstained": false,
+        "abstention_reason": null
+      },
+      "expected_accepted": false,
+      "label_reason": "Question omits decisive catch-completion facts."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "case_id": "penalty-good",
+      "expected_accepted": true,
+      "before": false,
+      "after": true,
+      "raw_acceptance_recovered_from_guard": true,
+      "reason_recovery_note": "Original rationale overwritten by old guard; unavailable."
+    },
+    {
+      "case_id": "penalty-bad",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The explanation claims that \"Every accepted defensive penalty gives the offense a new series,\" which is not supported by the evidence. The evidence states that a defensive penalty \"can also produce a new series\" under certain conditions (moving the ball to the line to gain or awarding an automatic first down), not that it always does so. Therefore the draft makes an unsupported universal claim."
+    },
+    {
+      "case_id": "catch-time-good",
+      "expected_accepted": true,
+      "before": false,
+      "after": true,
+      "raw_acceptance_recovered_from_guard": true,
+      "reason_recovery_note": "Original rationale overwritten by old guard; unavailable."
+    },
+    {
+      "case_id": "catch-time-bad",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The draft omits the required condition that the player must also not have maintained control long enough to perform a football act. Evidence states that both \"neither performed a football act nor maintained control long enough to perform one\" is needed for loss of control on ground contact to make the pass incomplete, so the ruling is too broad."
+    },
+    {
+      "case_id": "ground-good",
+      "expected_accepted": true,
+      "before": false,
+      "after": true,
+      "raw_acceptance_recovered_from_guard": true,
+      "reason_recovery_note": "Original rationale overwritten by old guard; unavailable."
+    },
+    {
+      "case_id": "ground-bad",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The draft asserts that any ground contact automatically makes a pass incomplete, but the evidence states the ball may touch the ground without an incompletion if the player maintains control, contradicting the absolute claim."
+    },
+    {
+      "case_id": "pass-good",
+      "expected_accepted": true,
+      "before": false,
+      "after": true,
+      "raw_acceptance_recovered_from_guard": true,
+      "reason_recovery_note": "Original rationale overwritten by old guard; unavailable."
+    },
+    {
+      "case_id": "pass-bad",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The explanation claims that bringing the ball back behind the line restores the right to pass, but the evidence states the offense cannot bring it back behind the line and then throw a forward pass, making the explanation unsupported and contradictory."
+    },
+    {
+      "case_id": "eligibility-good",
+      "expected_accepted": true,
+      "before": true,
+      "after": true,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "All material claims in the ruling and explanation are directly supported by the cited evidence."
+    },
+    {
+      "case_id": "eligibility-bad",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The ruling claims all offensive players on an end or in the backfield are eligible regardless of number or reporting, but the evidence adds a material restriction that eligible receivers must wear eligible numbers or have reported eligibility. This restriction is omitted, making the claim unsupported."
+    },
+    {
+      "case_id": "missing-fact-complete",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The draft rules the pass complete and claims ground contact alone decides the result, but the evidence states that if the player has not performed a football act or maintained control long enough, losing control when contacting the ground makes the pass incomplete. The explanation contradicts the rule that an act or maintained control is required after establishing control and two feet. Therefore the claim is unsupported."
+    },
+    {
+      "case_id": "missing-fact-incomplete",
+      "expected_accepted": false,
+      "before": false,
+      "after": false,
+      "raw_acceptance_recovered_from_guard": false,
+      "reason_recovery_note": "The explanation claims that ground contact decides the result regardless of whether the player had time for a football act, but the evidence states that loss of control on the ground makes the pass incomplete only when the player has neither performed a football act nor maintained control long enough, and that the ball may touch the ground without causing an incompletion if control is maintained. This contradicts the explanation\u2019s unsupported absolute claim."
+    }
+  ],
+  "scoring_provenance": "Same saved model judgments and frozen labels; only deterministic whitespace normalization changes. No new API calls.",
+  "before": {
+    "judged": 12,
+    "false_accepts": 0,
+    "false_rejects": 4
+  },
+  "after": {
+    "judged": 12,
+    "false_accepts": 0,
+    "false_rejects": 0
+  }
+}

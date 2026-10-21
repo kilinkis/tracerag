@@ -4,6 +4,7 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from tracerag.answering.models import VerificationResult
 from tracerag.retrieval.models import RetrievalMatch
 
 NonEmptyString = Annotated[str, Field(min_length=1)]
@@ -97,6 +98,7 @@ class AnswerCaseResult(BaseModel):
     abstention_reason: str | None
     evidence: tuple[RetrievalMatch, ...] = ()
     generation_model: str | None = None
+    verification: VerificationResult | None = Field(default=None, exclude_if=lambda v: v is None)
     ruling: str | None = None
     explanation: str | None = None
     cited_document_ids: tuple[str, ...]

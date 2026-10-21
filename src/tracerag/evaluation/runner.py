@@ -156,6 +156,7 @@ class EvaluationRunner:
             abstention_reason=answer.abstention_reason,
             evidence=answer.evidence,
             generation_model=answer.trace.generation_model,
+            verification=answer.trace.verification,
             ruling=answer.ruling,
             explanation=answer.explanation,
             cited_document_ids=cited_ids,

@@ -11,6 +11,7 @@ from tracerag.answering.models import (
     AnswerResult,
     AnswerTrace,
     GenerationUsage,
+    VerificationResult,
 )
 from tracerag.retrieval.models import RetrievalMatch
 from tracerag.retrieval.service import Retriever
@@ -61,6 +62,7 @@ class AnswerService:
                 generation_model=generation.model,
                 usage=generation.usage,
                 generation_attempts=generation.attempts,
+                verification=generation.verification,
                 started_at=started_at,
             )
 
@@ -76,6 +78,7 @@ class AnswerService:
                 generation_model=generation.model,
                 usage=generation.usage,
                 generation_attempts=generation.attempts,
+                verification=generation.verification,
                 started_at=started_at,
             )
 
@@ -95,6 +98,7 @@ class AnswerService:
                 retrieved_chunks=len(retrieval.matches),
                 usage=generation.usage,
                 generation_attempts=generation.attempts,
+                verification=generation.verification,
                 started_at=started_at,
             ),
         )
@@ -111,6 +115,7 @@ class AnswerService:
         usage: GenerationUsage,
         generation_attempts: int,
         started_at: float,
+        verification: VerificationResult | None = None,
     ) -> AnswerResult:
         return AnswerResult(
             question=question,
@@ -127,6 +132,7 @@ class AnswerService:
                 retrieved_chunks=len(evidence),
                 usage=usage,
                 generation_attempts=generation_attempts,
+                verification=verification,
                 started_at=started_at,
             ),
         )
@@ -140,6 +146,7 @@ class AnswerService:
         usage: GenerationUsage,
         generation_attempts: int,
         started_at: float,
+        verification: VerificationResult | None = None,
     ) -> AnswerTrace:
         return AnswerTrace(
             embedding_model=embedding_model,
@@ -149,6 +156,7 @@ class AnswerService:
             output_tokens=usage.output_tokens,
             total_tokens=usage.total_tokens,
             generation_attempts=generation_attempts,
+            verification=verification,
             latency_ms=round((self._clock() - started_at) * 1000, 2),
         )
 

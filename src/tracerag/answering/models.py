@@ -7,7 +7,7 @@ https://pydantic.dev/docs/validation/latest/concepts/json_schema/
 
 from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, StrictBool, model_validator
 
 from tracerag.retrieval.models import RetrievalMatch
 
@@ -49,6 +49,27 @@ class GenerationUsage(BaseModel):
     total_tokens: int = Field(ge=0)
 
 
+class EvidenceQuote(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    chunk_id: str
+    quote: str = Field(min_length=1)
+
+
+class VerificationDecision(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    accepted: StrictBool
+    reason: str = Field(min_length=1)
+    supporting_quotes: tuple[EvidenceQuote, ...]
+
+
+class VerificationResult(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    model: str
+    decision: VerificationDecision
+    model_decision: VerificationDecision | None = None
+    usage: GenerationUsage
+
+
 class GenerationResult(BaseModel):
     """Validated output and metadata from one generation request."""
 
@@ -58,6 +79,7 @@ class GenerationResult(BaseModel):
     draft: AnswerDraft
     attempts: int = Field(ge=1)
     usage: GenerationUsage
+    verification: VerificationResult | None = None
 
 
 class AnswerCitation(BaseModel):
@@ -87,6 +109,7 @@ class AnswerTrace(BaseModel):
     total_tokens: int = Field(ge=0)
     generation_attempts: int = Field(ge=0)
     latency_ms: float = Field(ge=0)
+    verification: VerificationResult | None = None
 
 
 class AnswerResult(BaseModel):

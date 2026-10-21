@@ -1,0 +1,17 @@
+{
+  "quote_policy_before": "exact-substring-v0",
+  "quote_policy_after": "whitespace-normalized-v1",
+  "model": "openai/gpt-oss-120b",
+  "reasoning_effort": "medium",
+  "max_completion_tokens": 1800,
+  "http_retries": 0,
+  "timeout_seconds": 60,
+  "groq_sdk": "1.7.0",
+  "source_sha256": {
+    "src/tracerag/answering/verification.py": "f036ca522b4220adcbf8a7f3923fa2b11952c0c0db925135544ddde59a70179c",
+    "src/tracerag/answering/models.py": "d8dfb9b784184db83148f008246373e12ccee4515c9031dac8a9bbb06b0ea61c",
+    "evals/experiments/verify.py": "97df417faa4a1f33d91b40629a7906fbedfca6ec03c6ba79c7ddab8296b8cdec",
+    "evals/experiments/recheck_quotes.py": "82574a1adbc919e4d25aef4b1febcad24cb279d72a4c6ba558bc70225a53718d"
+  },
+  "provenance": "Original live run used exact-substring policy. Post-fix result replays saved model judgments without new API calls."
+}

@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     generation_reasoning_effort: Literal["low", "medium", "high"] = "medium"
     generation_structured_output_retries: int = Field(default=1, ge=0, le=3)
     generation_prompt_profile: Literal["baseline", "concise"] = "baseline"
+    verification_enabled: bool = False
+    verification_model: str = "openai/gpt-oss-120b"
     log_level: str = "INFO"
 
 
