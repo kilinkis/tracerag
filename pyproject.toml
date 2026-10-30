@@ -26,7 +26,7 @@ tracerag-review = "tracerag.cli:review_answers"
 
 [dependency-groups]
 dev = [
-  "httpx2==2.12.0",
+  "httpx2==2.16.0",
   "pytest>=9.1,<10",
   "pytest-cov>=7,<8",
   "ruff>=0.13,<1",
